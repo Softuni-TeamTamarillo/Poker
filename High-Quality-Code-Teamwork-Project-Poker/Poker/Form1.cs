@@ -21,7 +21,7 @@
         private Panel bot4Panel = new Panel(); 
         private Panel bot5Panel = new Panel();
 
-        private int call = 500;
+        private int call;
         private int foldedPlayers = 5;
 
         private int playerChips = 10000; // Player chips
@@ -138,7 +138,7 @@
 
         private int t = 60;
         private int i;
-        private int bb = 500;
+        private int callChipsCount = 500;
         private int sb = 250;
         private int up = 10000000;
         private int turnCount = 0;
@@ -147,65 +147,78 @@
         public Form1()
         {
             //bools.Add(pFturn); bools.Add(bot1Fturn); bools.Add(bot2Fturn); bools.Add(bot3Fturn); bools.Add(bot4Fturn); bools.Add(bot5Fturn);
-            call = bb;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Updates.Start();
-            InitializeComponent();
+            this.call = this.callChipsCount;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Updates.Start();
+            this.InitializeComponent();
             width = this.Width;
             height = this.Height;
-            Shuffle();
-            tbPot.Enabled = false;
-            tbChips.Enabled = false;
-            tbBotChips1.Enabled = false;
-            tbBotChips2.Enabled = false;
-            tbBotChips3.Enabled = false;
-            tbBotChips4.Enabled = false;
-            tbBotChips5.Enabled = false;
-            tbChips.Text = "playerChips : " + this.playerChips.ToString();
-            tbBotChips1.Text = "playerChips : " + bot1Chips.ToString();
-            tbBotChips2.Text = "playerChips : " + bot2Chips.ToString();
-            tbBotChips3.Text = "playerChips : " + bot3Chips.ToString();
-            tbBotChips4.Text = "playerChips : " + bot4Chips.ToString();
-            tbBotChips5.Text = "playerChips : " + bot5Chips.ToString();
-            timer.Interval = (1 * 1 * 1000);
-            timer.Tick += timer_Tick;
-            Updates.Interval = (1 * 1 * 100);
-            Updates.Tick += Update_Tick;
-            tbBB.Visible = true;
-            tbSB.Visible = true;
-            bBB.Visible = true;
-            bSB.Visible = true;
-            tbBB.Visible = true;
-            tbSB.Visible = true;
-            bBB.Visible = true;
-            bSB.Visible = true;
-            tbBB.Visible = false;
-            tbSB.Visible = false;
-            bBB.Visible = false;
-            bSB.Visible = false;
-            tbRaise.Text = (bb * 2).ToString();
+            this.Shuffle();
+            this.tbPot.Enabled = false;
+            this.tbChips.Enabled = false;
+            this.tbBotChips1.Enabled = false;
+            this.tbBotChips2.Enabled = false;
+            this.tbBotChips3.Enabled = false;
+            this.tbBotChips4.Enabled = false;
+            this.tbBotChips5.Enabled = false;
+
+            this.tbChips.Text = "Player chips: " + this.playerChips.ToString();
+            this.tbBotChips1.Text = "Bot 1 chips: " + this.bot1Chips.ToString();
+            this.tbBotChips2.Text = "Bot 2 chips: " + this.bot2Chips.ToString();
+            this.tbBotChips3.Text = "Bot 3 chips: " + this.bot3Chips.ToString();
+            this.tbBotChips4.Text = "Bot 4 chips: " + this.bot4Chips.ToString();
+            this.tbBotChips5.Text = "Bot 5 chips: " + this.bot5Chips.ToString();
+
+            this.timer.Interval = (1 * 1 * 1000);
+            this.timer.Tick += timer_Tick;
+            this.Updates.Interval = (1 * 1 * 100);
+            this.Updates.Tick += Update_Tick;
+            this.tbBB.Visible = true;
+            this.tbSB.Visible = true;
+            this.bBB.Visible = true;
+            this.bSB.Visible = true;
+            this.tbBB.Visible = true;
+            this.tbSB.Visible = true;
+            this.bBB.Visible = true;
+            this.bSB.Visible = true;
+            this.tbBB.Visible = false;
+            this.tbSB.Visible = false;
+            this.bBB.Visible = false;
+            this.bSB.Visible = false;
+            this.tbRaise.Text = (this.callChipsCount * 2).ToString();
         }
+
         async Task Shuffle()
         {
-            bools.Add(this.pFturn); bools.Add(this.bot1Fturn); bools.Add(this.bot2Fturn); bools.Add(this.bot3Fturn); bools.Add(this.bot4Fturn); bools.Add(this.bot5Fturn);
-            bCall.Enabled = false;
-            bRaise.Enabled = false;
-            bFold.Enabled = false;
-            bCheck.Enabled = false;
-            MaximizeBox = false;
-            MinimizeBox = false;
+            this.bools.Add(this.pFturn);
+            this.bools.Add(this.bot1Fturn);
+            this.bools.Add(this.bot2Fturn);
+            this.bools.Add(this.bot3Fturn);
+            this.bools.Add(this.bot4Fturn);
+            this.bools.Add(this.bot5Fturn);
+
+            this.bCall.Enabled = false;
+            this.bRaise.Enabled = false;
+            this.bFold.Enabled = false;
+            this.bCheck.Enabled = false;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
             bool check = false;
             Bitmap backImage = new Bitmap("Assets\\Back\\Back.png");
-            int horizontal = 580, vertical = 480;
+            int horizontal = 580;
+            int vertical = 480;
+
             Random r = new Random();
-            for (i = this.imgCardsLocation.Length; i > 0; i--)
+            for (int card = this.imgCardsLocation.Length; card > 0; card--)
             {
-                int j = r.Next(i);
+                int j = r.Next(card);
                 var k = this.imgCardsLocation[j];
-                this.imgCardsLocation[j] = this.imgCardsLocation[i - 1];
-                this.imgCardsLocation[i - 1] = k;
+                this.imgCardsLocation[j] = this.imgCardsLocation[card - 1];
+                this.imgCardsLocation[card - 1] = k;
             }
+
             for (i = 0; i < 17; i++)
             {
 
@@ -2083,7 +2096,7 @@
                 this.bot4Call = 0; this.bot4Raise = 0;
                 this.bot5Call = 0; this.bot5Raise = 0;
                 last = 0;
-                call = bb;
+                call = this.callChipsCount;
                 this.Raise = 0;
                 this.imgCardsLocation = Directory.GetFiles("Assets\\Cards", "*.png", SearchOption.TopDirectoryOnly);
                 bools.Clear();
@@ -2294,7 +2307,7 @@
                 FixWinners();
             }
             this.playerPanel.Visible = false; this.bot1Panel.Visible = false; this.bot2Panel.Visible = false; this.bot3Panel.Visible = false; this.bot4Panel.Visible = false; this.bot5Panel.Visible = false;
-            call = bb; this.Raise = 0;
+            call = this.callChipsCount; this.Raise = 0;
             foldedPlayers = 5;
             type = 0; rounds = 0; this.bot1Power = 0; this.bot2Power = 0; this.bot3Power = 0; this.bot4Power = 0; this.bot5Power = 0; this.playerPower = 0; this.playerType = -1; this.Raise = 0;
             this.bot1Type = -1; this.bot2Type = -1; this.bot3Type = -1; this.bot4Type = -1; this.bot5Type = -1;
@@ -3024,7 +3037,7 @@
         }
         private void bOptions_Click(object sender, EventArgs e)
         {
-            tbBB.Text = bb.ToString();
+            tbBB.Text = this.callChipsCount.ToString();
             tbSB.Text = sb.ToString();
             if (tbBB.Visible == false)
             {
@@ -3077,19 +3090,19 @@
             if (tbBB.Text.Contains(",") || tbBB.Text.Contains("."))
             {
                 MessageBox.Show("The Big Blind can be only round number !");
-                tbBB.Text = bb.ToString();
+                tbBB.Text = this.callChipsCount.ToString();
                 return;
             }
             if (!int.TryParse(tbSB.Text, out parsedValue))
             {
                 MessageBox.Show("This is a number only field");
-                tbSB.Text = bb.ToString();
+                tbSB.Text = this.callChipsCount.ToString();
                 return;
             }
             if (int.Parse(tbBB.Text) > 200000)
             {
                 MessageBox.Show("The maximum of the Big Blind is 200 000");
-                tbBB.Text = bb.ToString();
+                tbBB.Text = this.callChipsCount.ToString();
             }
             if (int.Parse(tbBB.Text) < 500)
             {
@@ -3097,7 +3110,7 @@
             }
             if (int.Parse(tbBB.Text) >= 500 && int.Parse(tbBB.Text) <= 200000)
             {
-                bb = int.Parse(tbBB.Text);
+                this.callChipsCount = int.Parse(tbBB.Text);
                 MessageBox.Show("The changes have been saved ! They will become available the next hand you play. ");
             }
         }
