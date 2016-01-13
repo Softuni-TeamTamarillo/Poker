@@ -1,4 +1,12 @@
-﻿using System.Reflection;
+﻿//-----------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="MyCompanyName">
+//     Copyright (c) MyCompanyName. All rights reserved.
+// </copyright>
+// <summary>
+// This file contains AssemblyInfo class.
+// </summary>
+//-----------------------------------------------------------------------
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
