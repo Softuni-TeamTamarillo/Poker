@@ -1,5 +1,6 @@
 ﻿namespace Poker
 {
+    //proba Hristo Penev
     partial class AddChips
     {
         /// <summary>
