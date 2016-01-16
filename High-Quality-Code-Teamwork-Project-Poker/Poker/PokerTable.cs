@@ -528,7 +528,7 @@ namespace Poker
         /// <summary>
         /// Locations of card pictures in the source directory.
         /// </summary>        
-        public string[] imgCardsLocation = Directory.GetFiles("Assets\\Cards", "*.png", SearchOption.TopDirectoryOnly);
+        public string[] imgCardsLocation = Directory.GetFiles("..\\..\\Resources\\Assets\\Cards\\", "*.png", SearchOption.TopDirectoryOnly);
 
         /// <summary>
         /// Indexes of the dealt cards in the source directory.
@@ -680,7 +680,7 @@ namespace Poker
             //// <summary>
             //// The back image for the face down cards.
             //// </summary>
-            Bitmap backImage = new Bitmap("Assets\\Back\\Back.png");
+            Bitmap backImage = new Bitmap("..\\..\\Resources\\Assets\\Back\\Back.png");
 
             //// <summary>
             //// The horizontal coordinate of the upper left
@@ -712,7 +712,7 @@ namespace Poker
             for (i = 0; i < MaximumCardsToBeDealt; i++)
             {
                 shuffledDeck[i] = Image.FromFile(this.imgCardsLocation[i]);
-                var charsToRemove = new string[] { "Assets\\Cards\\", ".png" };
+                var charsToRemove = new string[] { "..\\..\\Resources\\Assets\\Cards\\", ".png" };
                 foreach (var c in charsToRemove)
                 {
                     this.imgCardsLocation[i] = this.imgCardsLocation[i].Replace(c, string.Empty);
@@ -3271,7 +3271,7 @@ namespace Poker
                 callAmount = this.bigBlind;
                 this.raiseAmount = 0;
 
-                this.imgCardsLocation = Directory.GetFiles("Assets\\Cards", "*.png", SearchOption.TopDirectoryOnly);
+                this.imgCardsLocation = Directory.GetFiles("..\\..\\Resources\\Assets\\Cards\\", "*.png", SearchOption.TopDirectoryOnly);
                 foldRegister.Clear();
                 allInPlayers.Clear();
                 this.listOfWinners.Clear();
@@ -3706,7 +3706,7 @@ namespace Poker
 
             //Prepares the shuffledDeck for new shuffle
             //Resets all card controls
-            this.imgCardsLocation = Directory.GetFiles("Assets\\Cards", "*.png", SearchOption.TopDirectoryOnly);
+            this.imgCardsLocation = Directory.GetFiles("..\\..\\Resources\\Assets\\Cards\\", "*.png", SearchOption.TopDirectoryOnly);
             for (int os = 0; os < MaximumCardsToBeDealt; os++)
             {
                 cardToBeDealt[os].Image = null;
