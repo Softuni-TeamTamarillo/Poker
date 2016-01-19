@@ -25,41 +25,41 @@ namespace Poker
         /// The default amount of chips for all players.
         /// </summary>        
         public const int DefaultBankroll = 10000;
-        
+
         /// <summary>
         /// This is the first rounds of community cards rounds(table cards).
         /// First three community cards are dealt.
         /// </summary>        
         public const int Flop = 1;
-        
+
         /// <summary>
         /// This is the second round of community cards rounds(table cards).
         /// Fourth community card is dealt.
         /// </summary>        
         public const int Turn = 2;
-        
+
         /// <summary>
         ///This is the third round of community cards rounds(table cards).
         /// Fifth community card is dealt.
         /// </summary>        
         public const int River = 3;
-        
+
         /// <summary>
         /// This is the fourth round of community cards rounds(table cards).
         /// No cards are dealt.
         /// </summary>        
         public const int End = 4;
-        
+
         /// <summary>
         /// The number of players that start a poker session.
         /// </summary>        
         public const int MaxPlayers = 6;
-        
+
         /// <summary>
         /// The height of a card control in pixels.
         /// </summary>        
         public const int CardImageHeight = 130;
-        
+
         /// <summary>
         /// The width of a card control in pixels.
         /// </summary>        
@@ -69,57 +69,57 @@ namespace Poker
         /// The default upper left x coordinate for the player's panel.
         /// </summary>        
         public const int PlayerPanelDefaultHorizontalCoordinate = 580;
-        
+
         /// <summary>
         /// The default upper left y coordinate for the player's panel.
         /// </summary>        
         public const int PlayerPanelDefaultVerticalCoordinate = 480;
-        
+
         /// <summary>
         /// The default upper left x coordinate for bot1's panel.
         /// </summary>        
         public const int Bot1PanelDefaultHorizontalCoordinate = 15;
-        
+
         /// <summary>
         /// The default upper left y coordinate for bot1's panel.
         /// </summary>        
         public const int Bot1PanelDefaultVerticalCoordinate = 420;
-        
+
         /// <summary>
         /// The default upper left x coordinate for bot2's panel.
         /// </summary>        
         public const int Bot2PanelDefaultHorizontalCoordinate = 75;
-        
+
         /// <summary>
         /// The default upper left y coordinate for bot2's panel.
         /// </summary>        
         public const int Bot2PanelDefaultVerticalCoordinate = 65;
-        
+
         /// <summary>
         /// The default upper left x coordinate for bot3's panel.
         /// </summary>        
         public const int Bot3PanelDefaultHorizontalCoordinate = 590;
-        
+
         /// <summary>
         /// The default upper left y coordinate for bot3's panel.
         /// </summary>        
         public const int Bot3PanelDefaultVerticalCoordinate = 25;
-        
+
         /// <summary>
         /// The default upper left x coordinate for bot4's panel.
         /// </summary>        
         public const int Bot4PanelDefaultHorizontalCoordinate = 1115;
-        
+
         /// <summary>
         /// The default upper left y coordinate for bot4's panel.
         /// </summary>        
         public const int Bot4PanelDefaultVerticalCoordinate = 65;
-        
+
         /// <summary>
         /// The default upper left x coordinate for bot5's panel.
         /// </summary>        
         public const int Bot5PanelDefaultHorizontalCoordinate = 1160;
-        
+
         /// <summary>
         /// The default upper left x coordinate for bot5's panel.
         /// </summary>        
@@ -130,7 +130,7 @@ namespace Poker
         /// including community cards.
         /// </summary>        
         public const int MaximumCardsToBeDealt = 17;
-        
+
         /// <summary>
         /// The number of cards in a deck.
         /// </summary>        
@@ -145,27 +145,27 @@ namespace Poker
         /// The panel control for the human player.
         /// </summary>        
         public Panel playerPanel = new Panel();
-        
+
         /// <summary>
         /// The panel control for bot1.
         /// </summary>        
         public Panel bot1Panel = new Panel();
-        
+
         /// <summary>
         /// The panel control for bot2.
         /// </summary>        
         public Panel bot2Panel = new Panel();
-        
+
         /// <summary>
         /// The panel control for bot3.
         /// </summary>        
         public Panel bot3Panel = new Panel();
-        
+
         /// <summary>
         /// The panel control for bot4.
         /// </summary>        
         public Panel bot4Panel = new Panel();
-        
+
         /// <summary>
         /// The panel control for bot5.
         /// </summary>        
@@ -175,7 +175,7 @@ namespace Poker
         /// The current call amount.
         /// </summary>        
         public int callAmount;////call
-        
+
         /// <summary>
         /// The number of maximum folded players.
         /// </summary>        
@@ -187,35 +187,35 @@ namespace Poker
         /// initialized with the default bankroll.
         /// </summary>        
         public int playerChips = DefaultBankroll;//10000
-        
+
         /// <summary>
         /// The current amount of bot1 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
         public int bot1Chips = DefaultBankroll;
-        
+
         /// <summary>
         /// The current amount of bot2 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
         public int bot2Chips = DefaultBankroll;
-        
+
         /// <summary>
         /// The current amount of bot3 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
         public int bot3Chips = DefaultBankroll;
-        
+
         /// <summary>
         /// The current amount of bot4 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
         public int bot4Chips = DefaultBankroll;
-        
+
         /// <summary>
         /// The current amount of bot5 chips.
         /// At the beginning of each poker session is 
@@ -227,7 +227,7 @@ namespace Poker
         /// This variable is used in The FullHouse rule method.
         /// </summary>        
         public double secondaryFactor;//type
-        
+
         /// <summary>
         /// The current round of community cards rounds.
         /// </summary>        
@@ -237,27 +237,27 @@ namespace Poker
         /// Current human player's hand rank factor.
         /// </summary>        
         public double playerHandRankFactor;//playerPower
-        
+
         /// <summary>
         /// Current bot1's hand rank factor.
         /// </summary>        
         public double bot1HandRankFactor;
-        
+
         /// <summary>
         /// Current bot2's hand rank factor.
         /// </summary>        
         public double bot2HandRankFactor;
-        
+
         /// <summary>
         /// Current bot3's hand rank factor.
         /// </summary>        
         public double bot3HandRankFactor;
-        
+
         /// <summary>
         /// Current bot4's hand rank factor.
         /// </summary>        
         public double bot4HandRankFactor;
-        
+
         /// <summary>
         /// Current bot5's hand rank factor.
         /// </summary>        
@@ -272,27 +272,27 @@ namespace Poker
         /// Current human player's hand category factor.
         /// </summary>        
         public double playerHandCategoryFactor = -1;////playerType
-        
+
         /// <summary>
         /// Current bot1's hand category factor.
         /// </summary>        
         public double bot1HandCategoryFactor = -1;
-        
+
         /// <summary>
         /// Current bot2's hand category factor.
         /// </summary>        
         public double bot2HandCategoryFactor = -1;
-        
+
         /// <summary>
         /// Current bot3's hand category factor.
         /// </summary>        
         public double bot3HandCategoryFactor = -1;
-        
+
         /// <summary>
         /// Current bot4's hand category factor.
         /// </summary>        
         public double bot4HandCategoryFactor = -1;
-        
+
         /// <summary>
         /// Current bot5's hand category factor.
         /// </summary>        
@@ -302,27 +302,27 @@ namespace Poker
         /// Field that indicates if it's human player's turn.
         /// </summary>        
         public bool isPlayerTurn = true;
-        
+
         /// <summary>
         /// Field that indicates if it's bot1's turn.
         /// </summary>        
         public bool isBot1Turn = false;
-        
+
         /// <summary>
         /// Field that indicates if it's bot2's turn.
         /// </summary>        
         public bool isBot2Turn = false;
-        
+
         /// <summary>
         /// Field that indicates if it's bot3's turn.
         /// </summary>        
         public bool isBot3Turn = false;
-        
+
         /// <summary>
         /// Field that indicates if it's bot4's turn.
         /// </summary>        
         public bool isBot4Turn = false;
-        
+
         /// <summary>
         /// Field that indicates if it's bot5's turn.
         /// </summary>        
@@ -332,27 +332,27 @@ namespace Poker
         /// Field that indicates if human player has folded or is all in.
         /// </summary>        
         public bool playerFoldOrAllIn = false;//pFturn
-        
+
         /// <summary>
         /// Field that indicates if bot1 has folded or is all in.
         /// </summary>        
         public bool bot1FoldOrAllIn = false;//bot1Fturn
-        
+
         /// <summary>
         /// Field that indicates if bot2 has folded or is all in.
         /// </summary>        
         public bool bot2FoldOrAllIn = false;
-        
+
         /// <summary>
         /// Field that indicates if bot3 has folded or is all in.
         /// </summary>        
         public bool bot3FoldOrAllIn = false;
-        
+
         /// <summary>
         /// Field that indicates if bot4 has folded or is all in.
         /// </summary>        
         public bool bot4FoldOrAllIn = false;
-        
+
         /// <summary>
         /// Field that indicates if bot5 has folded or is all in.
         /// </summary>        
@@ -362,27 +362,27 @@ namespace Poker
         /// Field that indicates if human player has folded.
         /// </summary>        
         public bool isPlayerFolded = false;
-        
+
         /// <summary>
         /// Field that indicates if bot1 has folded.
         /// </summary>        
         public bool isBot1Folded = false;
-        
+
         /// <summary>
         /// Field that indicates if bot2 has folded.
         /// </summary>        
         public bool isBot2Folded = false;
-        
+
         /// <summary>
         /// Field that indicates if bot3 has folded.
         /// </summary>        
         public bool isBot3Folded = false;
-        
+
         /// <summary>
         /// Field that indicates if bot4 has folded.
         /// </summary>        
         public bool isBot4Folded = false;
-        
+
         /// <summary>
         /// Field that indicates if bot5 has folded.
         /// </summary>        
@@ -393,7 +393,7 @@ namespace Poker
         /// of players who are all in.
         /// </summary>        
         public bool addedToAllInPlayers = false;
-        
+
         /// <summary>
         /// The changed field
         /// </summary>        
@@ -403,27 +403,27 @@ namespace Poker
         /// Human player's call amount.
         /// </summary>        
         public int playerCall;
-        
+
         /// <summary>
         /// Bot1's call amount.
         /// </summary>        
         public int bot1Call;
-        
+
         /// <summary>
         /// Bot2's call amount.
         /// </summary>        
         public int bot2Call;
-        
+
         /// <summary>
         /// Bot3's call amount.
         /// </summary>        
         public int bot3Call;
-        
+
         /// <summary>
         /// Bot4's call amount.
         /// </summary>        
         public int bot4Call;
-        
+
         /// <summary>
         /// Bot5's call amount.
         /// </summary>        
@@ -433,27 +433,27 @@ namespace Poker
         /// Human player's raise amount.
         /// </summary>        
         public int playerRaise;
-        
+
         /// <summary>
         /// Bot1's raise amount.
         /// </summary>        
         public int bot1Raise;
-        
+
         /// <summary>
         /// Bot2's raise amount.
         /// </summary>        
         public int bot2Raise;
-        
+
         /// <summary>
         /// Bot3's raise amount.
         /// </summary>        
         public int bot3Raise;
-        
+
         /// <summary>
         /// Bot4's raise amount.
         /// </summary>        
         public int bot4Raise;
-        
+
         /// <summary>
         /// Bot5's raise amount.
         /// </summary>        
@@ -463,7 +463,7 @@ namespace Poker
         /// Current height of the application window
         /// </summary>        
         public int windowHeight;//height 
-        
+
         /// <summary>
         /// Current width of the application window
         /// </summary>        
@@ -473,17 +473,17 @@ namespace Poker
         /// The count of the winners in the current game.
         /// </summary>        
         public int winnersCount = 0;//winners
-        
+
         /// <summary>
         /// The count of the players left in the game.
         /// </summary>        
         public int maxLeft = MaxPlayers;//6
-        
+
         /// <summary>
         /// The last field.
         /// </summary>        
         public int last = 123;
-        
+
         /// <summary>
         /// The number of the turn last raise is made.
         /// </summary>        
@@ -493,17 +493,17 @@ namespace Poker
         /// Register of all players that shows who has folded game.
         /// </summary>        
         public List<bool?> foldRegister = new List<bool?>();//bools
-        
+
         /// <summary>
         /// List of all players hands.
         /// </summary>        
         public List<PokerHand> competingHands = new List<PokerHand>();//win
-        
+
         /// <summary>
         /// List of the winners in current game.
         /// </summary>        
         public List<string> listOfWinners = new List<string>();//winners
-        
+
         /// <summary>
         /// List of all players who are all in.
         /// </summary>        
@@ -514,7 +514,7 @@ namespace Poker
         /// and a new game is prepared.
         /// </summary>        
         public bool restart = false;
-        
+
         /// <summary>
         /// Field that indicates if bet is raised.
         /// </summary>        
@@ -534,22 +534,22 @@ namespace Poker
         /// Indexes of the dealt cards in the source directory.
         /// </summary>        
         public int[] deckCard = new int[MaximumCardsToBeDealt];//reserve
-        
+
         /// <summary>
         /// The shuffled deck cards.
         /// </summary>        
         public Image[] shuffledDeck = new Image[CardsInADeck];//Deck
-        
+
         /// <summary>
         /// The controls for the dealt shuffled deck cards.
         /// </summary>        
         public PictureBox[] cardToBeDealt = new PictureBox[MaximumCardsToBeDealt];//Holder
-        
+
         /// <summary>
         /// The timer for the human player's turn.
         /// </summary>        
         public Timer timer = new Timer();
-        
+
         /// <summary>
         /// The updates timer.
         /// </summary>        
@@ -561,25 +561,20 @@ namespace Poker
         public int playerTime = 60;
         
         /// <summary>
-        /// The i field
-        /// </summary>        
-        public int i;
-        
-        /// <summary>
         /// Big Blind amount.
         /// </summary>        
         public int bigBlind = BigBlindDefaultValue;//callChipsCount
-        
+
         /// <summary>
         /// Small blind amount.
         /// </summary>        
         public int smallBlind = BigBlindDefaultValue / 2;//sb
-        
+
         /// <summary>
         /// The up field.
         /// </summary>        
         public int up = 10000000;
-        
+
         /// <summary>
         /// Count of the turns since last raise.
         /// </summary>        
@@ -617,14 +612,7 @@ namespace Poker
             this.timer.Tick += timer_Tick;
             this.updates.Interval = (1 * 1 * 100);
             this.updates.Tick += Update_Tick;////updates.Tick is timer event
-            this.textboxBigBlind.Visible = true;
-            this.textboxSmallBlind.Visible = true;
-            this.buttonBigBlind.Visible = true;
-            this.buttonSmallBlind.Visible = true;
-            this.textboxBigBlind.Visible = true;
-            this.textboxSmallBlind.Visible = true;
-            this.buttonBigBlind.Visible = true;
-            this.buttonSmallBlind.Visible = true;
+
             this.textboxBigBlind.Visible = false;
             this.textboxSmallBlind.Visible = false;
             this.buttonBigBlind.Visible = false;
@@ -709,28 +697,28 @@ namespace Poker
 
             //Initialize card controls and players panels 
             //Deal bots who still have chips and the player
-            for (i = 0; i < MaximumCardsToBeDealt; i++)
+            for (int cardsInGame = 0; cardsInGame < MaximumCardsToBeDealt; cardsInGame++)
             {
-                shuffledDeck[i] = Image.FromFile(this.imgCardsLocation[i]);
+                shuffledDeck[cardsInGame] = Image.FromFile(this.imgCardsLocation[cardsInGame]);
                 var charsToRemove = new string[] { "..\\..\\Resources\\Assets\\Cards\\", ".png" };
                 foreach (var c in charsToRemove)
                 {
-                    this.imgCardsLocation[i] = this.imgCardsLocation[i].Replace(c, string.Empty);
+                    this.imgCardsLocation[cardsInGame] = this.imgCardsLocation[cardsInGame].Replace(c, string.Empty);
                 }
 
-                this.deckCard[i] = int.Parse(this.imgCardsLocation[i]) - 1;
-                cardToBeDealt[i] = new PictureBox();
-                cardToBeDealt[i].SizeMode = PictureBoxSizeMode.StretchImage;
-                cardToBeDealt[i].Height = CardImageHeight;
-                cardToBeDealt[i].Width = CardImageWidth;
-                this.Controls.Add(cardToBeDealt[i]);
-                cardToBeDealt[i].Name = "picturebox" + i.ToString();
+                this.deckCard[cardsInGame] = int.Parse(this.imgCardsLocation[cardsInGame]) - 1;
+                cardToBeDealt[cardsInGame] = new PictureBox();
+                cardToBeDealt[cardsInGame].SizeMode = PictureBoxSizeMode.StretchImage;
+                cardToBeDealt[cardsInGame].Height = CardImageHeight;
+                cardToBeDealt[cardsInGame].Width = CardImageWidth;
+                this.Controls.Add(cardToBeDealt[cardsInGame]);
+                cardToBeDealt[cardsInGame].Name = "picturebox" + cardsInGame.ToString();
                 await Task.Delay(200);
 
                 //Deal human player
                 //Initialize player panel and player card controls
                 //Player cards are face up
-                if (i < 2)
+                if (cardsInGame < 2)
                 {
                     if (cardToBeDealt[0].Tag != null)
                     {
@@ -738,11 +726,11 @@ namespace Poker
                     }
 
                     cardToBeDealt[0].Tag = this.deckCard[0];
-                    cardToBeDealt[i].Image = shuffledDeck[i];
-                    cardToBeDealt[i].Anchor = (AnchorStyles.Bottom);
+                    cardToBeDealt[cardsInGame].Image = shuffledDeck[cardsInGame];
+                    cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom);
                     ////cardToBeDealt[i].Dock = DockStyle.Top;
-                    cardToBeDealt[i].Location = new Point(horizontal, vertical);
-                    horizontal += cardToBeDealt[i].Width;
+                    cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                    horizontal += cardToBeDealt[cardsInGame].Width;
                     this.Controls.Add(this.playerPanel);
                     this.playerPanel.Location = new Point(cardToBeDealt[0].Left - 10, cardToBeDealt[0].Top - 10);
                     this.playerPanel.BackColor = Color.DarkBlue;
@@ -757,7 +745,7 @@ namespace Poker
                 if (bot1Chips > 0)
                 {
                     foldedPlayers--;
-                    if (i >= 2 && i < 4)
+                    if (cardsInGame >= 2 && cardsInGame < 4)
                     {
                         if (cardToBeDealt[2].Tag != null)
                         {
@@ -772,19 +760,19 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[i].Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
-                        cardToBeDealt[i].Image = backImage;
-                        ////cardToBeDealt[i].Image = shuffledDeck[i];
-                        cardToBeDealt[i].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[i].Width;
-                        cardToBeDealt[i].Visible = true;
+                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
+                        cardToBeDealt[cardsInGame].Image = backImage;
+                        ////cardToBeDealt[i].Image = shuffledDeck[card];
+                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += cardToBeDealt[cardsInGame].Width;
+                        cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot1Panel);
                         this.bot1Panel.Location = new Point(cardToBeDealt[2].Left - 10, cardToBeDealt[2].Top - 10);
                         this.bot1Panel.BackColor = Color.DarkBlue;
                         this.bot1Panel.Height = 150;
                         this.bot1Panel.Width = 180;
                         this.bot1Panel.Visible = false;
-                        if (i == 3)
+                        if (cardsInGame == 3)
                         {
                             check = false;
                         }
@@ -797,14 +785,14 @@ namespace Poker
                 if (bot2Chips > 0)
                 {
                     foldedPlayers--;
-                    if (i >= 4 && i < 6)
+                    if (cardsInGame >= 4 && cardsInGame < 6)
                     {
                         if (cardToBeDealt[4].Tag != null)
                         {
                             cardToBeDealt[5].Tag = this.deckCard[5];
                         }
 
-                        cardToBeDealt[4].Tag = this.deckCard[4];
+                        this.cardToBeDealt[4].Tag = this.deckCard[4];
                         if (!check)
                         {
                             horizontal = Bot2PanelDefaultHorizontalCoordinate;
@@ -812,19 +800,19 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[i].Anchor = (AnchorStyles.Top | AnchorStyles.Left);
-                        cardToBeDealt[i].Image = backImage;
-                        ////cardToBeDealt[i].Image = shuffledDeck[i];
-                        cardToBeDealt[i].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[i].Width;
-                        cardToBeDealt[i].Visible = true;
+                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top | AnchorStyles.Left);
+                        cardToBeDealt[cardsInGame].Image = backImage;
+                        ////cardToBeDealt[i].Image = shuffledDeck[card];
+                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += cardToBeDealt[cardsInGame].Width;
+                        cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot2Panel);
                         this.bot2Panel.Location = new Point(cardToBeDealt[4].Left - 10, cardToBeDealt[4].Top - 10);
                         this.bot2Panel.BackColor = Color.DarkBlue;
                         this.bot2Panel.Height = 150;
                         this.bot2Panel.Width = 180;
                         this.bot2Panel.Visible = false;
-                        if (i == 5)
+                        if (cardsInGame == 5)
                         {
                             check = false;
                         }
@@ -837,7 +825,7 @@ namespace Poker
                 if (bot3Chips > 0)
                 {
                     foldedPlayers--;
-                    if (i >= 6 && i < 8)
+                    if (cardsInGame >= 6 && cardsInGame < 8)
                     {
                         if (cardToBeDealt[6].Tag != null)
                         {
@@ -852,19 +840,19 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[i].Anchor = (AnchorStyles.Top);
-                        cardToBeDealt[i].Image = backImage;
-                        ////cardToBeDealt[i].Image = shuffledDeck[i];
-                        cardToBeDealt[i].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[i].Width;
-                        cardToBeDealt[i].Visible = true;
+                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top);
+                        cardToBeDealt[cardsInGame].Image = backImage;
+                        ////cardToBeDealt[i].Image = shuffledDeck[card];
+                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += cardToBeDealt[cardsInGame].Width;
+                        cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot3Panel);
                         this.bot3Panel.Location = new Point(cardToBeDealt[6].Left - 10, cardToBeDealt[6].Top - 10);
                         this.bot3Panel.BackColor = Color.DarkBlue;
                         this.bot3Panel.Height = 150;
                         this.bot3Panel.Width = 180;
                         this.bot3Panel.Visible = false;
-                        if (i == 7)
+                        if (cardsInGame == 7)
                         {
                             check = false;
                         }
@@ -877,7 +865,7 @@ namespace Poker
                 if (bot4Chips > 0)
                 {
                     foldedPlayers--;
-                    if (i >= 8 && i < 10)
+                    if (cardsInGame >= 8 && cardsInGame < 10)
                     {
                         if (cardToBeDealt[8].Tag != null)
                         {
@@ -892,19 +880,19 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[i].Anchor = (AnchorStyles.Top | AnchorStyles.Right);
-                        cardToBeDealt[i].Image = backImage;
-                        ////cardToBeDealt[i].Image = shuffledDeck[i];
-                        cardToBeDealt[i].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[i].Width;
-                        cardToBeDealt[i].Visible = true;
+                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+                        cardToBeDealt[cardsInGame].Image = backImage;
+                        ////cardToBeDealt[i].Image = shuffledDeck[card];
+                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += cardToBeDealt[cardsInGame].Width;
+                        cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot4Panel);
                         this.bot4Panel.Location = new Point(cardToBeDealt[8].Left - 10, cardToBeDealt[8].Top - 10);
                         this.bot4Panel.BackColor = Color.DarkBlue;
                         this.bot4Panel.Height = 150;
                         this.bot4Panel.Width = 180;
                         this.bot4Panel.Visible = false;
-                        if (i == 9)
+                        if (cardsInGame == 9)
                         {
                             check = false;
                         }
@@ -917,7 +905,7 @@ namespace Poker
                 if (bot5Chips > 0)
                 {
                     foldedPlayers--;
-                    if (i >= 10 && i < 12)
+                    if (cardsInGame >= 10 && cardsInGame < 12)
                     {
                         if (cardToBeDealt[10].Tag != null)
                         {
@@ -932,19 +920,19 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[i].Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
-                        cardToBeDealt[i].Image = backImage;
-                        ////cardToBeDealt[i].Image = shuffledDeck[i];
-                        cardToBeDealt[i].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[i].Width;
-                        cardToBeDealt[i].Visible = true;
+                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+                        cardToBeDealt[cardsInGame].Image = backImage;
+                        ////cardToBeDealt[i].Image = shuffledDeck[card];
+                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += cardToBeDealt[cardsInGame].Width;
+                        cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot5Panel);
                         this.bot5Panel.Location = new Point(cardToBeDealt[10].Left - 10, cardToBeDealt[10].Top - 10);
                         this.bot5Panel.BackColor = Color.DarkBlue;
                         this.bot5Panel.Height = 150;
                         this.bot5Panel.Width = 180;
                         this.bot5Panel.Visible = false;
-                        if (i == 11)
+                        if (cardsInGame == 11)
                         {
                             check = false;
                         }
@@ -954,27 +942,27 @@ namespace Poker
                 //Deal table cards face down
                 ////Initialize table card controls 
 
-                if (i >= 12)
+                if (cardsInGame >= 12)
                 {
                     cardToBeDealt[12].Tag = this.deckCard[12];
-                    if (i > 12)
+                    if (cardsInGame > 12)
                     {
                         {
                             cardToBeDealt[13].Tag = this.deckCard[13];
                         }
                     }
 
-                    if (i > 13)
+                    if (cardsInGame > 13)
                     {
                         cardToBeDealt[14].Tag = this.deckCard[14];
                     }
 
-                    if (i > 14)
+                    if (cardsInGame > 14)
                     {
                         cardToBeDealt[15].Tag = this.deckCard[15];
                     }
 
-                    if (i > 15)
+                    if (cardsInGame > 15)
                     {
                         cardToBeDealt[16].Tag = this.deckCard[16];
                     }
@@ -986,12 +974,12 @@ namespace Poker
                     }
 
                     check = true;
-                    if (cardToBeDealt[i] != null)
+                    if (cardToBeDealt[cardsInGame] != null)
                     {
-                        cardToBeDealt[i].Anchor = AnchorStyles.None;
-                        cardToBeDealt[i].Image = backImage;
-                        ////cardToBeDealt[i].Image = shuffledDeck[i];
-                        cardToBeDealt[i].Location = new Point(horizontal, vertical);
+                        cardToBeDealt[cardsInGame].Anchor = AnchorStyles.None;
+                        cardToBeDealt[cardsInGame].Image = backImage;
+                        ////cardToBeDealt[i].Image = shuffledDeck[card];
+                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
                         horizontal += 110;
                     }
                 }
@@ -1004,18 +992,6 @@ namespace Poker
                     cardToBeDealt[2].Visible = false;
                     cardToBeDealt[3].Visible = false;
                 }
-                else
-                {
-                    this.bot1FoldOrAllIn = false;
-                    if (i == 3)
-                    {
-                        if (cardToBeDealt[3] != null)
-                        {
-                            cardToBeDealt[2].Visible = true;
-                            cardToBeDealt[3].Visible = true;
-                        }
-                    }
-                }
 
                 //Check if bot2 has chips to play 
                 //and if so makes its card controls visible
@@ -1024,18 +1000,6 @@ namespace Poker
                     this.bot2FoldOrAllIn = true;
                     cardToBeDealt[4].Visible = false;
                     cardToBeDealt[5].Visible = false;
-                }
-                else
-                {
-                    this.bot2FoldOrAllIn = false;
-                    if (i == 5)
-                    {
-                        if (cardToBeDealt[5] != null)
-                        {
-                            cardToBeDealt[4].Visible = true;
-                            cardToBeDealt[5].Visible = true;
-                        }
-                    }
                 }
 
                 //Check if bot3 has chips to play 
@@ -1046,18 +1010,6 @@ namespace Poker
                     cardToBeDealt[6].Visible = false;
                     cardToBeDealt[7].Visible = false;
                 }
-                else
-                {
-                    this.bot3FoldOrAllIn = false;
-                    if (i == 7)
-                    {
-                        if (cardToBeDealt[7] != null)
-                        {
-                            cardToBeDealt[6].Visible = true;
-                            cardToBeDealt[7].Visible = true;
-                        }
-                    }
-                }
 
                 //Check if bot4 has chips to play 
                 //and if so makes its card controls visible
@@ -1066,18 +1018,6 @@ namespace Poker
                     this.bot4FoldOrAllIn = true;
                     cardToBeDealt[8].Visible = false;
                     cardToBeDealt[9].Visible = false;
-                }
-                else
-                {
-                    this.bot4FoldOrAllIn = false;
-                    if (i == 9)
-                    {
-                        if (cardToBeDealt[9] != null)
-                        {
-                            cardToBeDealt[8].Visible = true;
-                            cardToBeDealt[9].Visible = true;
-                        }
-                    }
                 }
 
                 //Check if bot5 has chips to play 
@@ -1088,21 +1028,9 @@ namespace Poker
                     cardToBeDealt[10].Visible = false;
                     cardToBeDealt[11].Visible = false;
                 }
-                else
-                {
-                    this.bot5FoldOrAllIn = false;
-                    if (i == 11)
-                    {
-                        if (cardToBeDealt[11] != null)
-                        {
-                            cardToBeDealt[10].Visible = true;
-                            cardToBeDealt[11].Visible = true;
-                        }
-                    }
-                }
-
+                
                 //If all cards are dealt starts timer for player
-                if (i == 16)
+                if (cardsInGame == 16)
                 {
                     if (!restart)
                     {
@@ -1110,7 +1038,7 @@ namespace Poker
                         MinimizeBox = true;
                     }
 
-                    timer.Start();
+                    this.timer.Start();
                 }
             }
 
@@ -1130,24 +1058,10 @@ namespace Poker
                     Application.Exit();
                 }
             }
-
-            //If there are bot with chips accepts that all bots
-            //have chips before the next game
-            else
-            {
-                foldedPlayers = 5;
-            }
-
-            //After dealing enables Raise, Call and Fold buttons for
-            //player
-            if (i == MaximumCardsToBeDealt)
-            {
-                buttonRaise.Enabled = true;
-                buttonCall.Enabled = true;
-                buttonRaise.Enabled = true;
-                buttonRaise.Enabled = true;
-                buttonFold.Enabled = true;
-            }
+            
+            buttonRaise.Enabled = true;
+            buttonCall.Enabled = true;
+            buttonFold.Enabled = true;
         }
 
         /// <summary>
@@ -1167,20 +1081,18 @@ namespace Poker
                 //enables button controls and starts timer
                 if (this.isPlayerTurn)
                 {
-                    FixCall(labelPlayerStatus, ref this.playerCall, ref this.playerRaise, 1);
-                    ////MessageBox.Show("Player's Turn");
-                    progressbarTimer.Visible = true;
-                    progressbarTimer.Value = 1000;
-                    playerTime = 60;
-                    up = 10000000;
-                    timer.Start();
-                    buttonRaise.Enabled = true;
-                    buttonCall.Enabled = true;
-                    buttonRaise.Enabled = true;
-                    buttonRaise.Enabled = true;
-                    buttonFold.Enabled = true;
-                    turnCount++;
-                    FixCall(labelPlayerStatus, ref this.playerCall, ref this.playerRaise, 2);
+                    FixCall(this.labelPlayerStatus, ref this.playerCall, ref this.playerRaise, 1);
+                    MessageBox.Show("Player's Turn");
+                    this.progressbarTimer.Visible = true;
+                    this.progressbarTimer.Value = 1000;
+                    this.playerTime = 60;
+                    this.up = 10000000;
+                    this.timer.Start();
+                    this.buttonRaise.Enabled = true;
+                    this.buttonCall.Enabled = true;
+                    this.buttonFold.Enabled = true;
+                    this.turnCount++;
+                    this.FixCall(labelPlayerStatus, ref this.playerCall, ref this.playerRaise, 2);
                 }
             }
 
@@ -1191,15 +1103,15 @@ namespace Poker
                 await AllIn();
                 if (this.playerFoldOrAllIn && !this.isPlayerFolded)
                 {
-                    if (buttonCall.Text.Contains("All in") == false || buttonRaise.Text.Contains("All in") == false)
+                    if (this.buttonCall.Text.Contains("All in") == false || this.buttonRaise.Text.Contains("All in") == false)
                     {
-                        foldRegister.RemoveAt(0);
-                        foldRegister.Insert(0, null);
-                        maxLeft--;
+                        this.foldRegister.RemoveAt(0);
+                        this.foldRegister.Insert(0, null);
+                        this.maxLeft--;
                         this.isPlayerFolded = true;
                     }
                 }
-                ////
+
                 await CheckRaise(0, 0);
 
                 //Disables human player's button controls
@@ -1207,8 +1119,6 @@ namespace Poker
                 progressbarTimer.Visible = false;
                 buttonRaise.Enabled = false;
                 buttonCall.Enabled = false;
-                buttonRaise.Enabled = false;
-                buttonRaise.Enabled = false;
                 buttonFold.Enabled = false;
                 timer.Stop();
 
@@ -1225,13 +1135,13 @@ namespace Poker
                 {
                     if (this.isBot1Turn)
                     {
-                        FixCall(labelBot1Status, ref this.bot1Call, ref this.bot1Raise, 1);
-                        FixCall(labelBot1Status, ref this.bot1Call, ref this.bot1Raise, 2);
-                        DeterminePlayerCurrentBestHand(2, 3, "Bot 1", ref this.bot1HandCategoryFactor, ref this.bot1HandRankFactor, this.bot1FoldOrAllIn);
+                        this.FixCall(labelBot1Status, ref this.bot1Call, ref this.bot1Raise, 1);
+                        this.FixCall(labelBot1Status, ref this.bot1Call, ref this.bot1Raise, 2);
+                        this.DeterminePlayerCurrentBestHand(2, 3, "Bot 1", ref this.bot1HandCategoryFactor, ref this.bot1HandRankFactor, this.bot1FoldOrAllIn);
                         MessageBox.Show("Bot 1's Turn");
-                        AIEngine(2, 3, ref bot1Chips, ref this.isBot1Turn, ref  this.bot1FoldOrAllIn, labelBot1Status, 0, this.bot1HandRankFactor, this.bot1HandCategoryFactor);
-                        turnCount++;
-                        last = 1;
+                        this.AIEngine(2, 3, ref bot1Chips, ref this.isBot1Turn, ref  this.bot1FoldOrAllIn, labelBot1Status, 0, this.bot1HandRankFactor, this.bot1HandCategoryFactor);
+                        this.turnCount++;
+                        this.last = 1;
                         this.isBot1Turn = false;
                         this.isBot2Turn = true;
                     }
@@ -1241,9 +1151,9 @@ namespace Poker
                 //If so removes him from the fold register
                 if (this.bot1FoldOrAllIn && !this.isBot1Folded)
                 {
-                    foldRegister.RemoveAt(1);
-                    foldRegister.Insert(1, null);
-                    maxLeft--;
+                    this.foldRegister.RemoveAt(1);
+                    this.foldRegister.Insert(1, null);
+                    this.maxLeft--;
                     this.isBot1Folded = true;
                 }
 
@@ -1251,7 +1161,7 @@ namespace Poker
                 //Enables bot2 //again?
                 if (this.bot1FoldOrAllIn || !this.isBot1Turn)
                 {
-                    await CheckRaise(1, 1);
+                    await this.CheckRaise(1, 1);
                     this.isBot2Turn = true;
                 }
 
@@ -1265,13 +1175,13 @@ namespace Poker
                 {
                     if (this.isBot2Turn)
                     {
-                        FixCall(labelBot2Status, ref this.bot2Call, ref this.bot2Raise, 1);
-                        FixCall(labelBot2Status, ref this.bot2Call, ref this.bot2Raise, 2);
-                        DeterminePlayerCurrentBestHand(4, 5, "Bot 2", ref this.bot2HandCategoryFactor, ref this.bot2HandRankFactor, this.bot2FoldOrAllIn);
+                        this.FixCall(labelBot2Status, ref this.bot2Call, ref this.bot2Raise, 1);
+                        this.FixCall(labelBot2Status, ref this.bot2Call, ref this.bot2Raise, 2);
+                        this.DeterminePlayerCurrentBestHand(4, 5, "Bot 2", ref this.bot2HandCategoryFactor, ref this.bot2HandRankFactor, this.bot2FoldOrAllIn);
                         MessageBox.Show("Bot 2's Turn");
-                        AIEngine(4, 5, ref bot2Chips, ref this.isBot2Turn, ref  this.bot2FoldOrAllIn, labelBot2Status, 1, this.bot2HandRankFactor, this.bot2HandCategoryFactor);
-                        turnCount++;
-                        last = 2;
+                        this.AIEngine(4, 5, ref bot2Chips, ref this.isBot2Turn, ref  this.bot2FoldOrAllIn, labelBot2Status, 1, this.bot2HandRankFactor, this.bot2HandCategoryFactor);
+                        this.turnCount++;
+                        this.last = 2;
                         this.isBot2Turn = false;
                         this.isBot3Turn = true;
                     }
@@ -1281,9 +1191,9 @@ namespace Poker
                 //If so removes him from the fold register
                 if (this.bot2FoldOrAllIn && !this.isBot2Folded)
                 {
-                    foldRegister.RemoveAt(2);
-                    foldRegister.Insert(2, null);
-                    maxLeft--;
+                    this.foldRegister.RemoveAt(2);
+                    this.foldRegister.Insert(2, null);
+                    this.maxLeft--;
                     this.isBot2Folded = true;
                 }
 
@@ -1291,7 +1201,7 @@ namespace Poker
                 //Enables bot3 //again?
                 if (this.bot2FoldOrAllIn || !this.isBot2Turn)
                 {
-                    await CheckRaise(2, 2);
+                    await this.CheckRaise(2, 2);
                     this.isBot3Turn = true;
                 }
 
@@ -1305,13 +1215,13 @@ namespace Poker
                 {
                     if (this.isBot3Turn)
                     {
-                        FixCall(labelBot3Status, ref this.bot3Call, ref this.bot3Raise, 1);
-                        FixCall(labelBot3Status, ref this.bot3Call, ref this.bot3Raise, 2);
-                        DeterminePlayerCurrentBestHand(6, 7, "Bot 3", ref this.bot3HandCategoryFactor, ref this.bot3HandRankFactor, this.bot3FoldOrAllIn);
+                        this.FixCall(labelBot3Status, ref this.bot3Call, ref this.bot3Raise, 1);
+                        this.FixCall(labelBot3Status, ref this.bot3Call, ref this.bot3Raise, 2);
+                        this.DeterminePlayerCurrentBestHand(6, 7, "Bot 3", ref this.bot3HandCategoryFactor, ref this.bot3HandRankFactor, this.bot3FoldOrAllIn);
                         MessageBox.Show("Bot 3's Turn");
-                        AIEngine(6, 7, ref bot3Chips, ref this.isBot3Turn, ref  this.bot3FoldOrAllIn, labelBot3Status, 2, this.bot3HandRankFactor, this.bot3HandCategoryFactor);
-                        turnCount++;
-                        last = 3;
+                        this.AIEngine(6, 7, ref bot3Chips, ref this.isBot3Turn, ref  this.bot3FoldOrAllIn, labelBot3Status, 2, this.bot3HandRankFactor, this.bot3HandCategoryFactor);
+                        this.turnCount++;
+                        this.last = 3;
                         this.isBot3Turn = false;
                         this.isBot4Turn = true;
                     }
@@ -1321,9 +1231,9 @@ namespace Poker
                 //If so removes him from the fold register
                 if (this.bot3FoldOrAllIn && !this.isBot3Folded)
                 {
-                    foldRegister.RemoveAt(3);
-                    foldRegister.Insert(3, null);
-                    maxLeft--;
+                    this.foldRegister.RemoveAt(3);
+                    this.foldRegister.Insert(3, null);
+                    this.maxLeft--;
                     this.isBot3Folded = true;
                 }
 
@@ -1331,7 +1241,7 @@ namespace Poker
                 //Enables bot4 //again?
                 if (this.bot3FoldOrAllIn || !this.isBot3Turn)
                 {
-                    await CheckRaise(3, 3);
+                    await this.CheckRaise(3, 3);
                     this.isBot4Turn = true;
                 }
 
@@ -1345,13 +1255,13 @@ namespace Poker
                 {
                     if (this.isBot4Turn)
                     {
-                        FixCall(labelBot4Status, ref this.bot4Call, ref this.bot4Raise, 1);
-                        FixCall(labelBot4Status, ref this.bot4Call, ref this.bot4Raise, 2);
-                        DeterminePlayerCurrentBestHand(8, 9, "Bot 4", ref this.bot4HandCategoryFactor, ref this.bot4HandRankFactor, this.bot4FoldOrAllIn);
+                        this.FixCall(labelBot4Status, ref this.bot4Call, ref this.bot4Raise, 1);
+                        this.FixCall(labelBot4Status, ref this.bot4Call, ref this.bot4Raise, 2);
+                        this.DeterminePlayerCurrentBestHand(8, 9, "Bot 4", ref this.bot4HandCategoryFactor, ref this.bot4HandRankFactor, this.bot4FoldOrAllIn);
                         MessageBox.Show("Bot 4's Turn");
-                        AIEngine(8, 9, ref bot4Chips, ref this.isBot4Turn, ref  this.bot4FoldOrAllIn, labelBot4Status, 3, this.bot4HandRankFactor, this.bot4HandCategoryFactor);
-                        turnCount++;
-                        last = 4;
+                        this.AIEngine(8, 9, ref bot4Chips, ref this.isBot4Turn, ref  this.bot4FoldOrAllIn, labelBot4Status, 3, this.bot4HandRankFactor, this.bot4HandCategoryFactor);
+                        this.turnCount++;
+                        this.last = 4;
                         this.isBot4Turn = false;
                         this.isBot5Turn = true;
                     }
@@ -1361,9 +1271,9 @@ namespace Poker
                 //If so removes him from the fold register
                 if (this.bot4FoldOrAllIn && !this.isBot4Folded)
                 {
-                    foldRegister.RemoveAt(4);
-                    foldRegister.Insert(4, null);
-                    maxLeft--;
+                    this.foldRegister.RemoveAt(4);
+                    this.foldRegister.Insert(4, null);
+                    this.maxLeft--;
                     this.isBot4Folded = true;
                 }
 
@@ -1371,7 +1281,7 @@ namespace Poker
                 //Enables bot5 //again?
                 if (this.bot4FoldOrAllIn || !this.isBot4Turn)
                 {
-                    await CheckRaise(4, 4);
+                    await this.CheckRaise(4, 4);
                     this.isBot5Turn = true;
                 }
 
@@ -1384,13 +1294,13 @@ namespace Poker
                 {
                     if (this.isBot5Turn)
                     {
-                        FixCall(labelBot5Status, ref this.bot5Call, ref this.bot5Raise, 1);
-                        FixCall(labelBot5Status, ref this.bot5Call, ref this.bot5Raise, 2);
-                        DeterminePlayerCurrentBestHand(10, 11, "Bot 5", ref this.bot5HandCategoryFactor, ref this.bot5HandRankFactor, this.bot5FoldOrAllIn);
+                        this.FixCall(labelBot5Status, ref this.bot5Call, ref this.bot5Raise, 1);
+                        this.FixCall(labelBot5Status, ref this.bot5Call, ref this.bot5Raise, 2);
+                        this.DeterminePlayerCurrentBestHand(10, 11, "Bot 5", ref this.bot5HandCategoryFactor, ref this.bot5HandRankFactor, this.bot5FoldOrAllIn);
                         MessageBox.Show("Bot 5's Turn");
-                        AIEngine(10, 11, ref bot5Chips, ref this.isBot5Turn, ref  this.bot5FoldOrAllIn, labelBot5Status, 4, this.bot5HandRankFactor, this.bot5HandCategoryFactor);
-                        turnCount++;
-                        last = 5;
+                        this.AIEngine(10, 11, ref bot5Chips, ref this.isBot5Turn, ref  this.bot5FoldOrAllIn, labelBot5Status, 4, this.bot5HandRankFactor, this.bot5HandCategoryFactor);
+                        this.turnCount++;
+                        this.last = 5;
                         this.isBot5Turn = false;
                     }
                 }
@@ -1399,9 +1309,9 @@ namespace Poker
                 //If so removes him from the fold register
                 if (this.bot5FoldOrAllIn && !this.isBot5Folded)
                 {
-                    foldRegister.RemoveAt(5);
-                    foldRegister.Insert(5, null);
-                    maxLeft--;
+                    this.foldRegister.RemoveAt(5);
+                    this.foldRegister.Insert(5, null);
+                    this.maxLeft--;
                     this.isBot5Folded = true;
                 }
 
@@ -1409,35 +1319,35 @@ namespace Poker
                 //Enables human player turn
                 if (this.bot5FoldOrAllIn || !this.isBot5Turn)
                 {
-                    await CheckRaise(5, 5);
+                    await this.CheckRaise(5, 5);
                     this.isPlayerTurn = true;
                 }
 
                 //If human player folds turn removes him from fold register
                 if (this.playerFoldOrAllIn && !this.isPlayerFolded)
                 {
-                    if (buttonCall.Text.Contains("All in") == false || buttonRaise.Text.Contains("All in") == false)
+                    if (this.buttonCall.Text.Contains("All in") == false || this.buttonRaise.Text.Contains("All in") == false)
                     {
-                        foldRegister.RemoveAt(0);
-                        foldRegister.Insert(0, null);
-                        maxLeft--;
+                        this.foldRegister.RemoveAt(0);
+                        this.foldRegister.Insert(0, null);
+                        this.maxLeft--;
                         this.isPlayerFolded = true;
                     }
                 }
 
                 //checks if the game should continue
-                await AllIn();
+                await this.AllIn();
 
                 //If not, starts next round of turns
-                if (!restart)
+                if (!this.restart)
                 {
-                    await Turns();
+                    await this.Turns();
                 }
 
-                restart = false;
+                this.restart = false;
             }
         }
-        
+
         /// <summary>
         /// Checks if a player has a certain hand starting from a pair hand.
         /// For bots this check is made every turn to help
@@ -1544,58 +1454,59 @@ namespace Poker
                 Array.Sort(distinctHearts);//sorts hearts array with only the distinct cards
                 Array.Sort(distinctSpades);//sorts spades array with only the distinct cards
 
-                for (i = 0; i < 16; i++)
+                for (int card = 0; card < 16; card++)
                 {
                     //Checks if player cards is dealt the cards he should be dealt
                     //etc., there is no problem with the shuffle engine
-                    if (this.deckCard[i] == int.Parse(cardToBeDealt[card1].Tag.ToString()) && this.deckCard[i + 1] == int.Parse(cardToBeDealt[card2].Tag.ToString()))
+                    if (this.deckCard[card] == int.Parse(cardToBeDealt[card1].Tag.ToString()) &&
+                        this.deckCard[card + 1] == int.Parse(cardToBeDealt[card2].Tag.ToString()))
                     {
                         //Checks if the current player has Pair from Hand
                         //currentPlayerCategoryFactor = 1
-                        CheckPairFromHand(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
+                        this.CheckPairFromHand(card, ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
 
                         //Checks if the current player has pair Two Pair
                         //currentPlayerCategoryFactor = 2 if current player has one combined and one table pair
                         //currentPlayerCategoryFactor = 0 if current player has only table hand
-                        CheckPairTwoPair(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
+                        this.CheckPairTwoPair(card, ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
 
                         //Checks if the current player has two combined pairs(each from a table and a player card)
                         //currentPlayerCategoryFactor = 2
-                        CheckTwoPair(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
+                        this.CheckTwoPair(card, ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
 
                         //Checks if the current player has three of a kind hand
                         //currentPlayerCategoryFactor = 3
-                        CheckThreeOfAKind(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, combinedCards);
+                        this.CheckThreeOfAKind(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, combinedCards);
 
                         //Checks if the current player has a Straight
                         //currentPlayerCategoryFactor = 4
-                        CheckStraight(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, combinedCards);
+                        this.CheckStraight(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, combinedCards);
 
                         //Checks if the current player has a Flush
                         //currentPlayerCategoryFactor = 5 || 5.5
-                        CheckFlush(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, ref hasFlush, tableCards);
+                        this.CheckFlush(card, ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, ref hasFlush, tableCards);
 
                         //Checks if the current player has a FullHouse
                         //currentPlayerCategoryFactor = 6
-                        CheckFullHouse(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, ref done, combinedCards);
-                        
+                        this.CheckFullHouse(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, ref done, combinedCards);
+
                         //Checks if the current player has four of a kind hand
                         //currentPlayerCategoryFactor = 7
-                        CheckFourOfAKind(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, combinedCards);                       
+                        this.CheckFourOfAKind(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, combinedCards);
 
                         //Checks if the current player has a StraightFlush
                         //currentPlayerCategoryFactor = 8
                         //currentPlayerCategoryFactor = 9 if its RoyalFlush
-                        CheckStraightFlush(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, distinctClubs, distinctDiamonds, distinctHearts, distinctSpades);
+                        this.CheckStraightFlush(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor, distinctClubs, distinctDiamonds, distinctHearts, distinctSpades);
 
                         //Checks the highest card for the current player
-                        CheckHighCard(ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
+                        this.CheckHighCard(card, ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
                         ////currentPlayerCategoryFactor = -1,if this is his best hand
                     }
                 }
             }
         }
-        
+
         /// <summary>
         /// Checks if the player has a straight flush hand.
         /// </summary>
@@ -1620,7 +1531,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 8;
                         currentPlayerRankFactor = (distinctClubs.Max() / 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 8 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
                     //This check is for royal flush(category factor = 9)
@@ -1629,7 +1540,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 9;
                         currentPlayerRankFactor = (distinctClubs.Max() / 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 9 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
 
@@ -1642,7 +1553,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 8;
                         currentPlayerRankFactor = (distinctDiamonds.Max() / 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 8 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
                     if (distinctDiamonds[0] == 0 && distinctDiamonds[1] == 9 && distinctDiamonds[2] == 10 && distinctDiamonds[3] == 11 && distinctDiamonds[0] + 12 == distinctDiamonds[4])
@@ -1650,7 +1561,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 9;
                         currentPlayerRankFactor = (distinctDiamonds.Max() / 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 9 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
 
@@ -1662,7 +1573,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 8;
                         currentPlayerRankFactor = (distinctHearts.Max() / 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 8 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
                     if (distinctHearts[0] == 0 && distinctHearts[1] == 9 && distinctHearts[2] == 10 && distinctHearts[3] == 11 && distinctHearts[0] + 12 == distinctHearts[4])
@@ -1670,7 +1581,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 9;
                         currentPlayerRankFactor = (distinctHearts.Max() / 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 9 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
 
@@ -1682,7 +1593,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 8;
                         currentPlayerRankFactor = (distinctSpades.Max() / 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 8 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
                     if (distinctSpades[0] == 0 && distinctSpades[1] == 9 && distinctSpades[2] == 10 && distinctSpades[3] == 11 && distinctSpades[0] + 12 == distinctSpades[4])
@@ -1690,7 +1601,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 9;
                         currentPlayerRankFactor = (distinctSpades.Max() / 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 9 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
             }
@@ -1709,13 +1620,14 @@ namespace Poker
                 //Makes four consecutive checks
                 for (int j = 0; j <= 3; j++)
                 {
-                    if (combinedCards[j] / 4 == combinedCards[j + 1] / 4 && combinedCards[j] / 4 == combinedCards[j + 2] / 4 &&
+                    if (combinedCards[j] / 4 == combinedCards[j + 1] / 4 &&
+                        combinedCards[j] / 4 == combinedCards[j + 2] / 4 &&
                         combinedCards[j] / 4 == combinedCards[j + 3] / 4)
                     {
                         currentPlayerCategoryFactor = 7;
                         currentPlayerRankFactor = ((combinedCards[j] / 4) * 4) + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 7 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
                     //Case when four same rank cards are aces
@@ -1724,7 +1636,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 7;
                         currentPlayerRankFactor = 13 * 4 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 7 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
             }
@@ -1746,7 +1658,7 @@ namespace Poker
                 //currentPlayerRankFactor is set with a new value 
                 //but if the hand is not FullHouse then new currentPlayerRankFactor value is invalid.
                 //As a whole the operation described here is incorrect
-                secondaryFactor = currentPlayerRankFactor;
+                this.secondaryFactor = currentPlayerRankFactor;
 
                 //For each rank
                 for (int j = 0; j <= 12; j++)
@@ -1765,9 +1677,9 @@ namespace Poker
                             if (rankGroup.Max() / 4 == 0)
                             {
                                 currentPlayerCategoryFactor = 6;
-                                currentPlayerRankFactor = 13 * 2 + currentPlayerCategoryFactor * 100;
+                                currentPlayerRankFactor = (13 * 2) + (currentPlayerCategoryFactor * 100);
                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 6 });
-                                winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                                this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                                 break;
                             }
 
@@ -1778,7 +1690,7 @@ namespace Poker
                                 currentPlayerCategoryFactor = 6;
                                 currentPlayerRankFactor = ((rankGroup.Max() / 4) * 2) + (currentPlayerCategoryFactor * 100);
                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 6 });
-                                winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                                this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                                 break;
                             }
                         }
@@ -1820,7 +1732,7 @@ namespace Poker
         /// <param name="currentPlayerRankFactor">The current player's hand rank factor</param>
         /// <param name="hasFlush">The hasFlush Boolean parameter</param>
         /// <param name="tableCards">The table cards</param>        
-        public void CheckFlush(ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor, ref bool hasFlush, int[] tableCards)
+        public void CheckFlush(int card, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor, ref bool hasFlush, int[] tableCards)
         {
             if (currentPlayerCategoryFactor >= -1)
             {
@@ -1836,37 +1748,37 @@ namespace Poker
                 if (clubs.Length == 3 || clubs.Length == 4)
                 {
                     //Checks if current player's cards are clubs suit
-                    if (this.deckCard[i] % 4 == this.deckCard[i + 1] % 4 && this.deckCard[i] % 4 == clubs[0] % 4)
+                    if (this.deckCard[card] % 4 == this.deckCard[card + 1] % 4 && this.deckCard[card] % 4 == clubs[0] % 4)
                     {
                         //Checks if current player first card is higher than the highest clubs from the table
                         //If so sets Rank Factor accordingly
-                        if (this.deckCard[i] / 4 > clubs.Max() / 4)
+                        if (this.deckCard[card] / 4 > clubs.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
 
                         //Checks if current player second card is higher than the highest clubs card from the table
                         //If so sets Rank Factor accordingly
-                        if (this.deckCard[i + 1] / 4 > clubs.Max() / 4)
+                        if (this.deckCard[card + 1] / 4 > clubs.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
 
                         //If not Rank Factor is set using table clubs card with the maximum rank
-                        else if (this.deckCard[i] / 4 < clubs.Max() / 4 && this.deckCard[i + 1] / 4 < clubs.Max() / 4)
+                        else if (this.deckCard[card] / 4 < clubs.Max() / 4 && this.deckCard[card + 1] / 4 < clubs.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = clubs.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
@@ -1876,16 +1788,16 @@ namespace Poker
                 if (clubs.Length == 4)//different cards in hand
                 {
                     //Checks if current player first card is clubs
-                    if (this.deckCard[i] % 4 != this.deckCard[i + 1] % 4 && this.deckCard[i] % 4 == clubs[0] % 4)
+                    if (this.deckCard[card] % 4 != this.deckCard[card + 1] % 4 && this.deckCard[card] % 4 == clubs[0] % 4)
                     {
                         //Checks if current player first card is higher than the highest clubs from the table
                         //If so sets Rank Factor accordingly
-                        if (this.deckCard[i] / 4 > clubs.Max() / 4)
+                        if (this.deckCard[card] / 4 > clubs.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                         ////If not Rank Factor is set using table clubs card with the maximum rank
@@ -1894,22 +1806,22 @@ namespace Poker
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = clubs.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
 
                     //Checks if current player's second card is clubs
-                    if (this.deckCard[i + 1] % 4 != this.deckCard[i] % 4 && this.deckCard[i + 1] % 4 == clubs[0] % 4)
+                    if (this.deckCard[card + 1] % 4 != this.deckCard[card] % 4 && this.deckCard[card + 1] % 4 == clubs[0] % 4)
                     {
                         //Checks if current player second card is higher than the highest clubs card from the table
                         //If so sets Rank Factor accordingly
-                        if (this.deckCard[i + 1] / 4 > clubs.Max() / 4)
+                        if (this.deckCard[card + 1] / 4 > clubs.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
 
@@ -1919,7 +1831,7 @@ namespace Poker
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = clubs.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
@@ -1931,34 +1843,34 @@ namespace Poker
                     //Checks if player's first card is clubs and is bigger than table lowest card
                     //If so, the player does not play the board
                     //If so, sets competing hand rank factor using player first card
-                    if (this.deckCard[i] % 4 == clubs[0] % 4 && this.deckCard[i] / 4 > clubs.Min() / 4)
+                    if (this.deckCard[card] % 4 == clubs[0] % 4 && this.deckCard[card] / 4 > clubs.Min() / 4)
                     {
                         currentPlayerCategoryFactor = 5;
-                        currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                        currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
                     ////Checks if player second card is clubs and is bigger than table lowest card
                     //If so the player does not play the board
                     //If so sets competing hard ad rank factor using player second card
-                    if (this.deckCard[i + 1] % 4 == clubs[0] % 4 && this.deckCard[i + 1] / 4 > clubs.Min() / 4)
+                    if (this.deckCard[card + 1] % 4 == clubs[0] % 4 && this.deckCard[card + 1] / 4 > clubs.Min() / 4)
                     {
                         currentPlayerCategoryFactor = 5;
-                        currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                        currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
 
                     //if current player's two cards are smaller than the table lowest
                     //Rank Factor is set using table lowest card
-                    else if (this.deckCard[i] / 4 < clubs.Min() / 4 && this.deckCard[i + 1] / 4 < clubs.Min())
+                    else if (this.deckCard[card] / 4 < clubs.Min() / 4 && this.deckCard[card + 1] / 4 < clubs.Min())
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = clubs.Max() + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
                 }
@@ -1966,31 +1878,31 @@ namespace Poker
                 //Makes the same check for diamonds suit
                 if (diamonds.Length == 3 || diamonds.Length == 4)
                 {
-                    if (this.deckCard[i] % 4 == this.deckCard[i + 1] % 4 && this.deckCard[i] % 4 == diamonds[0] % 4)
+                    if (this.deckCard[card] % 4 == this.deckCard[card + 1] % 4 && this.deckCard[card] % 4 == diamonds[0] % 4)
                     {
-                        if (this.deckCard[i] / 4 > diamonds.Max() / 4)
+                        if (this.deckCard[card] / 4 > diamonds.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
 
-                        if (this.deckCard[i + 1] / 4 > diamonds.Max() / 4)
+                        if (this.deckCard[card + 1] / 4 > diamonds.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
-                        else if (this.deckCard[i] / 4 < diamonds.Max() / 4 && this.deckCard[i + 1] / 4 < diamonds.Max() / 4)
+                        else if (this.deckCard[card] / 4 < diamonds.Max() / 4 && this.deckCard[card + 1] / 4 < diamonds.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = diamonds.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
@@ -1998,14 +1910,14 @@ namespace Poker
 
                 if (diamonds.Length == 4)//different cards in hand
                 {
-                    if (this.deckCard[i] % 4 != this.deckCard[i + 1] % 4 && this.deckCard[i] % 4 == diamonds[0] % 4)
+                    if (this.deckCard[card] % 4 != this.deckCard[card + 1] % 4 && this.deckCard[card] % 4 == diamonds[0] % 4)
                     {
-                        if (this.deckCard[i] / 4 > diamonds.Max() / 4)
+                        if (this.deckCard[card] / 4 > diamonds.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                         else
@@ -2013,19 +1925,19 @@ namespace Poker
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = diamonds.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
 
-                    if (this.deckCard[i + 1] % 4 != this.deckCard[i] % 4 && this.deckCard[i + 1] % 4 == diamonds[0] % 4)
+                    if (this.deckCard[card + 1] % 4 != this.deckCard[card] % 4 && this.deckCard[card + 1] % 4 == diamonds[0] % 4)
                     {
-                        if (this.deckCard[i + 1] / 4 > diamonds.Max() / 4)
+                        if (this.deckCard[card + 1] / 4 > diamonds.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                         else
@@ -2033,7 +1945,7 @@ namespace Poker
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = diamonds.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
@@ -2041,29 +1953,29 @@ namespace Poker
 
                 if (diamonds.Length == 5)
                 {
-                    if (this.deckCard[i] % 4 == diamonds[0] % 4 && this.deckCard[i] / 4 > diamonds.Min() / 4)
+                    if (this.deckCard[card] % 4 == diamonds[0] % 4 && this.deckCard[card] / 4 > diamonds.Min() / 4)
                     {
                         currentPlayerCategoryFactor = 5;
-                        currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                        currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
 
-                    if (this.deckCard[i + 1] % 4 == diamonds[0] % 4 && this.deckCard[i + 1] / 4 > diamonds.Min() / 4)
+                    if (this.deckCard[card + 1] % 4 == diamonds[0] % 4 && this.deckCard[card + 1] / 4 > diamonds.Min() / 4)
                     {
                         currentPlayerCategoryFactor = 5;
-                        currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                        currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
-                    else if (this.deckCard[i] / 4 < diamonds.Min() / 4 && this.deckCard[i + 1] / 4 < diamonds.Min())
+                    else if (this.deckCard[card] / 4 < diamonds.Min() / 4 && this.deckCard[card + 1] / 4 < diamonds.Min())
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = diamonds.Max() + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
                 }
@@ -2071,31 +1983,31 @@ namespace Poker
                 //Makes the same check for hearts suit
                 if (hearts.Length == 3 || hearts.Length == 4)
                 {
-                    if (this.deckCard[i] % 4 == this.deckCard[i + 1] % 4 && this.deckCard[i] % 4 == hearts[0] % 4)
+                    if (this.deckCard[card] % 4 == this.deckCard[card + 1] % 4 && this.deckCard[card] % 4 == hearts[0] % 4)
                     {
-                        if (this.deckCard[i] / 4 > hearts.Max() / 4)
+                        if (this.deckCard[card] / 4 > hearts.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
 
-                        if (this.deckCard[i + 1] / 4 > hearts.Max() / 4)
+                        if (this.deckCard[card + 1] / 4 > hearts.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
-                        else if (this.deckCard[i] / 4 < hearts.Max() / 4 && this.deckCard[i + 1] / 4 < hearts.Max() / 4)
+                        else if (this.deckCard[card] / 4 < hearts.Max() / 4 && this.deckCard[card + 1] / 4 < hearts.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = hearts.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
@@ -2103,14 +2015,14 @@ namespace Poker
 
                 if (hearts.Length == 4)//different cards in hand
                 {
-                    if (this.deckCard[i] % 4 != this.deckCard[i + 1] % 4 && this.deckCard[i] % 4 == hearts[0] % 4)
+                    if (this.deckCard[card] % 4 != this.deckCard[card + 1] % 4 && this.deckCard[card] % 4 == hearts[0] % 4)
                     {
-                        if (this.deckCard[i] / 4 > hearts.Max() / 4)
+                        if (this.deckCard[card] / 4 > hearts.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                         else
@@ -2118,19 +2030,19 @@ namespace Poker
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = hearts.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
 
-                    if (this.deckCard[i + 1] % 4 != this.deckCard[i] % 4 && this.deckCard[i + 1] % 4 == hearts[0] % 4)
+                    if (this.deckCard[card + 1] % 4 != this.deckCard[card] % 4 && this.deckCard[card + 1] % 4 == hearts[0] % 4)
                     {
-                        if (this.deckCard[i + 1] / 4 > hearts.Max() / 4)
+                        if (this.deckCard[card + 1] / 4 > hearts.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                         else
@@ -2138,7 +2050,7 @@ namespace Poker
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = hearts.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
@@ -2146,29 +2058,29 @@ namespace Poker
 
                 if (hearts.Length == 5)
                 {
-                    if (this.deckCard[i] % 4 == hearts[0] % 4 && this.deckCard[i] / 4 > hearts.Min() / 4)
+                    if (this.deckCard[card] % 4 == hearts[0] % 4 && this.deckCard[card] / 4 > hearts.Min() / 4)
                     {
                         currentPlayerCategoryFactor = 5;
-                        currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                        currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
 
-                    if (this.deckCard[i + 1] % 4 == hearts[0] % 4 && this.deckCard[i + 1] / 4 > hearts.Min() / 4)
+                    if (this.deckCard[card + 1] % 4 == hearts[0] % 4 && this.deckCard[card + 1] / 4 > hearts.Min() / 4)
                     {
                         currentPlayerCategoryFactor = 5;
-                        currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                        currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
-                    else if (this.deckCard[i] / 4 < hearts.Min() / 4 && this.deckCard[i + 1] / 4 < hearts.Min())
+                    else if (this.deckCard[card] / 4 < hearts.Min() / 4 && this.deckCard[card + 1] / 4 < hearts.Min())
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = hearts.Max() + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
                 }
@@ -2176,31 +2088,31 @@ namespace Poker
                 //Makes the same check for spades suit
                 if (spades.Length == 3 || spades.Length == 4)
                 {
-                    if (this.deckCard[i] % 4 == this.deckCard[i + 1] % 4 && this.deckCard[i] % 4 == spades[0] % 4)
+                    if (this.deckCard[card] % 4 == this.deckCard[card + 1] % 4 && this.deckCard[card] % 4 == spades[0] % 4)
                     {
-                        if (this.deckCard[i] / 4 > spades.Max() / 4)
+                        if (this.deckCard[card] / 4 > spades.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
 
-                        if (this.deckCard[i + 1] / 4 > spades.Max() / 4)
+                        if (this.deckCard[card + 1] / 4 > spades.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
-                        else if (this.deckCard[i] / 4 < spades.Max() / 4 && this.deckCard[i + 1] / 4 < spades.Max() / 4)
+                        else if (this.deckCard[card] / 4 < spades.Max() / 4 && this.deckCard[card + 1] / 4 < spades.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = spades.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
@@ -2208,14 +2120,14 @@ namespace Poker
 
                 if (spades.Length == 4)//different cards in hand
                 {
-                    if (this.deckCard[i] % 4 != this.deckCard[i + 1] % 4 && this.deckCard[i] % 4 == spades[0] % 4)
+                    if (this.deckCard[card] % 4 != this.deckCard[card + 1] % 4 && this.deckCard[card] % 4 == spades[0] % 4)
                     {
-                        if (this.deckCard[i] / 4 > spades.Max() / 4)
+                        if (this.deckCard[card] / 4 > spades.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                         else
@@ -2223,19 +2135,19 @@ namespace Poker
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = spades.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
 
-                    if (this.deckCard[i + 1] % 4 != this.deckCard[i] % 4 && this.deckCard[i + 1] % 4 == spades[0] % 4)
+                    if (this.deckCard[card + 1] % 4 != this.deckCard[card] % 4 && this.deckCard[card + 1] % 4 == spades[0] % 4)
                     {
-                        if (this.deckCard[i + 1] / 4 > spades.Max() / 4)
+                        if (this.deckCard[card + 1] / 4 > spades.Max() / 4)
                         {
                             currentPlayerCategoryFactor = 5;
-                            currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                         else
@@ -2243,7 +2155,7 @@ namespace Poker
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = spades.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
                     }
@@ -2251,29 +2163,29 @@ namespace Poker
 
                 if (spades.Length == 5)
                 {
-                    if (this.deckCard[i] % 4 == spades[0] % 4 && this.deckCard[i] / 4 > spades.Min() / 4)
+                    if (this.deckCard[card] % 4 == spades[0] % 4 && this.deckCard[card] / 4 > spades.Min() / 4)
                     {
                         currentPlayerCategoryFactor = 5;
-                        currentPlayerRankFactor = this.deckCard[i] + currentPlayerCategoryFactor * 100;
+                        currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
 
-                    if (this.deckCard[i + 1] % 4 == spades[0] % 4 && this.deckCard[i + 1] / 4 > spades.Min() / 4)
+                    if (this.deckCard[card + 1] % 4 == spades[0] % 4 && this.deckCard[card + 1] / 4 > spades.Min() / 4)
                     {
                         currentPlayerCategoryFactor = 5;
-                        currentPlayerRankFactor = this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                        currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
-                    else if (this.deckCard[i] / 4 < spades.Min() / 4 && this.deckCard[i + 1] / 4 < spades.Min())
+                    else if (this.deckCard[card] / 4 < spades.Min() / 4 && this.deckCard[card + 1] / 4 < spades.Min())
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = spades.Max() + (currentPlayerCategoryFactor * 100);
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
                 }
@@ -2286,81 +2198,81 @@ namespace Poker
                 if (clubs.Length > 0)//Improper compare
                 {
                     //Checks the first of player's two cards
-                    if (this.deckCard[i] / 4 == 0 && this.deckCard[i] % 4 == clubs[0] % 4 && hasFlush && clubs.Length > 0)
+                    if (this.deckCard[card] / 4 == 0 && this.deckCard[card] % 4 == clubs[0] % 4 && hasFlush && clubs.Length > 0)
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
                     //Checks the second of player's two cards
-                    if (this.deckCard[i + 1] / 4 == 0 && this.deckCard[i + 1] % 4 == clubs[0] % 4 && hasFlush && clubs.Length > 0)
+                    if (this.deckCard[card + 1] / 4 == 0 && this.deckCard[card + 1] % 4 == clubs[0] % 4 && hasFlush && clubs.Length > 0)
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
 
                 //Then checks diamonds
                 if (diamonds.Length > 0)
                 {
-                    if (this.deckCard[i] / 4 == 0 && this.deckCard[i] % 4 == diamonds[0] % 4 && hasFlush && diamonds.Length > 0)
+                    if (this.deckCard[card] / 4 == 0 && this.deckCard[card] % 4 == diamonds[0] % 4 && hasFlush && diamonds.Length > 0)
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
-                    if (this.deckCard[i + 1] / 4 == 0 && this.deckCard[i + 1] % 4 == diamonds[0] % 4 && hasFlush && diamonds.Length > 0)
+                    if (this.deckCard[card + 1] / 4 == 0 && this.deckCard[card + 1] % 4 == diamonds[0] % 4 && hasFlush && diamonds.Length > 0)
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
 
                 //Then checks hearts
                 if (hearts.Length > 0)
                 {
-                    if (this.deckCard[i] / 4 == 0 && this.deckCard[i] % 4 == hearts[0] % 4 && hasFlush && hearts.Length > 0)
+                    if (this.deckCard[card] / 4 == 0 && this.deckCard[card] % 4 == hearts[0] % 4 && hasFlush && hearts.Length > 0)
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
-                    if (this.deckCard[i + 1] / 4 == 0 && this.deckCard[i + 1] % 4 == hearts[0] % 4 && hasFlush && hearts.Length > 0)
+                    if (this.deckCard[card + 1] / 4 == 0 && this.deckCard[card + 1] % 4 == hearts[0] % 4 && hasFlush && hearts.Length > 0)
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
 
                 //Then checks spades
                 if (spades.Length > 0)
                 {
-                    if (this.deckCard[i] / 4 == 0 && this.deckCard[i] % 4 == spades[0] % 4 && hasFlush && spades.Length > 0)
+                    if (this.deckCard[card] / 4 == 0 && this.deckCard[card] % 4 == spades[0] % 4 && hasFlush && spades.Length > 0)
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
-                    if (this.deckCard[i + 1] / 4 == 0 && this.deckCard[i + 1] % 4 == spades[0] % 4 && hasFlush)
+                    if (this.deckCard[card + 1] / 4 == 0 && this.deckCard[card + 1] % 4 == spades[0] % 4 && hasFlush)
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
             }
@@ -2394,15 +2306,15 @@ namespace Poker
                             currentPlayerCategoryFactor = 4;
                             currentPlayerRankFactor = op.Max() + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 4 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         }
-                            ////Case when not
+                        ////Case when not
                         else
                         {
                             currentPlayerCategoryFactor = 4;
                             currentPlayerRankFactor = op[j + 4] + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 4 });
-                            winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         }
                     }
 
@@ -2413,7 +2325,7 @@ namespace Poker
                         currentPlayerCategoryFactor = 4;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
                         this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 4 });
-                        winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                        this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
             }
@@ -2438,14 +2350,14 @@ namespace Poker
                     if (rankGroup.Length == 3)
                     {
                         //Sets category and rank factor
-                        
+
                         //Case when the three cards are aces
                         if (rankGroup.Max() / 4 == 0)
                         {
                             currentPlayerCategoryFactor = 3;
                             currentPlayerRankFactor = 13 * 3 + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 3 });
-                            winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
 
                         //Case when the three cards are not aces
@@ -2454,7 +2366,7 @@ namespace Poker
                             currentPlayerCategoryFactor = 3;
                             currentPlayerRankFactor = rankGroup[0] / 4 + rankGroup[1] / 4 + rankGroup[2] / 4 + currentPlayerCategoryFactor * 100;
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 3 });
-                            winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
                     }
                 }
@@ -2466,7 +2378,7 @@ namespace Poker
         /// </summary>
         /// <param name="currentPlayerCategoryFactor">The current player's hand category factor</param>
         /// <param name="currentPlayerRankFactor">The current player's hand rank factor</param>        
-        public void CheckTwoPair(ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
+        public void CheckTwoPair(int card, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
         {
             if (currentPlayerCategoryFactor >= -1)//always true
             {
@@ -2477,7 +2389,7 @@ namespace Poker
 
                     //Checks if current player's two cards form a pair
                     //If yes does nothing, if not continues
-                    if (this.deckCard[i] / 4 != this.deckCard[i + 1] / 4)
+                    if (this.deckCard[card] / 4 != this.deckCard[card + 1] / 4)
                     {
                         for (int k = 1; k <= max; k++)
                         {
@@ -2492,36 +2404,38 @@ namespace Poker
                                 //and a pair from player card2(i + 1) and table card - k
                                 //or the opposite 
                                 //If yes adds a two pair hand to competing hands
-                                if (this.deckCard[i] / 4 == this.deckCard[tableCard] / 4 && this.deckCard[i + 1] / 4 == this.deckCard[tableCard - k] / 4 ||
-                                    this.deckCard[i + 1] / 4 == this.deckCard[tableCard] / 4 && this.deckCard[i] / 4 == this.deckCard[tableCard - k] / 4)
+                                if (this.deckCard[card] / 4 == this.deckCard[tableCard] / 4 &&
+                                    this.deckCard[card + 1] / 4 == this.deckCard[tableCard - k] / 4 ||
+                                    this.deckCard[card + 1] / 4 == this.deckCard[tableCard] / 4 &&
+                                    this.deckCard[card] / 4 == this.deckCard[tableCard - k] / 4)
                                 {
                                     if (!msgbox)
                                     {
                                         //Case when player first card is an ace
-                                        if (this.deckCard[i] / 4 == 0)
+                                        if (this.deckCard[card] / 4 == 0)
                                         {
                                             currentPlayerCategoryFactor = 2;
-                                            currentPlayerRankFactor = ((13 * 4) + ((this.deckCard[i + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
+                                            currentPlayerRankFactor = ((13 * 4) + ((this.deckCard[card + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
                                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
-                                            winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                                            this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
                                         //Case when player second hand is an ace
-                                        if (this.deckCard[i + 1] / 4 == 0)
+                                        if (this.deckCard[card + 1] / 4 == 0)
                                         {
                                             currentPlayerCategoryFactor = 2;
-                                            currentPlayerRankFactor = ((13 * 4) + ((this.deckCard[i] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
+                                            currentPlayerRankFactor = ((13 * 4) + ((this.deckCard[card] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
                                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
-                                            winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                                            this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
                                         //Case when player cards are not aces
-                                        if (this.deckCard[i + 1] / 4 != 0 && this.deckCard[i] / 4 != 0)
+                                        if (this.deckCard[card + 1] / 4 != 0 && this.deckCard[card] / 4 != 0)
                                         {
                                             currentPlayerCategoryFactor = 2;
-                                            currentPlayerRankFactor = (((this.deckCard[i] / 4) * 2) + ((this.deckCard[i + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
+                                            currentPlayerRankFactor = (((this.deckCard[card] / 4) * 2) + ((this.deckCard[card + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
                                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
-                                            winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                                            this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
                                     }
 
@@ -2533,7 +2447,7 @@ namespace Poker
                 }
             }
         }
-  
+
         /// <summary>
         /// Checks if the current player has two pairs, 
         /// one of which is from table cards,
@@ -2541,7 +2455,7 @@ namespace Poker
         /// </summary>
         /// <param name="currentPlayerCategoryFactor">The current player's hand category factor</param>
         /// <param name="currentPlayerRankFactor">The current player's hand rank factor</param>        
-        public void CheckPairTwoPair(ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
+        public void CheckPairTwoPair(int card, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
         {
             if (currentPlayerCategoryFactor >= -1)//always true
             {
@@ -2565,45 +2479,45 @@ namespace Poker
                                 //Checks if any of current player's two cards form a three with the pair
                                 //If not and if current player has a pair hand confirmed from CheckPairFromHand(currentPlayerCategoryFactor == 1)
                                 //determines Hand Category and Rank Factor
-                                if (this.deckCard[tableCard] / 4 != this.deckCard[i] / 4 && this.deckCard[tableCard] / 4 != this.deckCard[i + 1] / 4 && currentPlayerCategoryFactor == 1)
+                                if (this.deckCard[tableCard] / 4 != this.deckCard[card] / 4 && this.deckCard[tableCard] / 4 != this.deckCard[card + 1] / 4 && currentPlayerCategoryFactor == 1)
                                 {
                                     if (!msgbox)
                                     {
                                         //Checks if current player has an ace as first card
                                         //Special case in setting rank factor
-                                        if (this.deckCard[i + 1] / 4 == 0)
+                                        if (this.deckCard[card + 1] / 4 == 0)
                                         {
                                             currentPlayerCategoryFactor = 2;
-                                            currentPlayerRankFactor = (((this.deckCard[i] / 4) * 2) + (13 * 4)) + (currentPlayerCategoryFactor * 100);
+                                            currentPlayerRankFactor = (((this.deckCard[card] / 4) * 2) + (13 * 4)) + (currentPlayerCategoryFactor * 100);
                                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
                                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
                                         //Same check for second card
-                                        if (this.deckCard[i] / 4 == 0)
+                                        if (this.deckCard[card] / 4 == 0)
                                         {
                                             currentPlayerCategoryFactor = 2;
-                                            currentPlayerRankFactor = (((this.deckCard[i + 1] / 4) * 2) + (13 * 4)) + (currentPlayerCategoryFactor * 100);
+                                            currentPlayerRankFactor = (((this.deckCard[card + 1] / 4) * 2) + (13 * 4)) + (currentPlayerCategoryFactor * 100);
                                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
                                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
                                         //Player first card is not an ace
                                         //Usual case in setting rank factor
-                                        if (this.deckCard[i + 1] / 4 != 0)
+                                        if (this.deckCard[card + 1] / 4 != 0)
                                         {
                                             currentPlayerCategoryFactor = 2;
-                                            currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 2) + ((this.deckCard[i + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
+                                            currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 2) + ((this.deckCard[card + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
                                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
                                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
                                         //Player second card is not an ace
                                         //Usual case in setting rank factor
-                                        if (this.deckCard[i] / 4 != 0)
+                                        if (this.deckCard[card] / 4 != 0)
                                         {
                                             currentPlayerCategoryFactor = 2;
-                                            currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 2) + ((this.deckCard[i] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
+                                            currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 2) + ((this.deckCard[card] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
                                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
                                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
@@ -2620,14 +2534,14 @@ namespace Poker
                                     {
                                         //Checks which of player's two cards is higher and adds competing hand
                                         //In this case first card is higher
-                                        if (this.deckCard[i] / 4 > this.deckCard[i + 1] / 4)
+                                        if (this.deckCard[card] / 4 > this.deckCard[card + 1] / 4)
                                         {
                                             //Case when the higher card is an ace 
                                             //Different rank factor
                                             if (this.deckCard[tableCard] / 4 == 0)
                                             {
                                                 currentPlayerCategoryFactor = 0;
-                                                currentPlayerRankFactor = 13 + this.deckCard[i] / 4 + currentPlayerCategoryFactor * 100;
+                                                currentPlayerRankFactor = 13 + this.deckCard[card] / 4 + currentPlayerCategoryFactor * 100;
                                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
                                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                             }
@@ -2636,7 +2550,7 @@ namespace Poker
                                             else
                                             {
                                                 currentPlayerCategoryFactor = 0;
-                                                currentPlayerRankFactor = this.deckCard[tableCard] / 4 + this.deckCard[i] / 4 + currentPlayerCategoryFactor * 100;
+                                                currentPlayerRankFactor = this.deckCard[tableCard] / 4 + this.deckCard[card] / 4 + currentPlayerCategoryFactor * 100;
                                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
                                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                             }
@@ -2649,7 +2563,7 @@ namespace Poker
                                             if (this.deckCard[tableCard] / 4 == 0)
                                             {
                                                 currentPlayerCategoryFactor = 0;
-                                                currentPlayerRankFactor = 13 + this.deckCard[i + 1] + currentPlayerCategoryFactor * 100;
+                                                currentPlayerRankFactor = 13 + this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
                                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
                                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                             }
@@ -2658,7 +2572,7 @@ namespace Poker
                                             else
                                             {
                                                 currentPlayerCategoryFactor = 0;
-                                                currentPlayerRankFactor = this.deckCard[tableCard] / 4 + this.deckCard[i + 1] / 4 + currentPlayerCategoryFactor * 100;
+                                                currentPlayerRankFactor = this.deckCard[tableCard] / 4 + this.deckCard[card + 1] / 4 + currentPlayerCategoryFactor * 100;
                                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
                                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                             }
@@ -2679,7 +2593,7 @@ namespace Poker
         /// </summary>
         /// <param name="currentPlayerCategoryFactor">The current player's hand category factor</param>
         /// <param name="currentPlayerRankFactor">The current player's hand rank factor</param>        
-        public void CheckPairFromHand(ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
+        public void CheckPairFromHand(int card, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
         {
             if (currentPlayerCategoryFactor >= -1)
             {
@@ -2687,13 +2601,13 @@ namespace Poker
 
                 //Checks if player's two cards form a pair
                 //If so adds competing pair hand
-                if (this.deckCard[i] / 4 == this.deckCard[i + 1] / 4)
+                if (this.deckCard[card] / 4 == this.deckCard[card + 1] / 4)
                 {
                     if (!msgbox)
                     {
                         //Checks if the player has an ace 
                         //If so adds 13(ace rank)* 4 to rank factor
-                        if (this.deckCard[i] / 4 == 0)
+                        if (this.deckCard[card] / 4 == 0)
                         {
                             currentPlayerCategoryFactor = 1;
                             currentPlayerRankFactor = 13 * 4 + currentPlayerCategoryFactor * 100;
@@ -2704,7 +2618,7 @@ namespace Poker
                         else
                         {
                             currentPlayerCategoryFactor = 1;
-                            currentPlayerRankFactor = ((this.deckCard[i + 1] / 4) * 4) + (currentPlayerCategoryFactor * 100);
+                            currentPlayerRankFactor = ((this.deckCard[card + 1] / 4) * 4) + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
@@ -2719,7 +2633,7 @@ namespace Poker
                 for (int tableCard = 16; tableCard >= 12; tableCard--)
                 {
                     //Checks if a table card and the second of the current player's two cards form a pair
-                    if (this.deckCard[i + 1] / 4 == this.deckCard[tableCard] / 4)
+                    if (this.deckCard[card + 1] / 4 == this.deckCard[tableCard] / 4)
                     {
                         //Checks if current player's two cards form a pair
                         //If current player's two cards form no pair,then adds current player competing hand as a pair
@@ -2727,10 +2641,10 @@ namespace Poker
                         {
                             //Checks if current player has an ace
                             //Special case for forming rank factor
-                            if (this.deckCard[i + 1] / 4 == 0)
+                            if (this.deckCard[card + 1] / 4 == 0)
                             {
                                 currentPlayerCategoryFactor = 1;
-                                currentPlayerRankFactor = 13 * 4 + this.deckCard[i] / 4 + currentPlayerCategoryFactor * 100;
+                                currentPlayerRankFactor = 13 * 4 + this.deckCard[card] / 4 + currentPlayerCategoryFactor * 100;
                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
@@ -2738,7 +2652,7 @@ namespace Poker
                             else
                             {
                                 currentPlayerCategoryFactor = 1;
-                                currentPlayerRankFactor = (((this.deckCard[i + 1] / 4) * 4) + (this.deckCard[i] / 4)) + (currentPlayerCategoryFactor * 100);
+                                currentPlayerRankFactor = (((this.deckCard[card + 1] / 4) * 4) + (this.deckCard[card] / 4)) + (currentPlayerCategoryFactor * 100);
                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
@@ -2747,7 +2661,7 @@ namespace Poker
                         msgbox = true;
                     }
                     ////Checks if a table card and the first of the current player's two cards form a pair
-                    if (this.deckCard[i] / 4 == this.deckCard[tableCard] / 4)
+                    if (this.deckCard[card] / 4 == this.deckCard[tableCard] / 4)
                     {
                         //Checks if current player\s two cards form a pair
                         //If not, adds a competing hand pair with the following factors
@@ -2755,20 +2669,20 @@ namespace Poker
                         {
                             //Checks if current player has an ace
                             //Special case for forming rank factor
-                            if (this.deckCard[i] / 4 == 0)
+                            if (this.deckCard[card] / 4 == 0)
                             {
                                 currentPlayerCategoryFactor = 1;
-                                currentPlayerRankFactor = 13 * 4 + this.deckCard[i + 1] / 4 + currentPlayerCategoryFactor * 100;
+                                currentPlayerRankFactor = 13 * 4 + this.deckCard[card + 1] / 4 + currentPlayerCategoryFactor * 100;
                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
-                                winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                                this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
                             ////If not, this is the usual case for forming rank factor
                             else
                             {
                                 currentPlayerCategoryFactor = 1;
-                                currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 4) + (this.deckCard[i + 1] / 4)) + (currentPlayerCategoryFactor * 100);
+                                currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 4) + (this.deckCard[card + 1] / 4)) + (currentPlayerCategoryFactor * 100);
                                 this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
-                                winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                                this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
                         }
 
@@ -2777,23 +2691,23 @@ namespace Poker
                 }
             }
         }
-        
+
         /// <summary>
         /// If current player has no hand of category 1 or higher, his hand is determined by his highest card.
         /// </summary>
         /// <param name="currentPlayerCategoryFactor">The current player hand category factor</param>
         /// <param name="currentPlayerRankFactor">TThe current player hand rank factor</param>        
-        public void CheckHighCard(ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
+        public void CheckHighCard(int card, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
         {
             //Checks if current player does not have a higher hand
             //If so, current player only competing hand is the high card hand
             if (currentPlayerCategoryFactor == -1)
             {
                 //If the first of the two cards is higher, ranks are determined from it
-                if (this.deckCard[i] / 4 > this.deckCard[i + 1] / 4)
+                if (this.deckCard[card] / 4 > this.deckCard[card + 1] / 4)
                 {
                     currentPlayerCategoryFactor = -1;
-                    currentPlayerRankFactor = this.deckCard[i] / 4;
+                    currentPlayerRankFactor = this.deckCard[card] / 4;
                     this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = -1 });
                     winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                 }
@@ -2801,13 +2715,13 @@ namespace Poker
                 else
                 {
                     currentPlayerCategoryFactor = -1;
-                    currentPlayerRankFactor = this.deckCard[i + 1] / 4;
+                    currentPlayerRankFactor = this.deckCard[card + 1] / 4;
                     this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = -1 });
                     winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                 }
 
                 //Checks if you have an ace
-                if (this.deckCard[i] / 4 == 0 || this.deckCard[i + 1] / 4 == 0)
+                if (this.deckCard[card] / 4 == 0 || this.deckCard[card + 1] / 4 == 0)
                 {
                     currentPlayerCategoryFactor = -1;
                     currentPlayerRankFactor = 13;
@@ -2816,7 +2730,7 @@ namespace Poker
                 }
             }
         }
-    
+
         /// <summary>
         /// Checks if the current player is the only or one of the winners.
         /// If current player is the last player distributes all the winners their winnings.
@@ -2826,7 +2740,7 @@ namespace Poker
         /// <param name="currentText">The name of the current player</param>
         /// <param name="chips">The chips parameter</param>
         /// <param name="lastly">The last player name</param>        
-       public void CheckWinners(double currentPlayerCategoryFactor, double currentPlayerRankFactor, string currentText, int chips, string lastly)
+        public void CheckWinners(double currentPlayerCategoryFactor, double currentPlayerRankFactor, string currentText, int chips, string lastly)
         {
             //Checks if all players have folded
             //sets lastly string to Bot 5
@@ -3094,11 +3008,11 @@ namespace Poker
                     if (cardToBeDealt[j].Image != shuffledDeck[j])
                     {
                         cardToBeDealt[j].Image = shuffledDeck[j];
-                        this.playerCall = 0;                       
-                        this.bot1Call = 0; 
-                        this.bot2Call = 0; 
-                        this.bot3Call = 0; 
-                        this.bot4Call = 0; 
+                        this.playerCall = 0;
+                        this.bot1Call = 0;
+                        this.bot2Call = 0;
+                        this.bot3Call = 0;
+                        this.bot4Call = 0;
                         this.bot5Call = 0;
 
                         this.playerRaise = 0;
@@ -3301,7 +3215,7 @@ namespace Poker
                 await Turns();
             }
         }
- 
+
         /// <summary>
         /// Adjusts player's raise and call statistics.
         /// There are 2 options for 2 steps:
@@ -3568,7 +3482,7 @@ namespace Poker
                 await FinishGame(2);
             }
         }
-    
+
         /// <summary>
         /// Fix game winners.
         /// Reinitializes variables, disables players panels, 
@@ -3773,7 +3687,7 @@ namespace Poker
             CheckWinners(this.bot4HandCategoryFactor, this.bot4HandRankFactor, "Bot 4", bot4Chips, lastPlayerNotFolded);
             CheckWinners(this.bot5HandCategoryFactor, this.bot5HandRankFactor, "Bot 5", bot5Chips, lastPlayerNotFolded);
         }
-  
+
         /// <summary>
         /// This is the AIEngine for bot players.
         /// Generates a choice for every bot, every turn 
@@ -3856,7 +3770,7 @@ namespace Poker
                 cardToBeDealt[card2].Visible = false;
             }
         }
-   
+
         /// <summary>
         /// Bot player makes a choice for this turn if it has a HighCard hand.
         /// Uses HP choice maker.
@@ -3872,7 +3786,7 @@ namespace Poker
         {
             HP(ref botChips, ref botTurn, ref botFoldsTurn, botStatus, botHandRankFactor, 20, 25);
         }
-        
+
         /// <summary>
         /// Bot player makes a choice for this turn if he has a pair hand from table.
         /// Uses HP choice maker.
@@ -3888,7 +3802,7 @@ namespace Poker
         {
             HP(ref botChips, ref botTurn, ref botFoldsTurn, botStatus, botHandRankFactor, 16, 25);
         }
- 
+
         /// <summary>
         /// Bot player makes a choice for this turn if he has a PairHand and
         /// it is from a player's card and a table card or both player's cards.
@@ -3919,7 +3833,7 @@ namespace Poker
                 PH(ref botChips, ref botTurn, ref botFoldsTurn, botStatus, callParameter, 9, raiseParameter);
             }
         }
-      
+
         /// <summary>
         /// Bot player makes a choice for this turn if he has a TwoPair hand.
         /// Uses PH choice maker.
@@ -4071,7 +3985,7 @@ namespace Poker
                 Smooth(ref botChips, ref botTurn, ref botFoldsTurn, botStatus, botName, callParameter, raiseParameter);
             }
         }
-        
+
         /// <summary>
         /// Bot player makes a choice for this turn if he has Four of a kind.
         /// Uses Smooth choice maker.
@@ -4095,7 +4009,7 @@ namespace Poker
                 Smooth(ref botChips, ref botTurn, ref botFoldsTurn, botStatus, botName, callParameter, raiseParameter);
             }
         }
- 
+
         /// <summary>
         /// Bot player makes a choice for this turn if he has a StraightFlush.
         /// Uses Smooth choice maker.
@@ -4230,7 +4144,7 @@ namespace Poker
                     {
                         Call(ref botChips, ref botTurn, botStatus);
                     }
-                        ////Folds
+                    ////Folds
                     else
                     {
                         Fold(ref botTurn, ref botFoldsTurn, botStatus);
@@ -4271,7 +4185,7 @@ namespace Poker
                 botFoldsTurn = true;
             }
         }
-  
+
         /// <summary>
         /// Choice maker for bots if they have a hand which is a pair or two pairs.
         /// Uses BotChoiceFormula formula.
@@ -4339,8 +4253,8 @@ namespace Poker
                                 this.raiseAmount = BotChoiceFormula(botChips, n);
                                 Raised(ref botChips, ref botTurn, botStatus);
                             }
-                                ////If there was no previous raise
-                            else 
+                            ////If there was no previous raise
+                            else
                             {
                                 this.raiseAmount = callAmount * 2;
                                 Raised(ref botChips, ref botTurn, botStatus);
@@ -4394,7 +4308,7 @@ namespace Poker
                                 this.raiseAmount = BotChoiceFormula(botChips, n - randChoice);
                                 Raised(ref botChips, ref botTurn, botStatus);
                             }
-                                ////If raiseAmount == 0
+                            ////If raiseAmount == 0
                             else
                             {
                                 this.raiseAmount = callAmount * 2;
@@ -4642,8 +4556,8 @@ namespace Poker
             {
                 buttonRaise.Enabled = false;
             }
-        }   
-        
+        }
+
         /// <summary>
         /// Click Fold button event.
         /// Describes a series of changes in four variable values, 
@@ -4658,7 +4572,7 @@ namespace Poker
             this.playerFoldOrAllIn = true;
             await Turns();
         }
-     
+
         /// <summary>
         /// Click Check button event.
         /// Describes a series of changes in four variable values, 
@@ -4684,8 +4598,8 @@ namespace Poker
             }
 
             await Turns();
-        }     
-        
+        }
+
         /// <summary>
         /// Click Call button event. 
         /// Describes a series of changes connected to Call status,
@@ -4710,7 +4624,7 @@ namespace Poker
                 {
                     textboxPot.Text = (int.Parse(textboxPot.Text) + callAmount).ToString();
                 }
-                    ////If pot was not empty new value is added to old value
+                ////If pot was not empty new value is added to old value
                 else
                 {
                     textboxPot.Text = callAmount.ToString();
@@ -4725,7 +4639,7 @@ namespace Poker
             }
 
                 //If human player's chips are less than call amount,
-                //he is all in and corresponding variables are reset with the new values
+            //he is all in and corresponding variables are reset with the new values
             else if (this.playerChips <= callAmount && callAmount > 0)
             {
                 textboxPot.Text = (int.Parse(textboxPot.Text) + this.playerChips).ToString();
@@ -4739,7 +4653,7 @@ namespace Poker
 
             await Turns();
         }
-        
+
         /// <summary> 
         /// Click Raise button event.
         /// Describes a series of changes connected to Raise status,
@@ -4782,8 +4696,8 @@ namespace Poker
                         last = 0;
                         this.playerRaise = Convert.ToInt32(this.raiseAmount);
                     }
-                        ////In this case human player raises with all his chips, 
-                        //is all in
+                    ////In this case human player raises with all his chips, 
+                    //is all in
                     else
                     {
                         callAmount = this.playerChips;
@@ -4834,7 +4748,7 @@ namespace Poker
 
             textboxPlayerChips.Text = "Chips : " + this.playerChips.ToString();
         }
-              
+
         /// <summary>
         /// Blinds button click event.
         /// Shows buttons for the two blinds with text messages for their amounts.     
@@ -4860,7 +4774,7 @@ namespace Poker
                 buttonSmallBlind.Visible = false;
             }
         }
- 
+
         /// <summary>
         /// SmallBlind button click event.
         /// Checks the entered text for small blind value.
@@ -4907,7 +4821,7 @@ namespace Poker
                 MessageBox.Show("The changes have been saved ! They will become available the next hand you play. ");
             }
         }
-        
+
         /// <summary>
         /// BigBlind button click event.
         /// Checks the entered text for big blind value.
@@ -4965,7 +4879,7 @@ namespace Poker
             windowWidth = this.Width;
             windowHeight = this.Height;
         }
-   
+
         /// <summary>
         /// Form loading event.
         /// </summary>
