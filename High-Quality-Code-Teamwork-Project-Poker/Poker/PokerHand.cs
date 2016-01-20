@@ -13,6 +13,12 @@ namespace Poker
     /// </summary>    
     public class PokerHand
     {
+        public PokerHand(double rankFactor, double categoryFactor)
+        {
+            this.RankFactor = rankFactor;
+            this.CategoryFactor = categoryFactor;
+        }
+
         /// <summary>
         /// Gets or sets the RankFactor property
         /// </summary>        

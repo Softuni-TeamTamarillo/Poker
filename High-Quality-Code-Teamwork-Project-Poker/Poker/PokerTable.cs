@@ -1530,7 +1530,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 8;
                         currentPlayerRankFactor = (distinctClubs.Max() / 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 8 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -1539,7 +1539,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 9;
                         currentPlayerRankFactor = (distinctClubs.Max() / 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 9 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -1552,7 +1552,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 8;
                         currentPlayerRankFactor = (distinctDiamonds.Max() / 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 8 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -1560,7 +1560,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 9;
                         currentPlayerRankFactor = (distinctDiamonds.Max() / 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 9 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -1572,7 +1572,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 8;
                         currentPlayerRankFactor = (distinctHearts.Max() / 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 8 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -1580,7 +1580,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 9;
                         currentPlayerRankFactor = (distinctHearts.Max() / 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 9 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -1592,7 +1592,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 8;
                         currentPlayerRankFactor = (distinctSpades.Max() / 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 8 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -1600,7 +1600,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 9;
                         currentPlayerRankFactor = (distinctSpades.Max() / 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 9 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -1626,7 +1626,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 7;
                         currentPlayerRankFactor = ((combinedCards[j] / 4) * 4) + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 7 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -1635,7 +1635,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 7;
                         currentPlayerRankFactor = 13 * 4 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 7 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -1678,7 +1678,7 @@ namespace Poker
                             {
                                 currentPlayerCategoryFactor = 6;
                                 currentPlayerRankFactor = (13 * 2) + (currentPlayerCategoryFactor * 100);
-                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 6 });
+                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                 this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                                 break;
                             }
@@ -1689,7 +1689,7 @@ namespace Poker
                             {
                                 currentPlayerCategoryFactor = 6;
                                 currentPlayerRankFactor = ((rankGroup.Max() / 4) * 2) + (currentPlayerCategoryFactor * 100);
-                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 6 });
+                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                 this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                                 break;
                             }
@@ -1756,7 +1756,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1767,7 +1767,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1777,7 +1777,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = clubs.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1796,7 +1796,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1805,7 +1805,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = clubs.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1820,7 +1820,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1830,7 +1830,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = clubs.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1847,7 +1847,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -1858,7 +1858,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -1869,7 +1869,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = clubs.Max() + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -1884,7 +1884,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1893,7 +1893,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1901,7 +1901,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = diamonds.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1916,7 +1916,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1924,7 +1924,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = diamonds.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1936,7 +1936,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1944,7 +1944,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = diamonds.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1957,7 +1957,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -1966,7 +1966,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -1974,7 +1974,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = diamonds.Max() + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -1989,7 +1989,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -1998,7 +1998,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2006,7 +2006,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = hearts.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2021,7 +2021,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2029,7 +2029,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = hearts.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2041,7 +2041,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2049,7 +2049,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = hearts.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2062,7 +2062,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -2071,7 +2071,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -2079,7 +2079,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = hearts.Max() + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -2094,7 +2094,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2103,7 +2103,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2111,7 +2111,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = spades.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2126,7 +2126,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2134,7 +2134,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = spades.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2146,7 +2146,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2154,7 +2154,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 5;
                             currentPlayerRankFactor = spades.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                             hasFlush = true;
                         }
@@ -2167,7 +2167,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = this.deckCard[card] + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -2176,7 +2176,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -2184,7 +2184,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5;
                         currentPlayerRankFactor = spades.Max() + (currentPlayerCategoryFactor * 100);
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         hasFlush = true;
                     }
@@ -2202,7 +2202,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -2211,7 +2211,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -2223,7 +2223,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -2231,7 +2231,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -2243,7 +2243,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -2251,7 +2251,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -2263,7 +2263,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
 
@@ -2271,7 +2271,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 5.5;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 5.5 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -2305,7 +2305,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 4;
                             currentPlayerRankFactor = op.Max() + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 4 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         }
                         ////Case when not
@@ -2313,7 +2313,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 4;
                             currentPlayerRankFactor = op[j + 4] + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 4 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                         }
                     }
@@ -2324,7 +2324,7 @@ namespace Poker
                     {
                         currentPlayerCategoryFactor = 4;
                         currentPlayerRankFactor = 13 + currentPlayerCategoryFactor * 100;
-                        this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 4 });
+                        this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                         this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                     }
                 }
@@ -2356,7 +2356,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 3;
                             currentPlayerRankFactor = 13 * 3 + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 3 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
 
@@ -2365,7 +2365,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 3;
                             currentPlayerRankFactor = rankGroup[0] / 4 + rankGroup[1] / 4 + rankGroup[2] / 4 + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 3 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
                     }
@@ -2380,8 +2380,8 @@ namespace Poker
         /// <param name="currentPlayerRankFactor">The current player's hand rank factor</param>        
         public void CheckTwoPair(int card, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
         {
-            if (currentPlayerCategoryFactor >= -1)//always true
-            {
+            //if (currentPlayerCategoryFactor >= -1)//always true
+            //{
                 bool msgbox = false;
                 for (int tableCard = 16; tableCard >= 12; tableCard--)
                 {
@@ -2416,7 +2416,7 @@ namespace Poker
                                         {
                                             currentPlayerCategoryFactor = 2;
                                             currentPlayerRankFactor = ((13 * 4) + ((this.deckCard[card + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
-                                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
+                                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                             this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
@@ -2425,7 +2425,7 @@ namespace Poker
                                         {
                                             currentPlayerCategoryFactor = 2;
                                             currentPlayerRankFactor = ((13 * 4) + ((this.deckCard[card] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
-                                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
+                                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                             this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
@@ -2434,7 +2434,7 @@ namespace Poker
                                         {
                                             currentPlayerCategoryFactor = 2;
                                             currentPlayerRankFactor = (((this.deckCard[card] / 4) * 2) + ((this.deckCard[card + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
-                                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
+                                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                             this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
                                     }
@@ -2445,7 +2445,7 @@ namespace Poker
                         }
                     }
                 }
-            }
+            //}
         }
 
         /// <summary>
@@ -2489,7 +2489,7 @@ namespace Poker
                                         {
                                             currentPlayerCategoryFactor = 2;
                                             currentPlayerRankFactor = (((this.deckCard[card] / 4) * 2) + (13 * 4)) + (currentPlayerCategoryFactor * 100);
-                                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
+                                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
@@ -2498,7 +2498,7 @@ namespace Poker
                                         {
                                             currentPlayerCategoryFactor = 2;
                                             currentPlayerRankFactor = (((this.deckCard[card + 1] / 4) * 2) + (13 * 4)) + (currentPlayerCategoryFactor * 100);
-                                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
+                                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
@@ -2508,7 +2508,7 @@ namespace Poker
                                         {
                                             currentPlayerCategoryFactor = 2;
                                             currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 2) + ((this.deckCard[card + 1] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
-                                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
+                                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
 
@@ -2518,7 +2518,7 @@ namespace Poker
                                         {
                                             currentPlayerCategoryFactor = 2;
                                             currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 2) + ((this.deckCard[card] / 4) * 2)) + (currentPlayerCategoryFactor * 100);
-                                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 2 });
+                                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                         }
                                     }
@@ -2540,18 +2540,18 @@ namespace Poker
                                             //Different rank factor
                                             if (this.deckCard[tableCard] / 4 == 0)
                                             {
-                                                currentPlayerCategoryFactor = 0;
+                                                currentPlayerCategoryFactor = 1;
                                                 currentPlayerRankFactor = 13 + this.deckCard[card] / 4 + currentPlayerCategoryFactor * 100;
-                                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                             }
 
                                             //Case when the first card is not an ace
                                             else
                                             {
-                                                currentPlayerCategoryFactor = 0;
+                                                currentPlayerCategoryFactor = 1;
                                                 currentPlayerRankFactor = this.deckCard[tableCard] / 4 + this.deckCard[card] / 4 + currentPlayerCategoryFactor * 100;
-                                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                             }
                                         }
@@ -2562,18 +2562,18 @@ namespace Poker
                                             //Second hand is an ace
                                             if (this.deckCard[tableCard] / 4 == 0)
                                             {
-                                                currentPlayerCategoryFactor = 0;
+                                                currentPlayerCategoryFactor = 1;
                                                 currentPlayerRankFactor = 13 + this.deckCard[card + 1] + currentPlayerCategoryFactor * 100;
-                                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                             }
 
                                             //Second hand is not an ace
                                             else
                                             {
-                                                currentPlayerCategoryFactor = 0;
+                                                currentPlayerCategoryFactor = 1;
                                                 currentPlayerRankFactor = this.deckCard[tableCard] / 4 + this.deckCard[card + 1] / 4 + currentPlayerCategoryFactor * 100;
-                                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                                             }
                                         }
@@ -2611,7 +2611,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 1;
                             currentPlayerRankFactor = 13 * 4 + currentPlayerCategoryFactor * 100;
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
                         ////If not adds highest card * 4 to rank factor
@@ -2619,7 +2619,7 @@ namespace Poker
                         {
                             currentPlayerCategoryFactor = 1;
                             currentPlayerRankFactor = ((this.deckCard[card + 1] / 4) * 4) + (currentPlayerCategoryFactor * 100);
-                            this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                            this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                             winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
                     }
@@ -2645,7 +2645,7 @@ namespace Poker
                             {
                                 currentPlayerCategoryFactor = 1;
                                 currentPlayerRankFactor = 13 * 4 + this.deckCard[card] / 4 + currentPlayerCategoryFactor * 100;
-                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
                             ////If not, executes the usual case for forming rank factor
@@ -2653,7 +2653,7 @@ namespace Poker
                             {
                                 currentPlayerCategoryFactor = 1;
                                 currentPlayerRankFactor = (((this.deckCard[card + 1] / 4) * 4) + (this.deckCard[card] / 4)) + (currentPlayerCategoryFactor * 100);
-                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                 winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
                         }
@@ -2673,7 +2673,7 @@ namespace Poker
                             {
                                 currentPlayerCategoryFactor = 1;
                                 currentPlayerRankFactor = 13 * 4 + this.deckCard[card + 1] / 4 + currentPlayerCategoryFactor * 100;
-                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                 this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
                             ////If not, this is the usual case for forming rank factor
@@ -2681,7 +2681,7 @@ namespace Poker
                             {
                                 currentPlayerCategoryFactor = 1;
                                 currentPlayerRankFactor = (((this.deckCard[tableCard] / 4) * 4) + (this.deckCard[card + 1] / 4)) + (currentPlayerCategoryFactor * 100);
-                                this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = 1 });
+                                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                 this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
                         }
@@ -2708,16 +2708,16 @@ namespace Poker
                 {
                     currentPlayerCategoryFactor = -1;
                     currentPlayerRankFactor = this.deckCard[card] / 4;
-                    this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = -1 });
-                    winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                    this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
+                    this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                 }
                 ////If the second of the two cards is higher, ranks are determined from it
                 else
                 {
                     currentPlayerCategoryFactor = -1;
                     currentPlayerRankFactor = this.deckCard[card + 1] / 4;
-                    this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = -1 });
-                    winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                    this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
+                    this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                 }
 
                 //Checks if you have an ace
@@ -2725,8 +2725,8 @@ namespace Poker
                 {
                     currentPlayerCategoryFactor = -1;
                     currentPlayerRankFactor = 13;
-                    this.competingHands.Add(new PokerHand() { RankFactor = currentPlayerRankFactor, CategoryFactor = -1 });
-                    winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
+                    this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
+                    this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                 }
             }
         }
