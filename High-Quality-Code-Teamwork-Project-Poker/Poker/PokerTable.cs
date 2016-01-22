@@ -24,561 +24,561 @@ namespace Poker
         /// <summary>
         /// The default amount of chips for all players.
         /// </summary>        
-        public const int DefaultBankroll = 10000;
+        private const int DefaultBankroll = 10000;
 
         /// <summary>
         /// This is the first rounds of community cards rounds(table cards).
         /// First three community cards are dealt.
         /// </summary>        
-        public const int Flop = 1;
+        private const int Flop = 1;
 
         /// <summary>
         /// This is the second round of community cards rounds(table cards).
         /// Fourth community card is dealt.
         /// </summary>        
-        public const int Turn = 2;
+        private const int Turn = 2;
 
         /// <summary>
-        ///This is the third round of community cards rounds(table cards).
+        /// This is the third round of community cards rounds(table cards).
         /// Fifth community card is dealt.
         /// </summary>        
-        public const int River = 3;
+        private const int River = 3;
 
         /// <summary>
         /// This is the fourth round of community cards rounds(table cards).
         /// No cards are dealt.
         /// </summary>        
-        public const int End = 4;
+        private const int End = 4;
 
         /// <summary>
         /// The number of players that start a poker session.
         /// </summary>        
-        public const int MaxPlayers = 6;
+        private const int MaxPlayers = 6;
 
         /// <summary>
         /// The height of a card control in pixels.
         /// </summary>        
-        public const int CardImageHeight = 130;
+        private const int CardImageHeight = 130;
 
         /// <summary>
         /// The width of a card control in pixels.
         /// </summary>        
-        public const int CardImageWidth = 80;
+        private const int CardImageWidth = 80;
 
         /// <summary>
         /// The default upper left x coordinate for the player's panel.
         /// </summary>        
-        public const int PlayerPanelDefaultHorizontalCoordinate = 580;
+        private const int PlayerPanelDefaultHorizontalCoordinate = 580;
 
         /// <summary>
         /// The default upper left y coordinate for the player's panel.
         /// </summary>        
-        public const int PlayerPanelDefaultVerticalCoordinate = 480;
+        private const int PlayerPanelDefaultVerticalCoordinate = 480;
 
         /// <summary>
         /// The default upper left x coordinate for bot1's panel.
         /// </summary>        
-        public const int Bot1PanelDefaultHorizontalCoordinate = 15;
+        private const int Bot1PanelDefaultHorizontalCoordinate = 15;
 
         /// <summary>
         /// The default upper left y coordinate for bot1's panel.
         /// </summary>        
-        public const int Bot1PanelDefaultVerticalCoordinate = 420;
+        private const int Bot1PanelDefaultVerticalCoordinate = 420;
 
         /// <summary>
         /// The default upper left x coordinate for bot2's panel.
         /// </summary>        
-        public const int Bot2PanelDefaultHorizontalCoordinate = 75;
+        private const int Bot2PanelDefaultHorizontalCoordinate = 75;
 
         /// <summary>
         /// The default upper left y coordinate for bot2's panel.
         /// </summary>        
-        public const int Bot2PanelDefaultVerticalCoordinate = 65;
+        private const int Bot2PanelDefaultVerticalCoordinate = 65;
 
         /// <summary>
         /// The default upper left x coordinate for bot3's panel.
         /// </summary>        
-        public const int Bot3PanelDefaultHorizontalCoordinate = 590;
+        private const int Bot3PanelDefaultHorizontalCoordinate = 590;
 
         /// <summary>
         /// The default upper left y coordinate for bot3's panel.
         /// </summary>        
-        public const int Bot3PanelDefaultVerticalCoordinate = 25;
+        private const int Bot3PanelDefaultVerticalCoordinate = 25;
 
         /// <summary>
         /// The default upper left x coordinate for bot4's panel.
         /// </summary>        
-        public const int Bot4PanelDefaultHorizontalCoordinate = 1115;
+        private const int Bot4PanelDefaultHorizontalCoordinate = 1115;
 
         /// <summary>
         /// The default upper left y coordinate for bot4's panel.
         /// </summary>        
-        public const int Bot4PanelDefaultVerticalCoordinate = 65;
+        private const int Bot4PanelDefaultVerticalCoordinate = 65;
 
         /// <summary>
         /// The default upper left x coordinate for bot5's panel.
         /// </summary>        
-        public const int Bot5PanelDefaultHorizontalCoordinate = 1160;
+        private const int Bot5PanelDefaultHorizontalCoordinate = 1160;
 
         /// <summary>
         /// The default upper left x coordinate for bot5's panel.
         /// </summary>        
-        public const int Bot5PanelDefaultVerticalCoordinate = 420;
+        private const int Bot5PanelDefaultVerticalCoordinate = 420;
 
         /// <summary>
         /// The number of cards that are dealt each turn
         /// including community cards.
         /// </summary>        
-        public const int MaximumCardsToBeDealt = 17;
+        private const int MaximumCardsToBeDealt = 17;
 
         /// <summary>
         /// The number of cards in a deck.
         /// </summary>        
-        public const int CardsInADeck = 52;
+        private const int CardsInADeck = 52;
 
         /// <summary>
         /// The default value of the Big Blind.
         /// </summary>        
-        public const int BigBlindDefaultValue = 500;
+        private const int BigBlindDefaultValue = 500;
 
         /// <summary>
         /// The panel control for the human player.
         /// </summary>        
-        public Panel playerPanel = new Panel();
+        private Panel playerPanel = new Panel();
 
         /// <summary>
         /// The panel control for bot1.
         /// </summary>        
-        public Panel bot1Panel = new Panel();
+        private Panel bot1Panel = new Panel();
 
         /// <summary>
         /// The panel control for bot2.
         /// </summary>        
-        public Panel bot2Panel = new Panel();
+        private Panel bot2Panel = new Panel();
 
         /// <summary>
         /// The panel control for bot3.
         /// </summary>        
-        public Panel bot3Panel = new Panel();
+        private Panel bot3Panel = new Panel();
 
         /// <summary>
         /// The panel control for bot4.
         /// </summary>        
-        public Panel bot4Panel = new Panel();
+        private Panel bot4Panel = new Panel();
 
         /// <summary>
         /// The panel control for bot5.
         /// </summary>        
-        public Panel bot5Panel = new Panel();
+        private Panel bot5Panel = new Panel();
 
         /// <summary>
         /// The current call amount.
         /// </summary>        
-        public int callAmount;////call
+        private int callAmount;////call
 
         /// <summary>
         /// The number of maximum folded players.
         /// </summary>        
-        public int foldedPlayers = MaxPlayers - 1;
+        private int foldedPlayers = MaxPlayers - 1;
 
         /// <summary>
         /// The current amount of human player chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
-        public int playerChips = DefaultBankroll;//10000
+        private int playerChips = DefaultBankroll; // 10000
 
         /// <summary>
         /// The current amount of bot1 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
-        public int bot1Chips = DefaultBankroll;
+        private int bot1Chips = DefaultBankroll;
 
         /// <summary>
         /// The current amount of bot2 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
-        public int bot2Chips = DefaultBankroll;
+        private int bot2Chips = DefaultBankroll;
 
         /// <summary>
         /// The current amount of bot3 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
-        public int bot3Chips = DefaultBankroll;
+        private int bot3Chips = DefaultBankroll;
 
         /// <summary>
         /// The current amount of bot4 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
-        public int bot4Chips = DefaultBankroll;
+        private int bot4Chips = DefaultBankroll;
 
         /// <summary>
         /// The current amount of bot5 chips.
         /// At the beginning of each poker session is 
         /// initialized with the default bankroll.
         /// </summary>        
-        public int bot5Chips = DefaultBankroll;
+        private int bot5Chips = DefaultBankroll;
 
         /// <summary>
         /// This variable is used in The FullHouse rule method.
         /// </summary>        
-        public double secondaryFactor;//type
+        private double secondaryFactor; // type
 
         /// <summary>
         /// The current round of community cards rounds.
         /// </summary>        
-        public double communityCardsRound;
+        private int communityCardsRound; // from double
 
         /// <summary>
         /// Current human player's hand rank factor.
         /// </summary>        
-        public double playerHandRankFactor;//playerPower
+        private double playerHandRankFactor; // playerPower
 
         /// <summary>
         /// Current bot1's hand rank factor.
         /// </summary>        
-        public double bot1HandRankFactor;
+        private double bot1HandRankFactor;
 
         /// <summary>
         /// Current bot2's hand rank factor.
         /// </summary>        
-        public double bot2HandRankFactor;
+        private double bot2HandRankFactor;
 
         /// <summary>
         /// Current bot3's hand rank factor.
         /// </summary>        
-        public double bot3HandRankFactor;
+        private double bot3HandRankFactor;
 
         /// <summary>
         /// Current bot4's hand rank factor.
         /// </summary>        
-        public double bot4HandRankFactor;
+        private double bot4HandRankFactor;
 
         /// <summary>
         /// Current bot5's hand rank factor.
         /// </summary>        
-        public double bot5HandRankFactor;
+        private double bot5HandRankFactor;
 
         /// <summary>
         /// Current raise amount.
         /// </summary>        
-        public double raiseAmount; // raiseAmount Amount
+        private double raiseAmount; // raiseAmount Amount
 
         /// <summary>
         /// Current human player's hand category factor.
         /// </summary>        
-        public double playerHandCategoryFactor = -1;////playerType
+        private double playerHandCategoryFactor = -1; ////playerType
 
         /// <summary>
         /// Current bot1's hand category factor.
         /// </summary>        
-        public double bot1HandCategoryFactor = -1;
+        private double bot1HandCategoryFactor = -1;
 
         /// <summary>
         /// Current bot2's hand category factor.
         /// </summary>        
-        public double bot2HandCategoryFactor = -1;
+        private double bot2HandCategoryFactor = -1;
 
         /// <summary>
         /// Current bot3's hand category factor.
         /// </summary>        
-        public double bot3HandCategoryFactor = -1;
+        private double bot3HandCategoryFactor = -1;
 
         /// <summary>
         /// Current bot4's hand category factor.
         /// </summary>        
-        public double bot4HandCategoryFactor = -1;
+        private double bot4HandCategoryFactor = -1;
 
         /// <summary>
         /// Current bot5's hand category factor.
         /// </summary>        
-        public double bot5HandCategoryFactor = -1;
+        private double bot5HandCategoryFactor = -1;
 
         /// <summary>
         /// Field that indicates if it's human player's turn.
         /// </summary>        
-        public bool isPlayerTurn = true;
+        private bool isPlayerTurn = true;
 
         /// <summary>
         /// Field that indicates if it's bot1's turn.
         /// </summary>        
-        public bool isBot1Turn = false;
+        private bool isBot1Turn = false;
 
         /// <summary>
         /// Field that indicates if it's bot2's turn.
         /// </summary>        
-        public bool isBot2Turn = false;
+        private bool isBot2Turn = false;
 
         /// <summary>
         /// Field that indicates if it's bot3's turn.
         /// </summary>        
-        public bool isBot3Turn = false;
+        private bool isBot3Turn = false;
 
         /// <summary>
         /// Field that indicates if it's bot4's turn.
         /// </summary>        
-        public bool isBot4Turn = false;
+        private bool isBot4Turn = false;
 
         /// <summary>
         /// Field that indicates if it's bot5's turn.
         /// </summary>        
-        public bool isBot5Turn = false;
+        private bool isBot5Turn = false;
 
         /// <summary>
         /// Field that indicates if human player has folded or is all in.
         /// </summary>        
-        public bool playerFoldOrAllIn = false;//pFturn
+        private bool playerFoldOrAllIn = false; // pFturn
 
         /// <summary>
         /// Field that indicates if bot1 has folded or is all in.
         /// </summary>        
-        public bool bot1FoldOrAllIn = false;//bot1Fturn
+        private bool bot1FoldOrAllIn = false; // bot1Fturn
 
         /// <summary>
         /// Field that indicates if bot2 has folded or is all in.
         /// </summary>        
-        public bool bot2FoldOrAllIn = false;
+        private bool bot2FoldOrAllIn = false;
 
         /// <summary>
         /// Field that indicates if bot3 has folded or is all in.
         /// </summary>        
-        public bool bot3FoldOrAllIn = false;
+        private bool bot3FoldOrAllIn = false;
 
         /// <summary>
         /// Field that indicates if bot4 has folded or is all in.
         /// </summary>        
-        public bool bot4FoldOrAllIn = false;
+        private bool bot4FoldOrAllIn = false;
 
         /// <summary>
         /// Field that indicates if bot5 has folded or is all in.
         /// </summary>        
-        public bool bot5FoldOrAllIn = false;
+        private bool bot5FoldOrAllIn = false;
 
         /// <summary>
         /// Field that indicates if human player has folded.
         /// </summary>        
-        public bool isPlayerFolded = false;
+        private bool isPlayerFolded = false;
 
         /// <summary>
         /// Field that indicates if bot1 has folded.
         /// </summary>        
-        public bool isBot1Folded = false;
+        private bool isBot1Folded = false;
 
         /// <summary>
         /// Field that indicates if bot2 has folded.
         /// </summary>        
-        public bool isBot2Folded = false;
+        private bool isBot2Folded = false;
 
         /// <summary>
         /// Field that indicates if bot3 has folded.
         /// </summary>        
-        public bool isBot3Folded = false;
+        private bool isBot3Folded = false;
 
         /// <summary>
         /// Field that indicates if bot4 has folded.
         /// </summary>        
-        public bool isBot4Folded = false;
+        private bool isBot4Folded = false;
 
         /// <summary>
         /// Field that indicates if bot5 has folded.
         /// </summary>        
-        public bool isBot5Folded = false;
+        private bool isBot5Folded = false;
 
         /// <summary>
         /// Field that indicates if current player is added to the list 
         /// of players who are all in.
         /// </summary>        
-        public bool addedToAllInPlayers = false;
+        private bool addedToAllInPlayers = false;
 
         /// <summary>
         /// The changed field
         /// </summary>        
-        public bool changed = false;
+        private bool changed = false;
 
         /// <summary>
         /// Human player's call amount.
         /// </summary>        
-        public int playerCall;
+        private int playerCall;
 
         /// <summary>
         /// Bot1's call amount.
         /// </summary>        
-        public int bot1Call;
+        private int bot1Call;
 
         /// <summary>
         /// Bot2's call amount.
         /// </summary>        
-        public int bot2Call;
+        private int bot2Call;
 
         /// <summary>
         /// Bot3's call amount.
         /// </summary>        
-        public int bot3Call;
+        private int bot3Call;
 
         /// <summary>
         /// Bot4's call amount.
         /// </summary>        
-        public int bot4Call;
+        private int bot4Call;
 
         /// <summary>
         /// Bot5's call amount.
         /// </summary>        
-        public int bot5Call;
+        private int bot5Call;
 
         /// <summary>
         /// Human player's raise amount.
         /// </summary>        
-        public int playerRaise;
+        private int playerRaise;
 
         /// <summary>
         /// Bot1's raise amount.
         /// </summary>        
-        public int bot1Raise;
+        private int bot1Raise;
 
         /// <summary>
         /// Bot2's raise amount.
         /// </summary>        
-        public int bot2Raise;
+        private int bot2Raise;
 
         /// <summary>
         /// Bot3's raise amount.
         /// </summary>        
-        public int bot3Raise;
+        private int bot3Raise;
 
         /// <summary>
         /// Bot4's raise amount.
         /// </summary>        
-        public int bot4Raise;
+        private int bot4Raise;
 
         /// <summary>
         /// Bot5's raise amount.
         /// </summary>        
-        public int bot5Raise;
+        private int bot5Raise;
 
         /// <summary>
         /// Current height of the application window
         /// </summary>        
-        public int windowHeight;//height 
+        private int windowHeight; // height 
 
         /// <summary>
         /// Current width of the application window
         /// </summary>        
-        public int windowWidth;//width
+        private int windowWidth; // width
 
         /// <summary>
         /// The count of the winners in the current game.
         /// </summary>        
-        public int winnersCount = 0;//winners
+        private int winnersCount = 0; // winners
 
         /// <summary>
         /// The count of the players left in the game.
         /// </summary>        
-        public int maxLeft = MaxPlayers;//6
+        private int maxLeft = MaxPlayers; // 6
 
         /// <summary>
         /// The last field.
         /// </summary>        
-        public int last = 123;
+        private int last = 123;
 
         /// <summary>
         /// The number of the turn last raise is made.
         /// </summary>        
-        public int raisedTurn = 1;
+        private int raisedTurn = 1;
 
         /// <summary>
         /// Register of all players that shows who has folded game.
         /// </summary>        
-        public List<bool?> foldRegister = new List<bool?>();//bools
+        private List<bool?> foldRegister = new List<bool?>(); // bools
 
         /// <summary>
         /// List of all players hands.
         /// </summary>        
-        public List<PokerHand> competingHands = new List<PokerHand>();//win
+        private List<PokerHand> competingHands = new List<PokerHand>(); // win
 
         /// <summary>
         /// List of the winners in current game.
         /// </summary>        
-        public List<string> listOfWinners = new List<string>();//winners
+        private List<string> listOfWinners = new List<string>(); // winners
 
         /// <summary>
         /// List of all players who are all in.
         /// </summary>        
-        public List<int> allInPlayers = new List<int>();//ints
+        private List<int> allInPlayers = new List<int>(); // ints
 
         /// <summary>
         /// Field that shows if current game is finished 
         /// and a new game is prepared.
         /// </summary>        
-        public bool restart = false;
+        private bool restart = false;
 
         /// <summary>
         /// Field that indicates if bet is raised.
         /// </summary>        
-        public bool isBetRaised = false;//raising
+        private bool isBetRaised = false; // raising
 
         /// <summary>
         /// The best hand in list of competing hands.
         /// </summary>        
-        public PokerHand winningHand;//sorted
+        private PokerHand winningHand; // sorted
 
         /// <summary>
         /// Locations of card pictures in the source directory.
         /// </summary>        
-        public string[] imgCardsLocation = Directory.GetFiles("..\\..\\Resources\\Assets\\Cards\\", "*.png", SearchOption.TopDirectoryOnly);
+        private string[] imgCardsLocation = Directory.GetFiles("..\\..\\Resources\\Assets\\Cards\\", "*.png", SearchOption.TopDirectoryOnly);
 
         /// <summary>
         /// Indexes of the dealt cards in the source directory.
         /// </summary>        
-        public int[] deckCard = new int[MaximumCardsToBeDealt];//reserve
+        private int[] deckCard = new int[MaximumCardsToBeDealt]; // reserve
 
         /// <summary>
         /// The shuffled deck cards.
         /// </summary>        
-        public Image[] shuffledDeck = new Image[CardsInADeck];//Deck
+        private Image[] shuffledDeck = new Image[CardsInADeck]; // Deck
 
         /// <summary>
         /// The controls for the dealt shuffled deck cards.
         /// </summary>        
-        public PictureBox[] cardToBeDealt = new PictureBox[MaximumCardsToBeDealt];//Holder
+        private PictureBox[] cardToBeDealt = new PictureBox[MaximumCardsToBeDealt]; // Holder
 
         /// <summary>
         /// The timer for the human player's turn.
         /// </summary>        
-        public Timer timer = new Timer();
+        private Timer timer = new Timer();
 
         /// <summary>
         /// The updates timer.
         /// </summary>        
-        public Timer updates = new Timer();//Updates
+        private Timer updates = new Timer(); // Updates
 
         /// <summary>
         /// Countdown in seconds for the player's timer.
         /// </summary>        
-        public int playerTime = 60;
+        private int playerTime = 60;
         
         /// <summary>
         /// Big Blind amount.
         /// </summary>        
-        public int bigBlind = BigBlindDefaultValue;//callChipsCount
+        private int bigBlind = BigBlindDefaultValue; // callChipsCount
 
         /// <summary>
         /// Small blind amount.
         /// </summary>        
-        public int smallBlind = BigBlindDefaultValue / 2;//sb
+        private int smallBlind = BigBlindDefaultValue / 2; // sb
 
         /// <summary>
         /// The up field.
         /// </summary>        
-        public int up = 10000000;
+        private int up = 10000000;
 
         /// <summary>
         /// Count of the turns since last raise.
         /// </summary>        
-        public int turnCount = 0;
+        private int turnCount = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PokerTable" /> class.
@@ -609,9 +609,9 @@ namespace Poker
             this.textboxBot5Chips.Text = "Chips: " + this.bot5Chips.ToString();
 
             this.timer.Interval = (1 * 1 * 1000);
-            this.timer.Tick += timer_Tick;
+            this.timer.Tick += this.timer_Tick;
             this.updates.Interval = (1 * 1 * 100);
-            this.updates.Tick += Update_Tick;////updates.Tick is timer event
+            this.updates.Tick += this.Update_Tick;////updates.Tick is timer event
 
             this.textboxBigBlind.Visible = false;
             this.textboxSmallBlind.Visible = false;
@@ -695,11 +695,11 @@ namespace Poker
                 this.imgCardsLocation[card - 1] = k;
             }
 
-            //Initialize card controls and players panels 
-            //Deal bots who still have chips and the player
+            // Initialize card controls and players panels 
+            // Deal bots who still have chips and the player
             for (int cardsInGame = 0; cardsInGame < MaximumCardsToBeDealt; cardsInGame++)
             {
-                shuffledDeck[cardsInGame] = Image.FromFile(this.imgCardsLocation[cardsInGame]);
+                this.shuffledDeck[cardsInGame] = Image.FromFile(this.imgCardsLocation[cardsInGame]);
                 var charsToRemove = new string[] { "..\\..\\Resources\\Assets\\Cards\\", ".png" };
                 foreach (var c in charsToRemove)
                 {
@@ -707,52 +707,52 @@ namespace Poker
                 }
 
                 this.deckCard[cardsInGame] = int.Parse(this.imgCardsLocation[cardsInGame]) - 1;
-                cardToBeDealt[cardsInGame] = new PictureBox();
-                cardToBeDealt[cardsInGame].SizeMode = PictureBoxSizeMode.StretchImage;
-                cardToBeDealt[cardsInGame].Height = CardImageHeight;
-                cardToBeDealt[cardsInGame].Width = CardImageWidth;
-                this.Controls.Add(cardToBeDealt[cardsInGame]);
-                cardToBeDealt[cardsInGame].Name = "picturebox" + cardsInGame.ToString();
+                this.cardToBeDealt[cardsInGame] = new PictureBox();
+                this.cardToBeDealt[cardsInGame].SizeMode = PictureBoxSizeMode.StretchImage;
+                this.cardToBeDealt[cardsInGame].Height = CardImageHeight;
+                this.cardToBeDealt[cardsInGame].Width = CardImageWidth;
+                this.Controls.Add(this.cardToBeDealt[cardsInGame]);
+                this.cardToBeDealt[cardsInGame].Name = "picturebox" + cardsInGame.ToString();
                 await Task.Delay(200);
 
-                //Deal human player
-                //Initialize player panel and player card controls
-                //Player cards are face up
+                // Deal human player
+                // Initialize player panel and player card controls
+                // Player cards are face up
                 if (cardsInGame < 2)
                 {
-                    if (cardToBeDealt[0].Tag != null)
+                    if (this.cardToBeDealt[0].Tag != null)
                     {
-                        cardToBeDealt[1].Tag = this.deckCard[1];
+                        this.cardToBeDealt[1].Tag = this.deckCard[1];
                     }
 
-                    cardToBeDealt[0].Tag = this.deckCard[0];
-                    cardToBeDealt[cardsInGame].Image = shuffledDeck[cardsInGame];
-                    cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom);
+                    this.cardToBeDealt[0].Tag = this.deckCard[0];
+                    this.cardToBeDealt[cardsInGame].Image = this.shuffledDeck[cardsInGame];
+                    this.cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom);
                     ////cardToBeDealt[i].Dock = DockStyle.Top;
-                    cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
-                    horizontal += cardToBeDealt[cardsInGame].Width;
+                    this.cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                    horizontal += this.cardToBeDealt[cardsInGame].Width;
                     this.Controls.Add(this.playerPanel);
-                    this.playerPanel.Location = new Point(cardToBeDealt[0].Left - 10, cardToBeDealt[0].Top - 10);
-                    this.playerPanel.BackColor = Color.DarkBlue;
+                    this.playerPanel.Location = new Point(this.cardToBeDealt[0].Left - 10, this.cardToBeDealt[0].Top - 10);
+                    //this.playerPanel.BackColor = Color.DarkBlue;
                     this.playerPanel.Height = 150;
                     this.playerPanel.Width = 180;
                     this.playerPanel.Visible = false;
                 }
 
-                //If bot1 has chips,receives shuffledDeck[2] i shuffledDeck[3] cards(cards 3 and 4)
-                //Also bot1 panel and card controls are initialized
-                //Bot1 cards are covered
-                if (bot1Chips > 0)
+                // If bot1 has chips, receives shuffledDeck[2] i shuffledDeck[3] cards(cards 3 and 4)
+                // Also bot1 panel and card controls are initialized
+                // Bot1 cards are covered
+                if (this.bot1Chips > 0)
                 {
-                    foldedPlayers--;
+                    this.foldedPlayers--;
                     if (cardsInGame >= 2 && cardsInGame < 4)
                     {
-                        if (cardToBeDealt[2].Tag != null)
+                        if (this.cardToBeDealt[2].Tag != null)
                         {
-                            cardToBeDealt[3].Tag = this.deckCard[3];
+                            this.cardToBeDealt[3].Tag = this.deckCard[3];
                         }
 
-                        cardToBeDealt[2].Tag = this.deckCard[2];
+                        this.cardToBeDealt[2].Tag = this.deckCard[2];
                         if (!check)
                         {
                             horizontal = Bot1PanelDefaultHorizontalCoordinate;
@@ -760,15 +760,15 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
-                        cardToBeDealt[cardsInGame].Image = backImage;
+                        this.cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom | AnchorStyles.Left);
+                        this.cardToBeDealt[cardsInGame].Image = backImage;
                         ////cardToBeDealt[i].Image = shuffledDeck[card];
-                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[cardsInGame].Width;
-                        cardToBeDealt[cardsInGame].Visible = true;
+                        this.cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += this.cardToBeDealt[cardsInGame].Width;
+                        this.cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot1Panel);
-                        this.bot1Panel.Location = new Point(cardToBeDealt[2].Left - 10, cardToBeDealt[2].Top - 10);
-                        this.bot1Panel.BackColor = Color.DarkBlue;
+                        this.bot1Panel.Location = new Point(this.cardToBeDealt[2].Left - 10, this.cardToBeDealt[2].Top - 10);
+                        // this.bot1Panel.BackColor = Color.DarkBlue;
                         this.bot1Panel.Height = 150;
                         this.bot1Panel.Width = 180;
                         this.bot1Panel.Visible = false;
@@ -782,14 +782,14 @@ namespace Poker
                 //If bot2 has chips,receives shuffledDeck[4] i shuffledDeck[5] cards(cards 5 and 6)
                 //Also bot2 panel and card controls are initialized
                 //Bot2 cards are covered
-                if (bot2Chips > 0)
+                if (this.bot2Chips > 0)
                 {
-                    foldedPlayers--;
+                    this.foldedPlayers--;
                     if (cardsInGame >= 4 && cardsInGame < 6)
                     {
-                        if (cardToBeDealt[4].Tag != null)
+                        if (this.cardToBeDealt[4].Tag != null)
                         {
-                            cardToBeDealt[5].Tag = this.deckCard[5];
+                            this.cardToBeDealt[5].Tag = this.deckCard[5];
                         }
 
                         this.cardToBeDealt[4].Tag = this.deckCard[4];
@@ -800,15 +800,15 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top | AnchorStyles.Left);
-                        cardToBeDealt[cardsInGame].Image = backImage;
+                        this.cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top | AnchorStyles.Left);
+                        this.cardToBeDealt[cardsInGame].Image = backImage;
                         ////cardToBeDealt[i].Image = shuffledDeck[card];
-                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[cardsInGame].Width;
-                        cardToBeDealt[cardsInGame].Visible = true;
+                        this.cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += this.cardToBeDealt[cardsInGame].Width;
+                        this.cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot2Panel);
-                        this.bot2Panel.Location = new Point(cardToBeDealt[4].Left - 10, cardToBeDealt[4].Top - 10);
-                        this.bot2Panel.BackColor = Color.DarkBlue;
+                        this.bot2Panel.Location = new Point(this.cardToBeDealt[4].Left - 10, this.cardToBeDealt[4].Top - 10);
+                        //this.bot2Panel.BackColor = Color.DarkBlue;
                         this.bot2Panel.Height = 150;
                         this.bot2Panel.Width = 180;
                         this.bot2Panel.Visible = false;
@@ -822,17 +822,17 @@ namespace Poker
                 //If bot3 has chips,receives shuffledDeck[6] i shuffledDeck[7] cards(cards 7 and 8)
                 //Also bot3 panel and card controls are initialized
                 //Bot3 cards are covered
-                if (bot3Chips > 0)
+                if (this.bot3Chips > 0)
                 {
-                    foldedPlayers--;
+                    this.foldedPlayers--;
                     if (cardsInGame >= 6 && cardsInGame < 8)
                     {
-                        if (cardToBeDealt[6].Tag != null)
+                        if (this.cardToBeDealt[6].Tag != null)
                         {
-                            cardToBeDealt[7].Tag = this.deckCard[7];
+                            this.cardToBeDealt[7].Tag = this.deckCard[7];
                         }
 
-                        cardToBeDealt[6].Tag = this.deckCard[6];
+                        this.cardToBeDealt[6].Tag = this.deckCard[6];
                         if (!check)
                         {
                             horizontal = Bot3PanelDefaultHorizontalCoordinate;
@@ -840,15 +840,15 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top);
-                        cardToBeDealt[cardsInGame].Image = backImage;
+                        this.cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top);
+                        this.cardToBeDealt[cardsInGame].Image = backImage;
                         ////cardToBeDealt[i].Image = shuffledDeck[card];
-                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[cardsInGame].Width;
-                        cardToBeDealt[cardsInGame].Visible = true;
+                        this.cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += this.cardToBeDealt[cardsInGame].Width;
+                        this.cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot3Panel);
-                        this.bot3Panel.Location = new Point(cardToBeDealt[6].Left - 10, cardToBeDealt[6].Top - 10);
-                        this.bot3Panel.BackColor = Color.DarkBlue;
+                        this.bot3Panel.Location = new Point(this.cardToBeDealt[6].Left - 10, this.cardToBeDealt[6].Top - 10);
+                        //this.bot3Panel.BackColor = Color.DarkBlue;
                         this.bot3Panel.Height = 150;
                         this.bot3Panel.Width = 180;
                         this.bot3Panel.Visible = false;
@@ -862,17 +862,17 @@ namespace Poker
                 //If bot4 has chips,receives shuffledDeck[8] i shuffledDeck[9] cards(cards 9 and 10)
                 //Also bot4 panel and card controls are initialized
                 //Bot4 cards are covered
-                if (bot4Chips > 0)
+                if (this.bot4Chips > 0)
                 {
-                    foldedPlayers--;
+                    this.foldedPlayers--;
                     if (cardsInGame >= 8 && cardsInGame < 10)
                     {
-                        if (cardToBeDealt[8].Tag != null)
+                        if (this.cardToBeDealt[8].Tag != null)
                         {
-                            cardToBeDealt[9].Tag = this.deckCard[9];
+                            this.cardToBeDealt[9].Tag = this.deckCard[9];
                         }
 
-                        cardToBeDealt[8].Tag = this.deckCard[8];
+                        this.cardToBeDealt[8].Tag = this.deckCard[8];
                         if (!check)
                         {
                             horizontal = Bot4PanelDefaultHorizontalCoordinate;
@@ -880,15 +880,15 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top | AnchorStyles.Right);
-                        cardToBeDealt[cardsInGame].Image = backImage;
+                        this.cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+                        this.cardToBeDealt[cardsInGame].Image = backImage;
                         ////cardToBeDealt[i].Image = shuffledDeck[card];
-                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[cardsInGame].Width;
-                        cardToBeDealt[cardsInGame].Visible = true;
+                        this.cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += this.cardToBeDealt[cardsInGame].Width;
+                        this.cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot4Panel);
-                        this.bot4Panel.Location = new Point(cardToBeDealt[8].Left - 10, cardToBeDealt[8].Top - 10);
-                        this.bot4Panel.BackColor = Color.DarkBlue;
+                        this.bot4Panel.Location = new Point(this.cardToBeDealt[8].Left - 10, this.cardToBeDealt[8].Top - 10);
+                        // this.bot4Panel.BackColor = Color.DarkBlue;
                         this.bot4Panel.Height = 150;
                         this.bot4Panel.Width = 180;
                         this.bot4Panel.Visible = false;
@@ -902,17 +902,17 @@ namespace Poker
                 //If bot5 has chips,receives shuffledDeck[10] i shuffledDeck[11] cards(cards 11 and 12)
                 //Also bot5 panel and card controls are initialized
                 //Bot5 cards are covered
-                if (bot5Chips > 0)
+                if (this.bot5Chips > 0)
                 {
-                    foldedPlayers--;
+                    this.foldedPlayers--;
                     if (cardsInGame >= 10 && cardsInGame < 12)
                     {
-                        if (cardToBeDealt[10].Tag != null)
+                        if (this.cardToBeDealt[10].Tag != null)
                         {
-                            cardToBeDealt[11].Tag = this.deckCard[11];
+                            this.cardToBeDealt[11].Tag = this.deckCard[11];
                         }
 
-                        cardToBeDealt[10].Tag = this.deckCard[10];
+                        this.cardToBeDealt[10].Tag = this.deckCard[10];
                         if (!check)
                         {
                             horizontal = Bot5PanelDefaultHorizontalCoordinate;
@@ -920,15 +920,15 @@ namespace Poker
                         }
 
                         check = true;
-                        cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
-                        cardToBeDealt[cardsInGame].Image = backImage;
+                        this.cardToBeDealt[cardsInGame].Anchor = (AnchorStyles.Bottom | AnchorStyles.Right);
+                        this.cardToBeDealt[cardsInGame].Image = backImage;
                         ////cardToBeDealt[i].Image = shuffledDeck[card];
-                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
-                        horizontal += cardToBeDealt[cardsInGame].Width;
-                        cardToBeDealt[cardsInGame].Visible = true;
+                        this.cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        horizontal += this.cardToBeDealt[cardsInGame].Width;
+                        this.cardToBeDealt[cardsInGame].Visible = true;
                         this.Controls.Add(this.bot5Panel);
-                        this.bot5Panel.Location = new Point(cardToBeDealt[10].Left - 10, cardToBeDealt[10].Top - 10);
-                        this.bot5Panel.BackColor = Color.DarkBlue;
+                        this.bot5Panel.Location = new Point(this.cardToBeDealt[10].Left - 10, this.cardToBeDealt[10].Top - 10);
+                        // this.bot5Panel.BackColor = Color.DarkBlue;
                         this.bot5Panel.Height = 150;
                         this.bot5Panel.Width = 180;
                         this.bot5Panel.Visible = false;
@@ -944,27 +944,25 @@ namespace Poker
 
                 if (cardsInGame >= 12)
                 {
-                    cardToBeDealt[12].Tag = this.deckCard[12];
+                    this.cardToBeDealt[12].Tag = this.deckCard[12];
                     if (cardsInGame > 12)
                     {
-                        {
-                            cardToBeDealt[13].Tag = this.deckCard[13];
-                        }
+                        this.cardToBeDealt[13].Tag = this.deckCard[13];
                     }
 
                     if (cardsInGame > 13)
                     {
-                        cardToBeDealt[14].Tag = this.deckCard[14];
+                        this.cardToBeDealt[14].Tag = this.deckCard[14];
                     }
 
                     if (cardsInGame > 14)
                     {
-                        cardToBeDealt[15].Tag = this.deckCard[15];
+                        this.cardToBeDealt[15].Tag = this.deckCard[15];
                     }
 
                     if (cardsInGame > 15)
                     {
-                        cardToBeDealt[16].Tag = this.deckCard[16];
+                        this.cardToBeDealt[16].Tag = this.deckCard[16];
                     }
 
                     if (!check)
@@ -974,81 +972,81 @@ namespace Poker
                     }
 
                     check = true;
-                    if (cardToBeDealt[cardsInGame] != null)
+                    if (this.cardToBeDealt[cardsInGame] != null)
                     {
-                        cardToBeDealt[cardsInGame].Anchor = AnchorStyles.None;
-                        cardToBeDealt[cardsInGame].Image = backImage;
+                        this.cardToBeDealt[cardsInGame].Anchor = AnchorStyles.None;
+                        this.cardToBeDealt[cardsInGame].Image = backImage;
                         ////cardToBeDealt[i].Image = shuffledDeck[card];
-                        cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
+                        this.cardToBeDealt[cardsInGame].Location = new Point(horizontal, vertical);
                         horizontal += 110;
                     }
                 }
 
                 //Check if bot1 has chips to play 
                 //and if so makes its card controls visible
-                if (bot1Chips <= 0)
+                if (this.bot1Chips <= 0)
                 {
                     this.bot1FoldOrAllIn = true;
-                    cardToBeDealt[2].Visible = false;
-                    cardToBeDealt[3].Visible = false;
+                    this.cardToBeDealt[2].Visible = false;
+                    this.cardToBeDealt[3].Visible = false;
                 }
 
                 //Check if bot2 has chips to play 
                 //and if so makes its card controls visible
-                if (bot2Chips <= 0)
+                if (this.bot2Chips <= 0)
                 {
                     this.bot2FoldOrAllIn = true;
-                    cardToBeDealt[4].Visible = false;
-                    cardToBeDealt[5].Visible = false;
+                    this.cardToBeDealt[4].Visible = false;
+                    this.cardToBeDealt[5].Visible = false;
                 }
 
                 //Check if bot3 has chips to play 
                 //and if so makes its card controls visible
-                if (bot3Chips <= 0)
+                if (this.bot3Chips <= 0)
                 {
                     this.bot3FoldOrAllIn = true;
-                    cardToBeDealt[6].Visible = false;
-                    cardToBeDealt[7].Visible = false;
+                    this.cardToBeDealt[6].Visible = false;
+                    this.cardToBeDealt[7].Visible = false;
                 }
 
                 //Check if bot4 has chips to play 
                 //and if so makes its card controls visible
-                if (bot4Chips <= 0)
+                if (this.bot4Chips <= 0)
                 {
                     this.bot4FoldOrAllIn = true;
-                    cardToBeDealt[8].Visible = false;
-                    cardToBeDealt[9].Visible = false;
+                    this.cardToBeDealt[8].Visible = false;
+                    this.cardToBeDealt[9].Visible = false;
                 }
 
                 //Check if bot5 has chips to play 
                 //and if so makes its card controls visible
-                if (bot5Chips <= 0)
+                if (this.bot5Chips <= 0)
                 {
                     this.bot5FoldOrAllIn = true;
-                    cardToBeDealt[10].Visible = false;
-                    cardToBeDealt[11].Visible = false;
+                    this.cardToBeDealt[10].Visible = false;
+                    this.cardToBeDealt[11].Visible = false;
                 }
                 
                 //If all cards are dealt starts timer for player
                 if (cardsInGame == 16)
                 {
-                    if (!restart)
+                    if (!this.restart)
                     {
-                        MaximizeBox = true;
-                        MinimizeBox = true;
+                        this.MaximizeBox = true;
+                        this.MinimizeBox = true;
                     }
 
                     this.timer.Start();
                 }
             }
 
-            //After dealing checks if all bots are out of chips
-            //If so asks to restart poker session 
-            //If yes, restarts session
-            //If no, exits game
-            if (foldedPlayers == 5)
+            // After dealing checks if all bots are out of chips
+            // If so asks to restart poker session 
+            // If yes, restarts session
+            // If no, exits game
+            if (this.foldedPlayers == 5)
             {
-                DialogResult dialogResult = MessageBox.Show("Would You Like To Play Again ?", "You Won , Congratulations ! ", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Would You Like To Play Again?", "You Won, Congratulations!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     Application.Restart();
@@ -1059,9 +1057,9 @@ namespace Poker
                 }
             }
             
-            buttonRaise.Enabled = true;
-            buttonCall.Enabled = true;
-            buttonFold.Enabled = true;
+            this.buttonRaise.Enabled = true;
+            this.buttonCall.Enabled = true;
+            this.buttonFold.Enabled = true;
         }
 
         /// <summary>
@@ -1074,15 +1072,15 @@ namespace Poker
         /// <returns>The System.Threading.Tasks.Task type object</returns>        
         public async Task Turns()
         {
-            //Checks if human player folds this turn
+            // Checks if human player folds this turn
             if (!this.playerFoldOrAllIn)
             {
-                //If it's human player's turn adjusts call and raise amounts
-                //enables button controls and starts timer
+                // If it's human player's turn adjusts call and raise amounts
+                // enables button controls and starts timer
                 if (this.isPlayerTurn)
                 {
-                    FixCall(this.labelPlayerStatus, ref this.playerCall, ref this.playerRaise, 1);
-                    MessageBox.Show("Player's Turn");
+                    this.FixCall(this.labelPlayerStatus, ref this.playerCall, ref this.playerRaise, 1);
+                    //MessageBox.Show("Player's Turn");
                     this.progressbarTimer.Visible = true;
                     this.progressbarTimer.Value = 1000;
                     this.playerTime = 60;
@@ -1092,15 +1090,15 @@ namespace Poker
                     this.buttonCall.Enabled = true;
                     this.buttonFold.Enabled = true;
                     this.turnCount++;
-                    this.FixCall(labelPlayerStatus, ref this.playerCall, ref this.playerRaise, 2);
+                    this.FixCall(this.labelPlayerStatus, ref this.playerCall, ref this.playerRaise, 2);
                 }
             }
 
-            //Checks if the game should continue
-            //If human player folds turn removes him from fold register
+            // Checks if the game should continue
+            // If human player folds turn removes him from fold register
             if (this.playerFoldOrAllIn || !this.isPlayerTurn)
             {
-                await AllIn();
+                await this.AllIn();
                 if (this.playerFoldOrAllIn && !this.isPlayerFolded)
                 {
                     if (this.buttonCall.Text.Contains("All in") == false || this.buttonRaise.Text.Contains("All in") == false)
@@ -1112,34 +1110,34 @@ namespace Poker
                     }
                 }
 
-                await CheckRaise(0, 0);
+                await this.CheckRaise(0, 0);
 
-                //Disables human player's button controls
-                //Stops timer 
-                progressbarTimer.Visible = false;
-                buttonRaise.Enabled = false;
-                buttonCall.Enabled = false;
-                buttonFold.Enabled = false;
-                timer.Stop();
+                // Disables human player's button controls
+                // Stops timer 
+                this.progressbarTimer.Visible = false;
+                this.buttonRaise.Enabled = false;
+                this.buttonCall.Enabled = false;
+                this.buttonFold.Enabled = false;
+                this.timer.Stop();
 
-                //Enables bot1               
+                // Enables bot1               
                 this.isBot1Turn = true;
 
-                //Bot1 turn
-                //Checks if bot1 has not folded or made an all in
-                //If not adjusts call and raise amount for bot1 
-                //Bot1 makes a choice using the AIEngine
-                //disables bot1 
-                //enables bot2
+                // Bot1 turn
+                // Checks if bot1 has not folded or made an all in
+                // If not adjusts call and raise amount for bot1 
+                // Bot1 makes a choice using the AIEngine
+                // disables bot1 
+                // enables bot2
                 if (!this.bot1FoldOrAllIn)
                 {
                     if (this.isBot1Turn)
                     {
-                        this.FixCall(labelBot1Status, ref this.bot1Call, ref this.bot1Raise, 1);
-                        this.FixCall(labelBot1Status, ref this.bot1Call, ref this.bot1Raise, 2);
+                        this.FixCall(this.labelBot1Status, ref this.bot1Call, ref this.bot1Raise, 1);
+                        this.FixCall(this.labelBot1Status, ref this.bot1Call, ref this.bot1Raise, 2);
                         this.DeterminePlayerCurrentBestHand(2, 3, "Bot 1", ref this.bot1HandCategoryFactor, ref this.bot1HandRankFactor, this.bot1FoldOrAllIn);
                         MessageBox.Show("Bot 1's Turn");
-                        this.AIEngine(2, 3, ref bot1Chips, ref this.isBot1Turn, ref  this.bot1FoldOrAllIn, labelBot1Status, 0, this.bot1HandRankFactor, this.bot1HandCategoryFactor);
+                        this.AIEngine(2, 3, ref this.bot1Chips, ref this.isBot1Turn, ref this.bot1FoldOrAllIn, this.labelBot1Status, 0, this.bot1HandRankFactor, this.bot1HandCategoryFactor);
                         this.turnCount++;
                         this.last = 1;
                         this.isBot1Turn = false;
@@ -1175,8 +1173,8 @@ namespace Poker
                 {
                     if (this.isBot2Turn)
                     {
-                        this.FixCall(labelBot2Status, ref this.bot2Call, ref this.bot2Raise, 1);
-                        this.FixCall(labelBot2Status, ref this.bot2Call, ref this.bot2Raise, 2);
+                        this.FixCall(this.labelBot2Status, ref this.bot2Call, ref this.bot2Raise, 1);
+                        this.FixCall(this.labelBot2Status, ref this.bot2Call, ref this.bot2Raise, 2);
                         this.DeterminePlayerCurrentBestHand(4, 5, "Bot 2", ref this.bot2HandCategoryFactor, ref this.bot2HandRankFactor, this.bot2FoldOrAllIn);
                         MessageBox.Show("Bot 2's Turn");
                         this.AIEngine(4, 5, ref bot2Chips, ref this.isBot2Turn, ref  this.bot2FoldOrAllIn, labelBot2Status, 1, this.bot2HandRankFactor, this.bot2HandCategoryFactor);
@@ -1215,8 +1213,8 @@ namespace Poker
                 {
                     if (this.isBot3Turn)
                     {
-                        this.FixCall(labelBot3Status, ref this.bot3Call, ref this.bot3Raise, 1);
-                        this.FixCall(labelBot3Status, ref this.bot3Call, ref this.bot3Raise, 2);
+                        this.FixCall(this.labelBot3Status, ref this.bot3Call, ref this.bot3Raise, 1);
+                        this.FixCall(this.labelBot3Status, ref this.bot3Call, ref this.bot3Raise, 2);
                         this.DeterminePlayerCurrentBestHand(6, 7, "Bot 3", ref this.bot3HandCategoryFactor, ref this.bot3HandRankFactor, this.bot3FoldOrAllIn);
                         MessageBox.Show("Bot 3's Turn");
                         this.AIEngine(6, 7, ref bot3Chips, ref this.isBot3Turn, ref  this.bot3FoldOrAllIn, labelBot3Status, 2, this.bot3HandRankFactor, this.bot3HandCategoryFactor);
@@ -1255,8 +1253,8 @@ namespace Poker
                 {
                     if (this.isBot4Turn)
                     {
-                        this.FixCall(labelBot4Status, ref this.bot4Call, ref this.bot4Raise, 1);
-                        this.FixCall(labelBot4Status, ref this.bot4Call, ref this.bot4Raise, 2);
+                        this.FixCall(this.labelBot4Status, ref this.bot4Call, ref this.bot4Raise, 1);
+                        this.FixCall(this.labelBot4Status, ref this.bot4Call, ref this.bot4Raise, 2);
                         this.DeterminePlayerCurrentBestHand(8, 9, "Bot 4", ref this.bot4HandCategoryFactor, ref this.bot4HandRankFactor, this.bot4FoldOrAllIn);
                         MessageBox.Show("Bot 4's Turn");
                         this.AIEngine(8, 9, ref bot4Chips, ref this.isBot4Turn, ref  this.bot4FoldOrAllIn, labelBot4Status, 3, this.bot4HandRankFactor, this.bot4HandCategoryFactor);
@@ -1294,11 +1292,11 @@ namespace Poker
                 {
                     if (this.isBot5Turn)
                     {
-                        this.FixCall(labelBot5Status, ref this.bot5Call, ref this.bot5Raise, 1);
-                        this.FixCall(labelBot5Status, ref this.bot5Call, ref this.bot5Raise, 2);
+                        this.FixCall(this.labelBot5Status, ref this.bot5Call, ref this.bot5Raise, 1);
+                        this.FixCall(this.labelBot5Status, ref this.bot5Call, ref this.bot5Raise, 2);
                         this.DeterminePlayerCurrentBestHand(10, 11, "Bot 5", ref this.bot5HandCategoryFactor, ref this.bot5HandRankFactor, this.bot5FoldOrAllIn);
                         MessageBox.Show("Bot 5's Turn");
-                        this.AIEngine(10, 11, ref bot5Chips, ref this.isBot5Turn, ref  this.bot5FoldOrAllIn, labelBot5Status, 4, this.bot5HandRankFactor, this.bot5HandCategoryFactor);
+                        this.AIEngine(10, 11, ref bot5Chips, ref this.isBot5Turn, ref this.bot5FoldOrAllIn, labelBot5Status, 4, this.bot5HandRankFactor, this.bot5HandCategoryFactor);
                         this.turnCount++;
                         this.last = 5;
                         this.isBot5Turn = false;
@@ -1335,10 +1333,10 @@ namespace Poker
                     }
                 }
 
-                //checks if the game should continue
+                // checks if the game should continue
                 await this.AllIn();
 
-                //If not, starts next round of turns
+                // If not, starts next round of turns
                 if (!this.restart)
                 {
                     await this.Turns();
@@ -1368,13 +1366,13 @@ namespace Poker
         /// <param name="foldedTurn">current player's FoldorAllin Boolean index</param>        
         public void DeterminePlayerCurrentBestHand(int card1, int card2, string currentText, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor, bool foldedTurn)
         {
-            //Checks if current player is the human player
-            //If so does nothing
+            // Checks if current player is the human player
+            // If so does nothing
             if (card1 == 0 && card2 == 1)
             {
             }
 
-            //Checks if current player is the human player and if he folded turn
+            // Checks if current player is the human player and if he folded turn
             if (!foldedTurn || card1 == 0 && card2 == 1 && labelPlayerStatus.Text.Contains("Fold") == false)
             {
                 ////<summary>
@@ -1390,12 +1388,12 @@ namespace Poker
                 ////<summary>
                 ////Table cards
                 ////</summary>
-                int[] tableCards = new int[5];//table cards (board cards)
+                int[] tableCards = new int[5]; // table cards (board cards)
 
                 ////<summary>
                 ////Combined player and table cards
                 ////</summary>
-                int[] combinedCards = new int[7];//player cards plus table cards
+                int[] combinedCards = new int[7]; // player cards plus table cards
                 combinedCards[0] = this.deckCard[card1];
                 combinedCards[1] = this.deckCard[card2];
                 tableCards[0] = combinedCards[2] = this.deckCard[12];
@@ -1448,21 +1446,21 @@ namespace Poker
                 ////</summary>
                 var distinctSpades = spades.Select(o => o / 4).Distinct().ToArray();
 
-                Array.Sort(combinedCards);//Sorts combined cards array
-                Array.Sort(distinctClubs);//sorts clubs array with only the distinct cards
-                Array.Sort(distinctDiamonds);//sorts diamonds array with only the distinct cards
-                Array.Sort(distinctHearts);//sorts hearts array with only the distinct cards
-                Array.Sort(distinctSpades);//sorts spades array with only the distinct cards
+                Array.Sort(combinedCards); // Sorts combined cards array
+                Array.Sort(distinctClubs); // sorts clubs array with only the distinct cards
+                Array.Sort(distinctDiamonds); // sorts diamonds array with only the distinct cards
+                Array.Sort(distinctHearts); // sorts hearts array with only the distinct cards
+                Array.Sort(distinctSpades); // sorts spades array with only the distinct cards
 
                 for (int card = 0; card < 16; card++)
                 {
-                    //Checks if player cards is dealt the cards he should be dealt
-                    //etc., there is no problem with the shuffle engine
-                    if (this.deckCard[card] == int.Parse(cardToBeDealt[card1].Tag.ToString()) &&
-                        this.deckCard[card + 1] == int.Parse(cardToBeDealt[card2].Tag.ToString()))
+                    // Checks if player cards is dealt the cards he should be dealt
+                    // etc., there is no problem with the shuffle engine
+                    if (this.deckCard[card] == int.Parse(this.cardToBeDealt[card1].Tag.ToString()) &&
+                        this.deckCard[card + 1] == int.Parse(this.cardToBeDealt[card2].Tag.ToString()))
                     {
-                        //Checks if the current player has Pair from Hand
-                        //currentPlayerCategoryFactor = 1
+                        // Checks if the current player has Pair from Hand
+                        // currentPlayerCategoryFactor = 1
                         this.CheckPairFromHand(card, ref currentPlayerCategoryFactor, ref currentPlayerRankFactor);
 
                         //Checks if the current player has pair Two Pair
@@ -2591,6 +2589,7 @@ namespace Poker
         /// <summary>
         /// Checks if current player has one pair, which is formed from a player's card and a table card.
         /// </summary>
+        /// <param name="card">Current card</param>
         /// <param name="currentPlayerCategoryFactor">The current player's hand category factor</param>
         /// <param name="currentPlayerRankFactor">The current player's hand rank factor</param>        
         public void CheckPairFromHand(int card, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
@@ -2599,84 +2598,88 @@ namespace Poker
             {
                 bool msgbox = false;
 
-                //Checks if player's two cards form a pair
-                //If so adds competing pair hand
+                // Checks if player's two cards form a pair
+                // If so adds competing pair hand
                 if (this.deckCard[card] / 4 == this.deckCard[card + 1] / 4)
                 {
-                    if (!msgbox)
-                    {
-                        //Checks if the player has an ace 
-                        //If so adds 13(ace rank)* 4 to rank factor
+                    //if (!msgbox)
+                    //{
+                        // Checks if the player has an ace 
+                        // If so adds 13(ace rank)* 4 to rank factor
                         if (this.deckCard[card] / 4 == 0)
                         {
                             currentPlayerCategoryFactor = 1;
-                            currentPlayerRankFactor = 13 * 4 + currentPlayerCategoryFactor * 100;
+                            currentPlayerRankFactor = (13 * 4) + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
-                            winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
-                        ////If not adds highest card * 4 to rank factor
+
+                        // If not adds highest card * 4 to rank factor
                         else
                         {
                             currentPlayerCategoryFactor = 1;
                             currentPlayerRankFactor = ((this.deckCard[card + 1] / 4) * 4) + (currentPlayerCategoryFactor * 100);
                             this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
-                            winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                            this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                         }
-                    }
-                    ////If true sets a bool value msg true
-                    //This means competing hand category and rank factors are set
+                    //}
+
+                    // If true sets a bool value msg true
+                    // This means competing hand category and rank factors are set
                     msgbox = true;
                 }
 
-                //This is for table cards(tableCard = 12-16)
-                //
+                // This is for table cards(tableCard = 12-16)
                 for (int tableCard = 16; tableCard >= 12; tableCard--)
                 {
-                    //Checks if a table card and the second of the current player's two cards form a pair
+                    // Checks if a table card and the second of the current player's two cards form a pair
                     if (this.deckCard[card + 1] / 4 == this.deckCard[tableCard] / 4)
                     {
-                        //Checks if current player's two cards form a pair
-                        //If current player's two cards form no pair,then adds current player competing hand as a pair
+                        // Checks if current player's two cards form a pair
+                        // If current player's two cards form no pair, then adds current player competing hand as a pair
                         if (!msgbox)
                         {
-                            //Checks if current player has an ace
-                            //Special case for forming rank factor
+                            // Checks if current player has an ace
+                            // Special case for forming rank factor
                             if (this.deckCard[card + 1] / 4 == 0)
                             {
                                 currentPlayerCategoryFactor = 1;
-                                currentPlayerRankFactor = 13 * 4 + this.deckCard[card] / 4 + currentPlayerCategoryFactor * 100;
+                                currentPlayerRankFactor = (13 * 4) + (this.deckCard[card] / 4) + (currentPlayerCategoryFactor * 100);
                                 this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
-                                winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                                this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
-                            ////If not, executes the usual case for forming rank factor
+
+                            // If not, executes the usual case for forming rank factor
                             else
                             {
                                 currentPlayerCategoryFactor = 1;
                                 currentPlayerRankFactor = (((this.deckCard[card + 1] / 4) * 4) + (this.deckCard[card] / 4)) + (currentPlayerCategoryFactor * 100);
                                 this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
-                                winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
+                                this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
                         }
 
                         msgbox = true;
                     }
-                    ////Checks if a table card and the first of the current player's two cards form a pair
+
+                    // Checks if a table card and the first of the current player's two cards form a pair
                     if (this.deckCard[card] / 4 == this.deckCard[tableCard] / 4)
                     {
-                        //Checks if current player\s two cards form a pair
-                        //If not, adds a competing hand pair with the following factors
+                        // Checks if current player\s two cards form a pair
+                        // If not, adds a competing hand pair with the following factors
                         if (!msgbox)
                         {
-                            //Checks if current player has an ace
-                            //Special case for forming rank factor
+                            // Checks if current player has an ace
+                            // Special case for forming rank factor
                             if (this.deckCard[card] / 4 == 0)
                             {
                                 currentPlayerCategoryFactor = 1;
-                                currentPlayerRankFactor = 13 * 4 + this.deckCard[card + 1] / 4 + currentPlayerCategoryFactor * 100;
+                                currentPlayerRankFactor = (13 * 4) + (this.deckCard[card + 1] / 4) + (currentPlayerCategoryFactor * 100);
                                 this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
                                 this.winningHand = this.competingHands.OrderByDescending(op => op.CategoryFactor).ThenByDescending(op => op.RankFactor).First();
                             }
-                            ////If not, this is the usual case for forming rank factor
+
+                            //If not, this is the usual case for forming rank factor
                             else
                             {
                                 currentPlayerCategoryFactor = 1;
@@ -2695,39 +2698,34 @@ namespace Poker
         /// <summary>
         /// If current player has no hand of category 1 or higher, his hand is determined by his highest card.
         /// </summary>
+        /// <param name="card">Current card</param>
         /// <param name="currentPlayerCategoryFactor">The current player hand category factor</param>
         /// <param name="currentPlayerRankFactor">TThe current player hand rank factor</param>        
         public void CheckHighCard(int card, ref double currentPlayerCategoryFactor, ref double currentPlayerRankFactor)
         {
-            //Checks if current player does not have a higher hand
-            //If so, current player only competing hand is the high card hand
+            // Checks if current player does not have a higher hand
+            // If so, current player only competing hand is the high card hand
             if (currentPlayerCategoryFactor == -1)
             {
-                //If the first of the two cards is higher, ranks are determined from it
+                // If the first of the two cards is higher, ranks are determined from it
                 if (this.deckCard[card] / 4 > this.deckCard[card + 1] / 4)
                 {
-                    currentPlayerCategoryFactor = -1;
                     currentPlayerRankFactor = this.deckCard[card] / 4;
-                    this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
-                    this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                 }
-                ////If the second of the two cards is higher, ranks are determined from it
+                // If the second of the two cards is higher, ranks are determined from it
                 else
                 {
-                    currentPlayerCategoryFactor = -1;
                     currentPlayerRankFactor = this.deckCard[card + 1] / 4;
-                    this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
-                    this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                 }
 
                 //Checks if you have an ace
                 if (this.deckCard[card] / 4 == 0 || this.deckCard[card + 1] / 4 == 0)
                 {
-                    currentPlayerCategoryFactor = -1;
                     currentPlayerRankFactor = 13;
-                    this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
-                    this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
                 }
+
+                this.competingHands.Add(new PokerHand(currentPlayerRankFactor, currentPlayerCategoryFactor));
+                this.winningHand = this.competingHands.OrderByDescending(op1 => op1.CategoryFactor).ThenByDescending(op1 => op1.RankFactor).First();
             }
         }
 
@@ -3232,16 +3230,16 @@ namespace Poker
         /// <param name="options">The options parameter</param>        
         public void FixCall(Label currentPlayerStatus, ref int currentPlayerCall, ref int currentPlayerRaise, int options)
         {
-            //Checks if all possibilities to bet after River round
-            //are checked
-            if (communityCardsRound != End)
+            // Checks if all possibilities to bet after River round
+            // are checked
+            if (this.communityCardsRound != End)
             {
-                //This check is made just before a player can 
-                //click his buttons
+                // This check is made just before a player can 
+                // click his buttons
                 if (options == 1)
                 {
-                    //Checks if this player has raised the previous turn
-                    //If so, changes his raise amount to the status value
+                    // Checks if this player has raised the previous turn
+                    // If so, changes his raise amount to the status value
                     if (currentPlayerStatus.Text.Contains("Raise"))
                     {
                         var changeRaise = currentPlayerStatus.Text.Substring(6);
@@ -3263,32 +3261,32 @@ namespace Poker
                     }
                 }
 
-                //This check is made after the first one,
-                //(for the human player after timer start)
+                // This check is made after the first one,
+                // (for the human player after timer start)
                 if (options == 2)
                 {
-                    //If the game is raised adjusts the call amount
-                    //for the currentPlayerCategoryFactor player 
+                    // If the game is raised adjusts the call amount
+                    // for the currentPlayerCategoryFactor player 
                     if (currentPlayerRaise < this.raiseAmount)
                     {
-                        callAmount = Convert.ToInt32(this.raiseAmount) - currentPlayerRaise;
+                        this.callAmount = Convert.ToInt32(this.raiseAmount) - currentPlayerRaise;
                     }
 
-                    //Checks if the player has called the previous turn 
-                    //and if so subtracts it from the currentPlayerCategoryFactor call amount
-                    if (currentPlayerCall != callAmount || currentPlayerCall <= callAmount)
+                    // Checks if the player has called the previous turn 
+                    // and if so subtracts it from the currentPlayerCategoryFactor call amount
+                    if (currentPlayerCall != this.callAmount || currentPlayerCall <= this.callAmount)
                     {
-                        callAmount = callAmount - currentPlayerCall;
+                        this.callAmount = this.callAmount - currentPlayerCall;
                     }
 
-                    //Checks if currentPlayerCategoryFactor player has raised previous turn 
-                    //and the same raise reaches him.
-                    //If so shows some text.
+                    // Checks if currentPlayerCategoryFactor player has raised previous turn 
+                    // and the same raise reaches him.
+                    // If so shows some text.
                     if (currentPlayerRaise == this.raiseAmount && this.raiseAmount > 0)
                     {
-                        callAmount = 0;
-                        buttonCall.Enabled = false;
-                        buttonCall.Text = "Callisfuckedup";
+                        this.callAmount = 0;
+                        this.buttonCall.Enabled = false;
+                        this.buttonCall.Text = "Callisfuckedup";
                     }
                 }
             }
