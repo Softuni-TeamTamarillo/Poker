@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poker2.Models
+namespace Poker2.Core.Handlers
 {
-    using Poker2.Models.Interfaces;
-    public class Human : Player,IHuman
+    using Poker2.Core.Interfaces;
+    public abstract class BotChoiceMaker :IBotChoiceMaker
     {
-        public Human()
-            : base()
+        public void Chooses()
         {
             
         }

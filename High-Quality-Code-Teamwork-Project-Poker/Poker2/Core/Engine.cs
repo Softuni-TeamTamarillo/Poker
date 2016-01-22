@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poker2
+namespace Poker2.Core
 {
-    public class Engine:IEngine
+    using Poker2.Core.Interfaces;
+    public class Engine :IEngine
     {
+        public void Run()
+        {
+            
+        }
     }
 }

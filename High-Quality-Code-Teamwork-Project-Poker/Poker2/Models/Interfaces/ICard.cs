@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poker2.Core.Interfaces
+namespace Poker2.Models.Interfaces
 {
-    public interface IEngine
+    public interface ICard
     {
-        void Run();
+        Suit Suit { get; set; }
+
+        Rank Rank { get; set; }
     }
 }

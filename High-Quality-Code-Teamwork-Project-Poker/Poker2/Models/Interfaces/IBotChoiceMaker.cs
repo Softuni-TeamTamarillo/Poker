@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core.Interfaces
 {
-    public interface IEngine
+    using System.Security.Cryptography.X509Certificates;
+
+    public interface IBotChoiceMaker
     {
-        void Run();
+        void Chooses();
     }
 }

@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models.Interfaces
 {
-    public interface IBot
+    public interface IHand
     {
-        IList<ICard> CombinedCards { get; set; }
+        HandType Type { get; set; }
 
-        void AddFlopCards();
-
-        void AddTurnCard();
-
-        void AddRiverCard();
+        double RankFactor { get; set; }
     }
 }

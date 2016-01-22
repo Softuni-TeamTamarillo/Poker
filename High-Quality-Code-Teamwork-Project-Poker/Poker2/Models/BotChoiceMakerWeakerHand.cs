@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poker2.Core.Interfaces
+namespace Poker2.Models
 {
-    public interface IEngine
+    using Poker2.Core.Handlers;
+    public class BotChoiceMakerWeakerHand:BotChoiceMaker
     {
-        void Run();
     }
 }
