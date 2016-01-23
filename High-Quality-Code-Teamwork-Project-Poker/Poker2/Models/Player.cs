@@ -46,7 +46,7 @@ namespace Poker2.Models
             HasChecked = false;
             HasRaised = false;
             IsAllIn = false;
-            FirstCard = new Card();
+            FirstCard = null;
             SecondCard = null;
             Hand = null;
         }

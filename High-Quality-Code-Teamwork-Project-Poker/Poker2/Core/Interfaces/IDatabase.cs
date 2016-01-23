@@ -9,7 +9,7 @@ namespace Poker2.Core.Interfaces
     using Poker2.Forms;
     using Poker2.Models.Interfaces;
 
-    interface IDatabase
+    public interface IDatabase
     {
         PokerTable PokerTable { get; set; }
         AddChips AddChips { get; set; }
@@ -29,7 +29,7 @@ namespace Poker2.Core.Interfaces
 
         bool IsBetRaised { get; set; }
 
-        int MaxLeft { get; set; }
+        int LeftPlayers { get; set; }
 
         int TurnCount { get; set; }
 

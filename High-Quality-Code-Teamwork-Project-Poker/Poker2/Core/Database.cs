@@ -6,20 +6,17 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core
 {
-    using System.IO;
-
     using Poker2.Core.Interfaces;
     using Poker2.Forms;
     using Poker2.Models;
     using Poker2.Models.Interfaces;
 
-    public class Database:IDatabase
+    public class Database : IDatabase
     {
         public const int Flop = 1;
         public const int Turn = 2;
         public const int River = 3;
         public const int End = 4;
-
         public const int MaxPlayers = 6;
 
         public const int BigBlindDefaultValue = 500;
@@ -29,7 +26,8 @@ namespace Poker2.Core
         private int roundType; 
         private int raiseAmount;
         private int winnersCount = 0;//winners
-        private int maxLeft = MaxPlayers;//6
+
+        private int leftPlayers = MaxPlayers;//6
 
         private int last = 123;
         private int raisedTurn = 1;
@@ -69,7 +67,7 @@ namespace Poker2.Core
             CallAmount = BigBlind;
             RaiseAmount = 0;
             RoundType = CommunityCardRound.PreFlop;
-            MaxLeft = MaxPlayers;
+            LeftPlayers = MaxPlayers;
             IsBetRaised = false;
             this.turnCount = 0;
             Restart = false;
@@ -98,7 +96,7 @@ namespace Poker2.Core
 
         public bool IsBetRaised { get; set; }
 
-        public int MaxLeft { get; set; }
+        public int LeftPlayers { get; set; }
 
         public int TurnCount { get; set; }
 
