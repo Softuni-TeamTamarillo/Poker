@@ -1,4 +1,6 @@
-﻿namespace Poker2.Models
+﻿using System.Diagnostics;
+
+namespace Poker2.Models
 {
     using System.Collections.Generic;
     using Poker2.Models.Interfaces;

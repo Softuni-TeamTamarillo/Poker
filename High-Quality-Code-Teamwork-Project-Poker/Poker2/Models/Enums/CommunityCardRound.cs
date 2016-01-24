@@ -2,10 +2,10 @@
 {
     public enum CommunityCardRound
     {
-        PreFlop = 0,
-        Flop = 1,
-        Turn = 2,
-        River = 3,
-        End = 4
+        PreFlop = 1,
+        Flop = 2,
+        Turn = 3,
+        River = 4,
+        End = 5
     }
 }
