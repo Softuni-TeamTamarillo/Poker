@@ -1,4 +1,6 @@
 ﻿using System;
+using Poker2.Models.Enums;
+
 namespace Poker2.Utils
 {
     using System.Drawing;
@@ -14,7 +16,7 @@ namespace Poker2.Utils
                 arr[i] = i + 1;
             }
         }
-        public static void ShuffleNumbers(int [] numbers)
+        public static void ShuffleNumbers(int[] numbers)
         {
             Random randGenerator = new Random();
             for (int i = 0; i < numbers.Length - 1; i++)
@@ -26,7 +28,7 @@ namespace Poker2.Utils
             }
         }
 
-        public static void GetImages(string[] imgLocation, int[] shuffledNumbers, Image [] images)
+        public static void GetImages(string[] imgLocation, int[] shuffledNumbers, Image[] images)
         {
             for (int i = 0; i < images.Length; i++)
             {
@@ -41,7 +43,7 @@ namespace Poker2.Utils
                 cards[i].Suit = (Suit)(shuffledNumbers[i] % 4);
             }
         }
-        public static void GetRanks(int []shuffledNumbers, ICard [] cards)
+        public static void GetRanks(int[] shuffledNumbers, ICard[] cards)
         {
             for (int i = 0; i < cards.Length; i++)
             {

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Interfaces
+﻿namespace Poker2.Models.Interfaces
 {
+    //Do we need this using?
     using System.Security.Cryptography.X509Certificates;
 
     public interface IBotChoiceMaker

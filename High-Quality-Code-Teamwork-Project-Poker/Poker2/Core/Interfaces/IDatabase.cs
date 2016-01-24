@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Poker2.Models.Enums;
 
 namespace Poker2.Core.Interfaces
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Poker2.Models.Enums;
 
 namespace Poker2.Core.Handlers
 {
@@ -15,7 +16,7 @@ namespace Poker2.Core.Handlers
     {
         public void CheckHand(IBot bot)
         {
-            
+
         }
 
 
@@ -25,21 +26,21 @@ namespace Poker2.Core.Handlers
             switch (bot.Hand.Type)
             {
                 case HandType.HighCard:
-                case HandType.PairTable: 
-                return new BotChoiceMakerWeakerHand();
+                case HandType.PairTable:
+                    return new BotChoiceMakerWeakerHand();
 
-                case HandType.Pair: 
+                case HandType.Pair:
                 case HandType.TwoPairs:
                     return new BotChoiceMakerWeakHand();
 
-                case HandType.ThreeOfAKind: 
-                case HandType.Straight: 
-                case HandType.Flush: 
-                case HandType.FullHouse: 
-                case HandType.FourOfAKind: 
+                case HandType.ThreeOfAKind:
+                case HandType.Straight:
+                case HandType.Flush:
+                case HandType.FullHouse:
+                case HandType.FourOfAKind:
                 case HandType.StraightFlush:
                 case HandType.RoyalFlush: return new BotChoiceMakerOtherHand();
-                default:throw new ArgumentException("Wrong hand Type!Only types of type HandType are accepted.");
+                default: throw new ArgumentException("Wrong hand Type!Only types of type HandType are accepted.");
             }
         }
 

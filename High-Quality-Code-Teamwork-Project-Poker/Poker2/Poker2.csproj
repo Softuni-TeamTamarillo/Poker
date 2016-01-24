@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8F231CEE-4C86-43B8-91A5-DA8AA59FAE2B}</ProjectGuid>
+    <ProjectGuid>{13786F9D-12D4-439D-839C-7B10EA307A8F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Poker2</RootNamespace>
@@ -92,12 +92,12 @@
     <Compile Include="Forms\PokerTable.Designer.cs" />
     <Compile Include="Models\Bot.cs" />
     <Compile Include="Models\Card.cs" />
-    <Compile Include="Models\CommunityCardRound.cs" />
+    <Compile Include="Models\Enums\CommunityCardRound.cs" />
     <Compile Include="Models\Interfaces\IBetter.cs" />
-    <Compile Include="Models\Rank.cs" />
-    <Compile Include="Models\Suit.cs" />
+    <Compile Include="Models\Enums\Rank.cs" />
+    <Compile Include="Models\Enums\Suit.cs" />
     <Compile Include="Models\Hand.cs" />
-    <Compile Include="Models\HandType.cs" />
+    <Compile Include="Models\Enums\HandType.cs" />
     <Compile Include="Models\Human.cs" />
     <Compile Include="Models\Interfaces\IBot.cs" />
     <Compile Include="Models\Interfaces\ICard.cs" />

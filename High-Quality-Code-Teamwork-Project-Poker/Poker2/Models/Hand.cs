@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Models
+﻿namespace Poker2.Models
 {
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
-    public class Hand:IHand
+
+    public class Hand : IHand
     {
         private HandType type;
 

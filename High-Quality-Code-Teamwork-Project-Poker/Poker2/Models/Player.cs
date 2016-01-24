@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Models
+﻿namespace Poker2.Models
 {
     using Poker2.Models.Interfaces;
-    public abstract class Player:IPlayer, IBetter
+
+    public abstract class Player : IPlayer, IBetter
     {
         public const int DefaultBankroll = 10000;
 
@@ -84,27 +79,27 @@ namespace Poker2.Models
 
         public void Checks()
         {
-            
+
         }
 
         public void Calls()
         {
-            
+
         }
 
         public void Raises()
         {
-            
+
         }
 
         public void GoesAllIn()
         {
-            
+
         }
 
         public void Folds()
         {
-            
+
         }
     }
 }

@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Models
+﻿namespace Poker2.Models
 {
+    using System.Collections.Generic;
     using Poker2.Models.Interfaces;
+
     public class Bot : Player, IBot
     {
         private IList<ICard> commbinedCards;
 
-        public Bot():base()
+        public Bot() : base()
         {
             SetCombinedCards();
         }

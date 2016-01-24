@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Models
+﻿namespace Poker2.Models
 {
     using Poker2.Core.Handlers;
-    public class BotChoiceMakerWeakerHand:BotChoiceMaker
+
+    public class BotChoiceMakerWeakerHand : BotChoiceMaker
     {
     }
 }

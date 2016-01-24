@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Poker2.Models.Enums;
 
 namespace Poker2.Core
 {
@@ -23,7 +24,7 @@ namespace Poker2.Core
 
         private int callAmount;//call
         private int foldedPlayers = 5;
-        private int roundType; 
+        private int roundType;
         private int raiseAmount;
         private int winnersCount = 0;//winners
 
