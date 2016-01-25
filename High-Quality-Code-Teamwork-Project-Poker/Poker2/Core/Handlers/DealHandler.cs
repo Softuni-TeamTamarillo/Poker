@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core.Handlers
 {
+    using System.Collections;
     using System.Drawing;
     using System.IO;
+    using System.Windows.Forms;
 
+    using Poker2.Core.Interfaces;
+    using Poker2.Core;
     using Poker2.Core.Controllers.Interfaces;
     using Poker2.Core.Handlers.Interfaces;
+    using Poker2.Models;
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
@@ -18,85 +23,145 @@ namespace Poker2.Core.Handlers
     {
         public const int CardsInADeck = 52;
         private readonly static string[] imgCardsLocation = Directory.GetFiles("..\\..\\Resources\\Assets\\Cards", "*.png", SearchOption.TopDirectoryOnly);
+        private readonly IDatabase database;
 
-        private int playersCount;
-
-        private IList<IPlayer> players;
-
+        private int leftPlayersCount;
+      
         private Image[] images;
 
-        private ICard[] cardsToBeDealt;
-        public DealHandler(IList<IPlayer> players, ICardController cardController)
+
+        public DealHandler(IDatabase database)
         {
-            this.Players = players;
-            this.PlayersCount = players.Where(x => x != null).ToList().Count;
-            this.images = new Image[this.PlayersCount * 2 + 5];
-            this.CardsToBeDealt = null;
-            CardController = cardController;
+            this.database = database;
+            this.LeftPlayersCount = this.Database.Players.Where(x => x != null).ToList().Count;
+            this.images = new Image[this.LeftPlayersCount * 2 + 5];       
         }
 
-        public int PlayersCount { get; set; }
+        public IDatabase Database
+        {
+            get
+            {
+                return this.database;
+            }
+        }
 
-        public IList<IPlayer> Players { get; set; }
+        public int LeftPlayersCount { get; set; }
+
 
         public Image[] Images { get; set; }
 
-        public ICard[] CardsToBeDealt { get; set; }
-
-        public ICardController CardController { get; set; }
         public void ShuffleCards()
         {
-            int[] numbers = new int[CardsInADeck];
-            HandlerUtil.InitializeNumbersArray(numbers);
-            HandlerUtil.ShuffleNumbers(numbers);
-            HandlerUtil.GetImages(imgCardsLocation, numbers, this.Images);
-            CardsToBeDealt = new ICard[PlayersCount * 2 + 5];
-            HandlerUtil.GetSuits(numbers, CardsToBeDealt);
-            HandlerUtil.GetRanks(numbers, CardsToBeDealt);
+            int[] numbersToBeShuffled = new int[CardsInADeck];
+            DealHandlerUtil.InitializeNumbersArray(numbersToBeShuffled);
+            DealHandlerUtil.ShuffleNumbers(numbersToBeShuffled);
 
+            var cards = this.Database.CardsToBeDealt;
+            cards = new List<ICard>(LeftPlayersCount * 2 + 5);
+
+            for (int i = 0; i < LeftPlayersCount * 2 + 5; i++)
+            {
+                cards[i] = new Card();
+            }
+            DealHandlerUtil.GetImages(imgCardsLocation, numbersToBeShuffled, this.Database.CardImages, this.Database.Players);
+            DealHandlerUtil.GetSuits(numbersToBeShuffled, this.Database.CardsToBeDealt);
+            DealHandlerUtil.GetRanks(numbersToBeShuffled, this.Database.CardsToBeDealt);
         }
 
         public void DealCards()
         {
             DealPlayers();
-            CardController.SetCardImagesPreFlop(Images, Players);
+            this.SetCommunityCards();
         }
 
         public void DealPlayers()
         {
+            var players = this.Database.Players;
             int indexCards = 0;
-            for (int i = 0; i < PlayersCount * 2; i++)
+            for (int i = 0; i < players.Count * 2; i++)
             {
-                if (Players[i] != null)
+                if (players[i] != null)
                 {
-                    DealPlayer(Players[i], indexCards);
+                    DealPlayer(players[i], indexCards);
                     indexCards += 2;
                 }
             }
+        }
 
+        public void SetCommunityCards()
+        {
+            this.Database.CommunityCards = new List<ICard>(this.Database.CardsToBeDealt);
+            this.Database.CommunityCards.Skip(this.Database.CommunityCards.Count - 6);
         }
 
         private void DealPlayer(IPlayer player, int indexCards)
         {
-            player.FirstCard = CardsToBeDealt[indexCards];
-            indexCards++;
-            player.SecondCard = CardsToBeDealt[indexCards];
-            indexCards++;
+            player.FirstCard = this.Database.CardsToBeDealt[indexCards];
+            player.SecondCard = this.Database.CardsToBeDealt[indexCards + 1];
+        }
+
+        public void DealCommunityRound(CommunityCardRound round)
+        {
+            switch(this.Database.RoundType)
+            {
+                case CommunityCardRound.PreFlop:
+                    this.DealCards();
+                    break;
+                case CommunityCardRound.Flop:
+                    this.DealFlop();
+                    break;
+                case CommunityCardRound.Turn:
+                    this.DealTurn();
+                    break;
+                case CommunityCardRound.River:
+                    this.DealRiver();
+                    break;
+                default:
+                    throw new ArgumentException("Not a poker community round.");
+            }
         }
 
         public void DealFlop()
         {
-            CardController.SetFlopCardImages(Images);            
+            var players = this.Database.PlayersNotFoldedOrAllIn;
+            foreach (var player in players)
+            {
+                if (player != null)
+                {
+                      player.CombinedCards.Add(
+                          this.Database.CommunityCards[0]);
+                    player.CombinedCards.Add(
+                          this.Database.CommunityCards[1]);
+                    player.CombinedCards.Add(
+                          this.Database.CommunityCards[2]);  
+                }
+            }                 
         }
 
         public void DealTurn()
         {
-            CardController.SetTurnCardImage(Images);
+            var players = this.Database.PlayersNotFoldedOrAllIn;
+
+            foreach (var player in players)
+            {
+                if (player != null)
+                {
+                    player.CombinedCards.Add(
+                          this.Database.CommunityCards[3]);  
+                }
+            }                 
         }
 
         public void DealRiver()
         {
-            CardController.SetRiverCardImage(Images);
+            var players = this.Database.PlayersNotFoldedOrAllIn;
+            foreach (var player in players)
+            {
+                if (player != null)
+                {
+                    player.CombinedCards.Add(this.Database.CommunityCards[4]);   
+                }
+            }                
         }
     }
 }

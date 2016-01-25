@@ -9,18 +9,13 @@ namespace Poker2.Core.Handlers.Interfaces
     using System.Security.Cryptography.X509Certificates;
 
     using Poker2.Core.Interfaces;
+    using Poker2.Models.Interfaces;
 
-    public interface IGameHandler
+    public interface ICommunityRoundHandler
     {
         IDatabase Database { get; }
+        CommunityCardRound Round { get; set; }
 
-        IBetHandler BetHandler { get; }
-
-        IDealHandler DealHandler { get; }
-
-        void StartGame();
-
-        void FinishGame();
-
+        void AdvanceRounds();
     }
 }

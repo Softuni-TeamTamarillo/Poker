@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Poker2.Models.Enums;
-
-namespace Poker2.Core.Interfaces
+﻿namespace Poker2.Core.Interfaces
 {
-    using Poker2.Forms;
     using Poker2.Models.Interfaces;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Windows.Forms;
 
     public interface IDatabase
     {
-        PokerTable PokerTable { get; set; }
-        AddChips AddChips { get; set; }
-
         IList<IPlayer> Players { get; set; }
-        IList<IPlayer> PlayersNotFolded { get; set; }
+        IList<IPlayer> PlayersNotFoldedOrAllIn { get; set; }
 
         int CallAmount { get; set; }
 
@@ -28,24 +20,26 @@ namespace Poker2.Core.Interfaces
 
         CommunityCardRound RoundType { get; set; }
 
-        bool IsBetRaised { get; set; }
-
-        int LeftPlayers { get; set; }
-
-        int TurnCount { get; set; }
-
-        int Last { get; set; }
-
-        int RaisedTurn { get; set; }
-
-        bool Restart { get; set; }
-
-        IList<IHand> CompetingHands { get; set; }
-
         IList<string> ListOfWinners { get; set; }
-        IHand Hand { get; set; }
 
+        IList<ICard> CardsToBeDealt { get; set; }
 
+        IList<ICard> CommunityCards { get; set; }
 
+        Image[] CardImages { get; }
+        PictureBox[] ShuffledDeck  { get; }
+
+        PictureBox[] Chips { get; }
+
+        Panel[] PlayerPanels { get; set; }
+        int IndexLastRaised { get; set; }
+
+        int IndexLastChecked { get; set; }
+
+        int LeftPlayersCount { get; set; }
+        int AllInPlayersCount { get; set; }
+        int FoldedPlayersCount { get; set; }
+
+        int PotChipsAmount { get; set; }
     }
 }

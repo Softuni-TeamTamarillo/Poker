@@ -32,21 +32,38 @@ namespace Poker2.Core.Controllers
 
         public static readonly int[] ChipsCoordX = { 750, 255, 350, 785, 970, 110, 550 };
         public static readonly int[] ChipsCoordY = { 500, 500, 140, 140, 140, 500, 190 };
+        private readonly PokerTable pokerTable;
 
         private PictureBox [] chips;
 
         private Point[] locations;
 
         private IDatabase database;
-        public ChipsController(IDatabase database)
+        public ChipsController(PokerTable pokerTable, IDatabase database)
         {
-            Database = database;
-            SetChips(Database.PokerTable, Locations);
+            this.database = database;
+            this.pokerTable = pokerTable;
+            this.Chips = this.Database.Chips;
+            SetChips(this.PokerTable);
         }
 
+        public PokerTable PokerTable
+        {
+            get
+            {
+                return this.pokerTable;
+            }
+        }
         public PictureBox[] Chips { get; set; }
         public Point[] Locations { get; set; }
-        public IDatabase Database { get; set; }
+
+        public IDatabase Database
+        {
+            get
+            {
+                return this.database;
+            }
+        }
 
         public void SetLocations()
         {
@@ -57,8 +74,7 @@ namespace Poker2.Core.Controllers
         {
             ControllerUtil.SetLocations(Locations, otherLocations);
         }
-
-        public void SetChips(PokerTable pokerTable, Point[] locations)
+        public void SetChips(PokerTable pokerTable)
         {
             Chips = new PictureBox[MaxPlayers + 1];
             this.SetLocations();

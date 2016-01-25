@@ -19,6 +19,8 @@ namespace Poker2.Core.Controllers
         {
             TurnTime = DefaultTurnTime;
             humanTimer = new Timer();
+            this.humanTimer.Interval = (1 * 1 * 1000);
+            this.humanTimer.Tick += Events.timer_Tick;
         }
 
         public Timer HumanTimer { get; set; }

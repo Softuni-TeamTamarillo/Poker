@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Poker2.Models.Enums;
 
 namespace Poker2.Core
 {
+    using System.Drawing;
+    using System.Windows.Forms;
+
     using Poker2.Core.Interfaces;
     using Poker2.Forms;
     using Poker2.Models;
@@ -14,76 +16,72 @@ namespace Poker2.Core
 
     public class Database : IDatabase
     {
-        public const int Flop = 1;
-        public const int Turn = 2;
-        public const int River = 3;
-        public const int End = 4;
         public const int MaxPlayers = 6;
-
         public const int BigBlindDefaultValue = 500;
 
+        private CommunityCardRound roundType;
         private int callAmount;//call
-        private int foldedPlayers = 5;
-        private int roundType;
         private int raiseAmount;
-        private int winnersCount = 0;//winners
-
-        private int leftPlayers = MaxPlayers;//6
-
-        private int last = 123;
-        private int raisedTurn = 1;
-        private bool isBetRaised = false;//raising
-
-        private bool restart = false;
-
-        private int windowHeight;//height 
-        private int windowWidth;//width
+        //private int windowHeight;//height 
+        //private int windowWidth;//width
 
         private int bigBlind = BigBlindDefaultValue;//callChipsCount
         private int smallBlind = BigBlindDefaultValue / 2;//sb
 
-        private int turnCount = 0;
+        private int indexLastRaised;
+
+        private int indexLastChecked;
 
         private IList<IPlayer> players;
 
-        private IList<IPlayer> playersNotFolded;
-
-        private IList<IHand> competingHands;
+        private IList<IPlayer> playersNotFoldedOrAllIn;
 
         private IList<string> listOfWinners;
-        private IHand winningHand;
 
-        private PokerTable pokerTable;
+        private IList<ICard> cardsToBeDealt;
 
-        private AddChips addChips;
+        private IList<ICard> communityCards;
+
+        private int leftPlayersCount;
+
+        private Image[] cardImages;
+
+        private PictureBox[] shuffledDeck;
+
+        private PictureBox[] chips;
+
+        private Panel[] playerPanels;
+
+
 
         public Database()
         {
-            PokerTable = new PokerTable();
-            AddChips = null;
             this.SetPlayers();
-            PlayersNotFolded = Players;
+            PlayersNotFoldedOrAllIn = new List<IPlayer>(Players);
             BigBlind = BigBlindDefaultValue;
             SmallBlind = BigBlind / 2;
             CallAmount = BigBlind;
             RaiseAmount = 0;
-            RoundType = CommunityCardRound.PreFlop;
-            LeftPlayers = MaxPlayers;
-            IsBetRaised = false;
-            this.turnCount = 0;
-            Restart = false;
-            this.Last = 123;
-            RaisedTurn = 1;
-            CompetingHands = new List<IHand>();
+            this.RoundType = CommunityCardRound.PreFlop;
             ListOfWinners = new List<string>();
-            Hand = null;
+            this.LeftPlayersCount = MaxPlayers;
+            this.CardsToBeDealt = null;
+            this.CommunityCards = null;
+            this.IndexLastRaised = 0;
+            this.IndexLastChecked = -1;
+
+            this.ShuffledDeck = null;
+            this.CardImages = null;
+            this.Chips = null;
+            this.PlayerPanels = null;
+            LeftPlayersCount = MaxPlayers;
+            AllInPlayersCount = 0;
+            FoldedsPlayersCount = 0;
         }
 
-        public PokerTable PokerTable { get; set; }
-        public AddChips AddChips { get; set; }
 
         public IList<IPlayer> Players { get; set; }
-        public IList<IPlayer> PlayersNotFolded { get; set; }
+        public IList<IPlayer> PlayersNotFoldedOrAllIn { get; set; }
 
         public int CallAmount { get; set; }
 
@@ -95,25 +93,32 @@ namespace Poker2.Core
 
         public CommunityCardRound RoundType { get; set; }
 
-        public bool IsBetRaised { get; set; }
-
-        public int LeftPlayers { get; set; }
-
-        public int TurnCount { get; set; }
-
-        public int Last { get; set; }
-
-        public int RaisedTurn { get; set; }
-
-        public bool Restart { get; set; }
-
-        public IList<IHand> CompetingHands { get; set; }
-
         public IList<string> ListOfWinners { get; set; }
 
+        public IList<ICard> CardsToBeDealt { get; set; }
 
+        public  IList<ICard> CommunityCards { get; set; }
 
-        public IHand Hand { get; set; }
+        public int IndexLastRaised { get; set; }
+
+        public int IndexLastChecked { get; set; }
+
+        public Image[] CardImages { get; set; }
+
+        public PictureBox[] ShuffledDeck { get; set; }
+
+        public PictureBox[] Chips { get; set; }
+
+        public Panel[] PlayerPanels { get; set; }
+
+        public int LeftPlayersCount { get; set; }
+
+        public int AllInPlayersCount { get; set; }
+
+        public int FoldedsPlayersCount { get; set; }
+
+        public int PotChipsAmount { get; set; }
+
         private void SetPlayers()
         {
             Players = new List<IPlayer>(MaxPlayers);

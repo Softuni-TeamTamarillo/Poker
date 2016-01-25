@@ -1,5 +1,6 @@
 ﻿namespace Poker2.Forms
 {
+    using Poker2.Resources.Assets;
     partial class PokerTable
     {
         /// <summary>
@@ -420,7 +421,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Poker.Properties.Resources.poker_table___Copy;
+            this.BackgroundImage = global::Poker2.Properties.Resources.poker_table___Copy;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.pictureBox7);

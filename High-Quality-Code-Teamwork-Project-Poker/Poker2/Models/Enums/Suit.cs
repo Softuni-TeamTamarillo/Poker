@@ -1,10 +1,7 @@
-﻿namespace Poker2.Models.Enums
+﻿public enum Suit
 {
-    public enum Suit
-    {
-        Clubs = 1,
-        Diamonds = 2,
-        Hearts = 3,
-        Spades = 4
-    }
+    Clubs = 1,
+    Diamonds = 2,
+    Hearts = 3,
+    Spades = 4
 }

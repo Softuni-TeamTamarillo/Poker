@@ -24,12 +24,12 @@ namespace Poker2.Forms
     public partial class AddChips : Form
     {
         /// <summary>
-        /// The a field
+        /// The addedChips field
         /// </summary>        
-        public int a = 0;
+        private int addedChips = 0;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddChips" /> class.
+        /// Initializes addedChips new instance of the <see cref="AddChips" /> class.
         /// </summary>        
         public AddChips()
         {
@@ -39,6 +39,7 @@ namespace Poker2.Forms
             labelFinishedChips.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         }
 
+        public int AddedChips { get; set; }
         /// <summary>
         /// The button1_Click method
         /// </summary>
@@ -55,12 +56,12 @@ namespace Poker2.Forms
 
             if (!int.TryParse(textBoxAddChips.Text, out parsedValue))
             {
-                MessageBox.Show("This is a number only field");
+                MessageBox.Show("This is addedChips number only field");
                 return;
             }
             else if (int.TryParse(textBoxAddChips.Text, out parsedValue) && int.Parse(textBoxAddChips.Text) <= 100000000)
             {
-                a = int.Parse(textBoxAddChips.Text);
+                addedChips = int.Parse(textBoxAddChips.Text);
                 this.Close();
             }
         }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poker2.Models.Interfaces
+namespace Poker2.Resources.Assets
 {
-    public interface IHuman
+    class ClassAssets
     {
     }
 }

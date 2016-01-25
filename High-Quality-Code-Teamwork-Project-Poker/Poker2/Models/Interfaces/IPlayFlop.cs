@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models.Interfaces
 {
-    public interface IHuman
+    public interface IPlayFlop
     {
+        void AddFlopCards(ICard thirdCard, ICard forthCard, ICard fifthCard);
     }
 }

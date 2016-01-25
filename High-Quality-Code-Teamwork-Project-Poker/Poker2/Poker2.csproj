@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13786F9D-12D4-439D-839C-7B10EA307A8F}</ProjectGuid>
+    <ProjectGuid>{8F231CEE-4C86-43B8-91A5-DA8AA59FAE2B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Poker2</RootNamespace>
@@ -57,28 +57,28 @@
     <Compile Include="Core\Controllers\UpdatesController.cs" />
     <Compile Include="Core\Database.cs" />
     <Compile Include="Core\Engine.cs" />
-    <Compile Include="Core\Handlers\BetHandler.cs" />
+    <Compile Include="Core\Handlers\CommunityRoundHandler.cs" />
+    <Compile Include="Core\Handlers\Interfaces\ICommunityRoundHandler.cs" />
     <Compile Include="Core\Handlers\Interfaces\IDeal.cs" />
     <Compile Include="Core\Handlers\Interfaces\IShuffle.cs" />
+    <Compile Include="Core\Handlers\HandChecker.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="Models\Enums\BetOptions.cs" />
     <Compile Include="Models\BotChoiceMaker.cs" />
     <Compile Include="Core\Handlers\BotHandler.cs" />
-    <Compile Include="Core\Handlers\BetChecker.cs" />
+    <Compile Include="Core\Handlers\BetHandler.cs" />
     <Compile Include="Core\Handlers\DealHandler.cs" />
     <Compile Include="Core\Handlers\GameHandler.cs" />
-    <Compile Include="Core\Handlers\HandChecker.cs" />
     <Compile Include="Models\BotChoiceMakerOtherHand.cs" />
     <Compile Include="Models\BotChoiceMakerWeakerHand.cs" />
     <Compile Include="Models\BotChoiceMakerWeakHand.cs" />
     <Compile Include="Models\Interfaces\IBotChoiceMaker.cs" />
     <Compile Include="Core\Handlers\Interfaces\IBotHandler.cs" />
-    <Compile Include="Core\Handlers\Interfaces\IBetChecker.cs" />
     <Compile Include="Core\Handlers\Interfaces\IBetHandler.cs" />
     <Compile Include="Core\Handlers\Interfaces\IDealHandler.cs" />
     <Compile Include="Core\Handlers\Interfaces\IGameHandler.cs" />
     <Compile Include="Core\Handlers\Interfaces\IHandChecker.cs" />
     <Compile Include="Core\Handlers\Interfaces\IWinnersFixer.cs" />
-    <Compile Include="Core\Handlers\Interfaces\ITurnHandler.cs" />
-    <Compile Include="Core\Handlers\TurnHandler.cs" />
     <Compile Include="Core\Handlers\WinnersFixer.cs" />
     <Compile Include="Core\Interfaces\IDatabase.cs" />
     <Compile Include="Core\Interfaces\IEngine.cs" />
@@ -94,6 +94,11 @@
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Enums\CommunityCardRound.cs" />
     <Compile Include="Models\Interfaces\IBetter.cs" />
+    <Compile Include="Models\Interfaces\IPlayCommunityRound.cs" />
+    <Compile Include="Models\Interfaces\IPlayFlop.cs" />
+    <Compile Include="Models\Interfaces\IPlayPreFlop.cs" />
+    <Compile Include="Models\Interfaces\IPlayRiver.cs" />
+    <Compile Include="Models\Interfaces\IPlayTurn.cs" />
     <Compile Include="Models\Enums\Rank.cs" />
     <Compile Include="Models\Enums\Suit.cs" />
     <Compile Include="Models\Hand.cs" />
@@ -106,9 +111,13 @@
     <Compile Include="Models\Interfaces\IPlayer.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\BotUtil.cs" />
+    <Compile Include="Resources\Assets\ClassAssets.cs" />
+    <Compile Include="Resources\ClassResources.cs" />
+    <Compile Include="Utils\BotHandlerUtil.cs" />
     <Compile Include="Utils\ControllerUtil.cs" />
-    <Compile Include="Utils\HandlerUtil.cs" />
+    <Compile Include="Utils\DealHandlerUtil.cs" />
+    <Compile Include="Utils\EngineUtil.cs" />
+    <Compile Include="Utils\GameHandlerUtil.cs" />
     <EmbeddedResource Include="Forms\AddChips.resx" />
     <EmbeddedResource Include="Forms\PokerTable.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -119,6 +128,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,8 +143,67 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Content Include="Resources\Assets\Back\Back.png" />
+    <Content Include="Resources\Assets\Cards\0.png" />
+    <Content Include="Resources\Assets\Cards\1.png" />
+    <Content Include="Resources\Assets\Cards\10.png" />
+    <Content Include="Resources\Assets\Cards\11.png" />
+    <Content Include="Resources\Assets\Cards\12.png" />
+    <Content Include="Resources\Assets\Cards\13.png" />
+    <Content Include="Resources\Assets\Cards\14.png" />
+    <Content Include="Resources\Assets\Cards\15.png" />
+    <Content Include="Resources\Assets\Cards\16.png" />
+    <Content Include="Resources\Assets\Cards\17.png" />
+    <Content Include="Resources\Assets\Cards\18.png" />
+    <Content Include="Resources\Assets\Cards\19.png" />
+    <Content Include="Resources\Assets\Cards\2.png" />
+    <Content Include="Resources\Assets\Cards\20.png" />
+    <Content Include="Resources\Assets\Cards\21.png" />
+    <Content Include="Resources\Assets\Cards\22.png" />
+    <Content Include="Resources\Assets\Cards\23.png" />
+    <Content Include="Resources\Assets\Cards\24.png" />
+    <Content Include="Resources\Assets\Cards\25.png" />
+    <Content Include="Resources\Assets\Cards\26.png" />
+    <Content Include="Resources\Assets\Cards\27.png" />
+    <Content Include="Resources\Assets\Cards\28.png" />
+    <Content Include="Resources\Assets\Cards\29.png" />
+    <Content Include="Resources\Assets\Cards\3.png" />
+    <Content Include="Resources\Assets\Cards\30.png" />
+    <Content Include="Resources\Assets\Cards\31.png" />
+    <Content Include="Resources\Assets\Cards\32.png" />
+    <Content Include="Resources\Assets\Cards\33.png" />
+    <Content Include="Resources\Assets\Cards\34.png" />
+    <Content Include="Resources\Assets\Cards\35.png" />
+    <Content Include="Resources\Assets\Cards\36.png" />
+    <Content Include="Resources\Assets\Cards\37.png" />
+    <Content Include="Resources\Assets\Cards\38.png" />
+    <Content Include="Resources\Assets\Cards\39.png" />
+    <Content Include="Resources\Assets\Cards\4.png" />
+    <Content Include="Resources\Assets\Cards\40.png" />
+    <Content Include="Resources\Assets\Cards\41.png" />
+    <Content Include="Resources\Assets\Cards\42.png" />
+    <Content Include="Resources\Assets\Cards\43.png" />
+    <Content Include="Resources\Assets\Cards\44.png" />
+    <Content Include="Resources\Assets\Cards\45.png" />
+    <Content Include="Resources\Assets\Cards\46.png" />
+    <Content Include="Resources\Assets\Cards\47.png" />
+    <Content Include="Resources\Assets\Cards\48.png" />
+    <Content Include="Resources\Assets\Cards\49.png" />
+    <Content Include="Resources\Assets\Cards\5.png" />
+    <Content Include="Resources\Assets\Cards\50.png" />
+    <Content Include="Resources\Assets\Cards\51.png" />
+    <Content Include="Resources\Assets\Cards\6.png" />
+    <Content Include="Resources\Assets\Cards\7.png" />
+    <Content Include="Resources\Assets\Cards\8.png" />
+    <Content Include="Resources\Assets\Cards\9.png" />
+    <Content Include="Resources\Assets\Chips\10000.24999.png" />
+    <Content Include="Resources\Assets\Chips\2000.4999.png" />
+    <Content Include="Resources\Assets\Chips\250.1999.png" />
+    <Content Include="Resources\Assets\Chips\25000.+.png" />
+    <Content Include="Resources\Assets\Chips\5000.9999.png" />
+    <Content Include="Resources\Assets\poker-table - Copy.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

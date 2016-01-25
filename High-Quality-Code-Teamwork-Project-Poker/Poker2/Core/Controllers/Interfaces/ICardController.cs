@@ -10,30 +10,26 @@ namespace Poker2.Core.Controllers.Interfaces
     using System.Windows.Forms;
 
     using Poker2.Core.Interfaces;
+    using Poker2.Forms;
     using Poker2.Models.Interfaces;
 
     public interface ICardController
     {
+        PokerTable PokerTable { get; }
         int[] ShuffledCards { get; set; }
 
-        Image[] ShuffledDeck { get; set; }
+        Image[] CardImages { get; set; }
 
-        int PlayersOnTheTable { get; set; }
-
-        PictureBox[] Cards { get; set; }
+        PictureBox[] ShuffledDeck { get; set; }
 
         Point[] Locations { get; set; }
 
-        void SetCardImagesPreFlop(Image[] images, IList<IPlayer> players);
-
-        void SetFlopCardImages(Image[] images);
-
-        void SetTurnCardImage(Image[] images);
-
-        void SetRiverCardImage(Image[] images);
-
-        void ShowLeftPlayersCards(Image[] images, IList<IPlayer> players);
+        void ShowLeftPlayersCards();
 
         void ClearCards();
+
+        void SetCards(PokerTable pokerTable);
+
+        void SetCommunityRoundCardsImages();
     }
 }

@@ -22,20 +22,37 @@ namespace Poker2.Core.Controllers
         public static readonly int[] PanelCoordX = { 570, 5, 65, 580, 1105, 1150 };
         public static readonly int[] PanelCoordY = { 470, 410, 55, 15, 55, 410 };
 
+        private readonly PokerTable pokerTable;
         private Panel[] playerPanels;
 
         private Point[] locations;
 
         private IDatabase database;
-        public PanelController(IDatabase database)
+        public PanelController(PokerTable pokerTable, IDatabase database)
         {
-            Database = database;
-            SetPanels(Database.PokerTable, Locations);
+            this.database = database;
+            this.PlayerPanels = this.Database.PlayerPanels;
+            this.pokerTable = pokerTable;
+            SetPanels(this.PokerTable);
         }
 
+        public PokerTable PokerTable
+        {
+            get
+            {
+                return this.pokerTable;
+            }
+        }
         public Panel[] PlayerPanels { get; set; }
         public Point[] Locations { get; set; }
-        public IDatabase Database { get; set; }
+
+        public IDatabase Database
+        {
+            get
+            {
+                return this.database;
+            }
+        }
 
         public void SetLocations ()
         {
@@ -47,10 +64,11 @@ namespace Poker2.Core.Controllers
             ControllerUtil.SetLocations(Locations, otherLocations);
         }
 
-        public void SetPanels(PokerTable pokerTable, Point[] locations)
+        public void SetPanels(PokerTable pokerTable)
         {
             PlayerPanels = new Panel[MaxPlayers];
             this.SetLocations();
+
             for (int i = 0; i < MaxPlayers; i++)
             {
                 PlayerPanels[i] = new Panel();

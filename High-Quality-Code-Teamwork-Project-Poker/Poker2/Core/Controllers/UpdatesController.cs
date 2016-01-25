@@ -18,6 +18,8 @@ namespace Poker2.Core.Controllers
         public UpdatesController()
         {
             this.updateTickCount = MaxUpdateCountValue;
+            this.updates.Interval = (1 * 1 * 100);
+            this.updates.Tick += Events.Update_Tick;
         }
 
         public Timer Updates { get; set; }

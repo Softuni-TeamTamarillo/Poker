@@ -12,15 +12,16 @@ namespace Poker2.Core.Controllers.Interfaces
     using Poker2.Core.Interfaces;
     using Poker2.Forms;
 
-    interface IPanelController
+    public interface IPanelController
     {
+        PokerTable PokerTable { get; }
         Panel[] PlayerPanels { get; set; }
         Point[] Locations { get; set; }
-        IDatabase Database { get; set; }
+        IDatabase Database { get;}
 
         void SetLocations();
 
-        void SetPanels(PokerTable pokerTable, Point[] locations);
+        void SetPanels(PokerTable pokerTable);
 
         void RevealPlayerPanel(Panel playerPanel);
 

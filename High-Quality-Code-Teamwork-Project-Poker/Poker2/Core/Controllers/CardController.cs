@@ -28,28 +28,50 @@ namespace Poker2.Core.Controllers
         public static readonly int[] CardCoordY = { 480, 420, 65, 25, 65, 420, 265, 265, 265, 265, 265 };
         private static readonly Image BackImage = ControllerUtil.SetCardBackImage(backImageLocation);
 
-        private int[] shuffledCards;
+        private readonly IDatabase database;
+        private readonly PokerTable pokerTable;
 
-        private Image[] shuffledDeck;
+        private int[] shuffledCards;
 
         private int playersOnTheTable;
 
-        private PictureBox[] cards;
+        private PictureBox[] shuffledDeck;
 
         private Point[] locations;
        
-        public CardController(PokerTable pokerTable)
+        public CardController(PokerTable pokerTable, IDatabase database)
         {
-            SetCards(Database.PokerTable, Locations);
+            this.database = database;
+
+            this.pokerTable = pokerTable;
+
+            this.ShuffledDeck = this.Database.ShuffledDeck;
+
+            this.CardImages = this.Database.CardImages;
         }
 
+        public PokerTable PokerTable
+        {
+            get
+            {
+                return this.pokerTable;
+            }
+        }
+
+        public IDatabase Database
+        {
+            get
+            {
+                return this.database;
+            }
+        }
         public int[] ShuffledCards { get; set; }
 
-        public Image[] ShuffledDeck { get; set; }
+        public Image[] CardImages { get; set; }
 
         public int PlayersOnTheTable { get; set; }
 
-        public PictureBox[] Cards { get; set; }
+        public PictureBox[] ShuffledDeck { get; set; }
 
         public Point[] Locations { get; set; }
 
@@ -62,14 +84,14 @@ namespace Poker2.Core.Controllers
         {
             ControllerUtil.SetLocations(Locations, otherLocations);
         }
-        public void SetCards(PokerTable pokerTable, Point[] locations)
+        public void SetCards(PokerTable pokerTable)
         {
-            Cards = new PictureBox[MaxPlayers * 2 + 5];
+            ShuffledDeck = new PictureBox[MaxPlayers * 2 + 5];
             this.SetLocations();
             for (int i = 0; i < MaxPlayers * 2 + 5; i++)
             {
-                Cards[i] = new PictureBox();
-                SetCard(pokerTable, this.Cards[i], Locations[i], i);
+                ShuffledDeck[i] = new PictureBox();
+                SetCard(pokerTable, this.ShuffledDeck[i], Locations[i], i);
             }
         }
 
@@ -88,78 +110,100 @@ namespace Poker2.Core.Controllers
             card.Image = null;
         }
 
-        public void SetCardImagesPreFlop(Image[] images,  IList<IPlayer> players)
+        public void SetCardImagesPreFlop()
         {
-            SetHumanCardsImagePreFlop(images);
-            SetBotCardsImagePreFlop(players);
+            SetHumanCardsImagePreFlop();
+            SetBotCardsImagePreFlop();
             this.SetCommunityCardsImagePreFlop();
         }
 
-        private void SetHumanCardsImagePreFlop(Image[] images)
+        private void SetHumanCardsImagePreFlop()
         {
             for (int i = 0; i < 2; i++)
             {
-                this.Cards[0].Image = images[0];
-                this.Cards[1].Image = images[1];
+                this.ShuffledDeck[0].Image = this.Database.CardImages[0];
+                this.ShuffledDeck[1].Image = this.Database.CardImages[1];
             }
         }
 
-        private void SetBotCardsImagePreFlop(IList<IPlayer> players )
+        private void SetBotCardsImagePreFlop()
         {
+            var players = this.Database.Players;
             for (int i = 1; i < MaxPlayers; i++)
             {
                 if (players[i] != null)
                 {
-                    this.Cards[i * 2].Image = BackImage;
-                    this.Cards[i * 2 + 1].Image = BackImage;
+                    this.ShuffledDeck[i * 2].Image = BackImage;
+                    this.ShuffledDeck[i * 2 + 1].Image = BackImage;
                 }
             }
         }
 
+        public void SetCommunityRoundCardsImages()
+        {
+            switch (this.Database.RoundType)
+            {
+                case CommunityCardRound.PreFlop:
+                    this.SetCardImagesPreFlop();
+                    break;
+                case CommunityCardRound.Flop:
+                    this.SetFlopCardImages();
+                    break;
+                case CommunityCardRound.Turn:
+                    this.SetTurnCardImage();
+                    break;
+                case CommunityCardRound.End:
+                    this.SetRiverCardImage();
+                    break;
+                default:
+                    throw new ArgumentException("Not a Community Round");
+            }
+        }
         private void SetCommunityCardsImagePreFlop()
         {
             for (int i = MaxPlayers*2; i < MaxPlayers*2 + 5; i++)
             {
-                this.Cards[i].Image = BackImage;
+                this.ShuffledDeck[i].Image = BackImage;
             }
         }
-
-        public void SetFlopCardImages(Image[] images)
+        private void SetFlopCardImages()
         {
-            int count = images.Length - 5;
+            int count = this.Database.CardImages.Length - 5;
             for (int i = 0; i < 3; i++)
             {
-                this.Cards[i + count].Image = images[images.Length - 5 + i];
+                this.ShuffledDeck[i + count].Image = this.Database.CardImages[this.Database.CardImages.Length - 5 + i];
             }
         }
 
-        public void SetTurnCardImage(Image[] images)
+        private void SetTurnCardImage()
         {
-            this.Cards[images.Length - 2].Image = images[images.Length - 2];
+            this.ShuffledDeck[this.Database.CardImages.Length - 2].Image = this.Database.CardImages[this.Database.CardImages.Length - 2];
         }
 
-        public void SetRiverCardImage(Image[] images)
+        private void SetRiverCardImage()
         {
-            this.Cards[images.Length - 1].Image = images[images.Length - 1];
+            this.ShuffledDeck[this.Database.CardImages.Length - 1].Image = this.Database.CardImages[this.Database.CardImages.Length - 1];
         }
         public void ClearCards()
         {
             for (int i = 0; i < MaxPlayers * 2 + 5; i++)
             {
-                ClearCard(this.Cards[i]);
+                ClearCard(this.ShuffledDeck[i]);
             }
         }
 
-        public void ShowLeftPlayersCards(Image[] images, IList<IPlayer> players)
+        public void ShowLeftPlayersCards()
         {
+            var images = this.Database.CardImages;
+            var players = this.Database.Players;
             int indexCards = 2;
             for (int i = 1; i < MaxPlayers; i++)
             {
-                if (players[i] != null)
+                if (players[i] != null && !players[i].Bet.Equals(BetOptions.Fold))
                 {
-                    this.Cards[i * 2].Image = images[indexCards];
+                    this.ShuffledDeck[i * 2].Image = images[indexCards];
                     indexCards++;
-                    this.Cards[i * 2 + 1].Image = images[indexCards];
+                    this.ShuffledDeck[i * 2 + 1].Image = images[indexCards];
                 }
             }
         }

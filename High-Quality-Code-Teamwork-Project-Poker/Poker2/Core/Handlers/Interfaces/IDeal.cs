@@ -14,6 +14,8 @@ namespace Poker2.Core.Handlers.Interfaces
 
         void DealPlayers();
 
+        void DealCommunityRound(CommunityCardRound round);
+
         void DealFlop();
 
         void DealTurn();

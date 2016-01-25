@@ -1,12 +1,20 @@
-﻿namespace Poker2.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Poker2.Core.Handlers
 {
-    using Poker2.Models.Interfaces;
-
-    public abstract class BotChoiceMaker : IBotChoiceMaker
+    using Poker2.Core.Interfaces;
+    public abstract class BotChoiceMaker :IBotChoiceMaker
     {
-        public void Chooses()
+        private CommunityCardRound communityCardRound;
+        public  virtual void Chooses()
         {
-
+            
         }
+
+        public CommunityCardRound CommunityCardRound { get; set; }
     }
 }

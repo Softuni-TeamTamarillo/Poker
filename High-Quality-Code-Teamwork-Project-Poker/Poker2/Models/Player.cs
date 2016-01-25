@@ -1,8 +1,13 @@
-﻿namespace Poker2.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Poker2.Models
 {
     using Poker2.Models.Interfaces;
-
-    public abstract class Player : IPlayer, IBetter
+    public abstract class Player : IPlayer, IPlayCommunityRound
     {
         public const int DefaultBankroll = 10000;
 
@@ -14,15 +19,15 @@
 
         private bool active;
 
-        private bool isFolded;
+        //private bool isFolded;
 
-        private bool hasCalled;
+        //private bool hasCalled;
 
-        private bool hasChecked;
+        //private bool hasChecked;
 
-        private bool hasRaised;
+        //private bool hasRaised;
 
-        private bool isAllIn;
+        //private bool isAllIn;
 
         private ICard firstCard;
 
@@ -30,22 +35,27 @@
 
         private IHand hand;
 
+        private BetOptions bet;
+
         public Player()
         {
             this.Call = 0;
             this.Raise = 0;
             this.chipsAmount = DefaultBankroll;
-            Active = false;
-            this.isFolded = false;
-            HasCalled = false;
-            HasChecked = false;
-            HasRaised = false;
-            IsAllIn = false;
-            FirstCard = null;
-            SecondCard = null;
-            Hand = null;
+            this.Active = false;
+            //this.isFolded = false;
+            //HasCalled = false;
+            //HasChecked = false;
+            //HasRaised = false;
+            //IsAllIn = false;
+            this.FirstCard = null;
+            this.SecondCard = null;
+            this.CombinedCards = null;
+            this.Hand = null;
+            this.Bet = BetOptions.None;
         }
 
+        public BetOptions Bet { get; set; }
         public int ChipsAmount { get; set; }
 
         public int Call { get; set; }
@@ -54,52 +64,68 @@
 
         public bool Active { get; set; }
 
-        public bool IsFolded { get; set; }
+        //public bool IsFolded { get; set; }
 
-        public bool HasCalled { get; set; }
+        //public bool HasCalled { get; set; }
 
-        public bool HasChecked { get; set; }
+        //public bool HasChecked { get; set; }
 
-        public bool HasRaised { get; set; }
+        //public bool HasRaised { get; set; }
 
-        public bool IsAllIn { get; set; }
+        //public bool IsAllIn { get; set; }
 
         public ICard FirstCard { get; set; }
 
         public ICard SecondCard { get; set; }
         public IHand Hand { get; set; }
-
-        public void GetCards(Card card1, Card card2)
-        {
-            FirstCard.Suit = card1.Suit;
-            FirstCard.Rank = card1.Rank;
-            SecondCard.Suit = card2.Suit;
-            SecondCard.Rank = card2.Rank;
-        }
-
+        public IList<ICard> CombinedCards { get; set; }
+   
         public void Checks()
         {
-
+            
         }
 
         public void Calls()
         {
-
+            
         }
 
         public void Raises()
         {
-
+            
         }
 
         public void GoesAllIn()
         {
-
+            
         }
 
         public void Folds()
         {
+            
+        }
 
+        public void AddPreFlopCards()
+        {
+            CombinedCards.Add(this.FirstCard);
+            CombinedCards.Add(this.SecondCard);
+        }
+
+        public void AddFlopCards(ICard thirdCard, ICard forthCard, ICard fifthCard)
+        {
+            CombinedCards.Add(thirdCard);
+            CombinedCards.Add(forthCard);
+            CombinedCards.Add(fifthCard);
+        }
+
+        public void AddTurnCard(ICard sixthCard)
+        {
+            CombinedCards.Add(sixthCard);
+        }
+
+        public void AddRiverCard(ICard seventhCard)
+        {
+            CombinedCards.Add(seventhCard);
         }
     }
 }
