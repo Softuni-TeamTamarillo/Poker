@@ -12,6 +12,9 @@ namespace Poker2.Core.Handlers
     using Poker2.Core.Interfaces;
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Class that hold the logic for determining the winning hand by comparing all player hands.
+    /// </summary>
     public class WinnersFixer : IWinnersFixer
     {
         private readonly IDatabase database;
@@ -35,6 +38,10 @@ namespace Poker2.Core.Handlers
             RewardTheWinner();
         }
 
+        /// <summary>
+        /// Method that determines which hands are competing.
+        /// </summary>
+        /// <returns>IList of IHands</returns>
         private IList<IHand> CompareBestHands()
         {
             var players = this.Database.Players.Where(x => !x.Bet.Equals(BetOptions.Fold));
@@ -52,6 +59,10 @@ namespace Poker2.Core.Handlers
 
         }
 
+        /// <summary>
+        /// Determins which hands from the competing hands list are winning.
+        /// </summary>
+        /// <param name="competingHands">The competing hands.</param>
         private void CheckWinningHands(IEnumerable<IHand> competingHands)
         {
             var winningHand = competingHands.OrderBy(x => x.Type).ThenBy(x => x.RankFactor).First();
@@ -61,6 +72,9 @@ namespace Poker2.Core.Handlers
                     .ToList();
         }
 
+        /// <summary>
+        /// Allocates the chips reward after the round has ended.
+        /// </summary>
         private void RewardTheWinner()
         {
             var players = this.Database.Players;

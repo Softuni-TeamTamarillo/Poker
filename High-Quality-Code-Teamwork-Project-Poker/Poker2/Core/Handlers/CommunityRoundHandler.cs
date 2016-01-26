@@ -13,6 +13,9 @@ namespace Poker2.Core.Handlers
     using Poker2.Forms;
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Class that handles the turn, flop and river community rounds.
+    /// </summary>
     public class CommunityRoundHandler : ICommunityRoundHandler
     {
         private readonly IDatabase database;
@@ -40,7 +43,9 @@ namespace Poker2.Core.Handlers
         }
         public CommunityCardRound Round { get; set; }
 
-
+        /// <summary>
+        /// Method responsible for completing the community rounds.
+        /// </summary>
         public void AdvanceRounds()
         {
             ICardController cardController = new CardController(this.PokerTable, this.Database);

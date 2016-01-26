@@ -11,6 +11,9 @@ namespace Poker2.Core.Handlers
     using Poker2.Models;
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Class that describes the bot's logic in making a choice.
+    /// </summary>
     public class BotHandler : IBotHandler
     {
 

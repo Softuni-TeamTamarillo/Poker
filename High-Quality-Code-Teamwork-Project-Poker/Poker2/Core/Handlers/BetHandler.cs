@@ -10,6 +10,9 @@ namespace Poker2.Core.Handlers
     using Poker2.Core.Interfaces;
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Class responsible for betting states of the players.
+    /// </summary>
     public class BetHandler : IBetHandler
     {
         private readonly IDatabase database;
@@ -32,6 +35,11 @@ namespace Poker2.Core.Handlers
 
         public int IndexLastChecked { get; set; }
 
+        /// <summary>
+        /// Void method that handles bet choice of the player 
+        /// </summary>
+        /// <param name="player">The given bot or human player.</param>
+        /// <param name="index">Internal index for accessing the player.</param>
         public void CheckPlayerBet(IPlayer player, int index)
         {
             switch (player.Bet)
@@ -68,6 +76,9 @@ namespace Poker2.Core.Handlers
             }
         }
 
+        /// <summary>
+        /// Handles the cases with all possible betting scenarios.
+        /// </summary>
         public void UseABetHandler()
         {
             if (this.IndexLastRaised == this.IndexLastChecked && !this.Database.RoundType.Equals(CommunityCardRound.River))
