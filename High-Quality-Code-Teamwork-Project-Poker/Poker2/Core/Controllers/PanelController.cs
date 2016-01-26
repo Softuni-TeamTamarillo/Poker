@@ -14,6 +14,9 @@ namespace Poker2.Core.Controllers
     using Poker2.Forms;
     using Poker2.Utils;
 
+    /// <summary>
+    /// Class responsible for interacting with user and bot panels.
+    /// </summary>
     public class PanelController:IPanelController
     {
         public const int DefaultPanelHeight = 150;
@@ -76,6 +79,13 @@ namespace Poker2.Core.Controllers
             }
         }
 
+        /// <summary>
+        /// Sets a specific player panel in a location on the table.
+        /// </summary>
+        /// <param name="pokerTable">The table.</param>
+        /// <param name="playerPanel">The instance of the panel.</param>
+        /// <param name="location">The location for the panel to be placed </param>
+        /// <param name="index">Internal index for accessing each player's panel.</param>
         private void SetPlayerPanel(PokerTable pokerTable, Panel playerPanel, Point location, int index)
         {
             pokerTable.Controls.Add(playerPanel);
@@ -87,11 +97,18 @@ namespace Poker2.Core.Controllers
             playerPanel.Name = "pictureboxChip" + index.ToString();
         }
 
+        /// <summary>
+        /// Visualizes a player panel by setting its "Visible" property.
+        /// </summary>
+        /// <param name="playerPanel"></param>
         public void RevealPlayerPanel(Panel playerPanel)
         {
             playerPanel.Visible = true;
         }
 
+        /// <summary>
+        /// Devizualizes all player planels. 
+        /// </summary>
         public void ClearPlayerPanels()
         {
             for (int i = 0; i < MaxPlayers; i++)
@@ -100,7 +117,10 @@ namespace Poker2.Core.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Devisualizes player panel by setting its "Visible" property.
+        /// </summary>
+        /// <param name="playerPanel"></param>
         private void ClearPlayerPanel(Panel playerPanel)
         {
             playerPanel.Visible = false;

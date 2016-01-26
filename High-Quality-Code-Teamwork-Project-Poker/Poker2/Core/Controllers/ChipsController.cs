@@ -16,6 +16,9 @@ namespace Poker2.Core.Controllers
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
+    /// <summary>
+    /// Class responsible for transfer operations with chips.
+    /// </summary>
     public class ChipsController : IChipsController
     {
         public const int DefaultChipsHeight = 50;
@@ -85,6 +88,13 @@ namespace Poker2.Core.Controllers
             }
         }
 
+        /// <summary>
+        /// Places chips for each player on the table at a specific place.
+        /// </summary>
+        /// <param name="pokerTable"></param>
+        /// <param name="chip">Picture box holding the current amount of chips.</param>
+        /// <param name="location">Coordinates of the picture box.</param>
+        /// <param name="index">Internal index for accessing the chips on the table.</param>
         private void SetChip(PokerTable pokerTable, PictureBox chip, Point location, int index)
         {
             pokerTable.Controls.Add(chip);
@@ -111,6 +121,9 @@ namespace Poker2.Core.Controllers
             ControllerUtil.SetChipsImage(potAmount, chip, PathChipsFolder, ChipsFileNames, MaxPlayers + 1);
         }
 
+        /// <summary>
+        /// Devisualizes the chips for all players.
+        /// </summary>
         public void ClearChips()
         {
             for (int i = 0; i < MaxPlayers + 1; i++)

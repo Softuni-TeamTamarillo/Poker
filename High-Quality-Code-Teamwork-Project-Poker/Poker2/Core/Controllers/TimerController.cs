@@ -8,6 +8,10 @@ namespace Poker2.Core.Controllers
 {
     using Poker2.Core.Controllers.Interfaces;
     using System.Windows.Forms;
+
+    /// <summary>
+    /// Class responsible for operations with the timer.
+    /// </summary>
     public class TimerController :ITimerController
     {
         public const int DefaultTurnTime = 60;
@@ -15,6 +19,10 @@ namespace Poker2.Core.Controllers
 
         private int turnTime;
 
+        /// <summary>
+        /// Parameterless Constructor where all timer properties are being set with their default values.
+        /// The timer is assigned with the timer_tick event.
+        /// </summary>
         public TimerController()
         {
             TurnTime = DefaultTurnTime;

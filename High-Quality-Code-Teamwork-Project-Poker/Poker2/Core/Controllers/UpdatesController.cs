@@ -8,6 +8,10 @@ namespace Poker2.Core.Controllers
 {
     using Poker2.Core.Controllers.Interfaces;
     using System.Windows.Forms;
+
+    /// <summary>
+    /// Class responsible for updating the data created with each timer tick.
+    /// </summary>
     public class UpdatesController:IUpdatesController
     {
         public const int MaxUpdateCountValue = 10000000;

@@ -1,5 +1,9 @@
 ﻿namespace Poker2.Core.Controllers
 {
+
+    /// <summary>
+    /// Class that holds all the constants needed for the Controllers other classes and methods.
+    /// </summary>
     public static class ControlConstants
     {
         public static readonly int[] PanelCoordX = { 570, 5, 65, 580, 1105, 1150 };

@@ -17,13 +17,16 @@ namespace Poker2.Core.Controllers
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
+    /// <summary>
+    /// Class responsible for cards visualisation on every segment of the hand
+    /// </summary>
     public class CardController:ICardController
     {
         public const int DefaultCardHeight = 130;
         public const int DefaultCardWidth = 80;
         public const int MaxPlayers = 6;
 
-        private readonly static string backImageLocation = "..\\..\\Resources\\Assets\\Back\\Back.png";
+        private static readonly string backImageLocation = "..\\..\\Resources\\Assets\\Back\\Back.png";
         public static readonly int[] CardCoordX = { 580, 15, 75, 590, 1115, 1160, 410, 520, 630, 740, 850 };
         public static readonly int[] CardCoordY = { 480, 420, 65, 25, 65, 420, 265, 265, 265, 265, 265 };
         private static readonly Image BackImage = ControllerUtil.SetCardBackImage(backImageLocation);
@@ -95,6 +98,13 @@ namespace Poker2.Core.Controllers
             }
         }
 
+        /// <summary>
+        /// Void method that places a card in a specific position on the table.
+        /// </summary>
+        /// <param name="pokerTable">Refers to the table </param>
+        /// <param name="card">The card taken from the card database.</param>
+        /// <param name="location">Location of the visualisation of the card.</param>
+        /// <param name="index">Internal numbering for accessing the card.</param>
         private void SetCard(PokerTable pokerTable, PictureBox card, Point location, int index)
         {
             pokerTable.Controls.Add(card);
@@ -109,7 +119,9 @@ namespace Poker2.Core.Controllers
             card.Visible = false;
             card.Image = null;
         }
-
+        /// <summary>
+        /// Combines setting cards for both human player and bot players on the pre-flop stage.
+        /// </summary>
         public void SetCardImagesPreFlop()
         {
             SetHumanCardsImagePreFlop();
@@ -139,6 +151,9 @@ namespace Poker2.Core.Controllers
             }
         }
 
+        /// <summary>
+        /// Calls a specific method for visualization of the cards each round.
+        /// </summary>
         public void SetCommunityRoundCardsImages()
         {
             switch (this.Database.RoundType)
@@ -192,6 +207,9 @@ namespace Poker2.Core.Controllers
             }
         }
 
+        /// <summary>
+        /// Method responsible for visualization of the non-folded players' cards.
+        /// </summary>
         public void ShowLeftPlayersCards()
         {
             var images = this.Database.CardImages;
