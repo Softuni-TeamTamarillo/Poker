@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models.Interfaces
 {
+    using System.Windows.Forms;
     public interface IPlayer:IBetter
     {
         int ChipsAmount { get; set; }
@@ -15,6 +16,10 @@ namespace Poker2.Models.Interfaces
         int Raise { get; set; }
 
         bool Active { get; set; }
+
+        TextBox TextBox{ get;}
+
+        Label label { get; }
 
         IHand Hand { get; set; }
 

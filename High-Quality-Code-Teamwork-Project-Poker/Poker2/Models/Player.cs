@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Poker2.Models
 {
     using Poker2.Models.Interfaces;
-    public abstract class Player : IPlayer, IPlayCommunityRound
+    public abstract class Player : IPlayer
     {
         public const int DefaultBankroll = 10000;
 
@@ -18,16 +18,6 @@ namespace Poker2.Models
         private int raise;
 
         private bool active;
-
-        //private bool isFolded;
-
-        //private bool hasCalled;
-
-        //private bool hasChecked;
-
-        //private bool hasRaised;
-
-        //private bool isAllIn;
 
         private ICard firstCard;
 
@@ -43,11 +33,6 @@ namespace Poker2.Models
             this.Raise = 0;
             this.chipsAmount = DefaultBankroll;
             this.Active = false;
-            //this.isFolded = false;
-            //HasCalled = false;
-            //HasChecked = false;
-            //HasRaised = false;
-            //IsAllIn = false;
             this.FirstCard = null;
             this.SecondCard = null;
             this.CombinedCards = null;
@@ -64,46 +49,11 @@ namespace Poker2.Models
 
         public bool Active { get; set; }
 
-        //public bool IsFolded { get; set; }
-
-        //public bool HasCalled { get; set; }
-
-        //public bool HasChecked { get; set; }
-
-        //public bool HasRaised { get; set; }
-
-        //public bool IsAllIn { get; set; }
-
         public ICard FirstCard { get; set; }
 
         public ICard SecondCard { get; set; }
         public IHand Hand { get; set; }
         public IList<ICard> CombinedCards { get; set; }
-   
-        public void Checks()
-        {
-            
-        }
-
-        public void Calls()
-        {
-            
-        }
-
-        public void Raises()
-        {
-            
-        }
-
-        public void GoesAllIn()
-        {
-            
-        }
-
-        public void Folds()
-        {
-            
-        }
 
         public void AddPreFlopCards()
         {
