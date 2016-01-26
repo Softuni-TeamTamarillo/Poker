@@ -167,7 +167,7 @@ namespace Poker2.Core.Controllers
                 case CommunityCardRound.Turn:
                     this.SetTurnCardImage();
                     break;
-                case CommunityCardRound.End:
+                case CommunityCardRound.River:
                     this.SetRiverCardImage();
                     break;
                 default:

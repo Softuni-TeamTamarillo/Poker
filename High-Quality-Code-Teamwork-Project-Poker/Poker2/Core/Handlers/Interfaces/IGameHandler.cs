@@ -8,6 +8,7 @@ namespace Poker2.Core.Handlers.Interfaces
 {
     using System.Security.Cryptography.X509Certificates;
 
+    using Poker2.Core.Controllers.Interfaces;
     using Poker2.Core.Interfaces;
 
     public interface IGameHandler
@@ -21,6 +22,7 @@ namespace Poker2.Core.Handlers.Interfaces
         void StartGame();
 
         void FinishGame();
+        ITimerController TimerController { get; }
 
     }
 }

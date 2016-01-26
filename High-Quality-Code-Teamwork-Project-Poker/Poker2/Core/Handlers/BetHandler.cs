@@ -78,7 +78,7 @@ namespace Poker2.Core.Handlers
             else if (((this.IndexLastChecked == this.IndexLastRaised) && this.Database.RoundType == CommunityCardRound.River) ||
                 (this.Database.LeftPlayersCount - this.Database.FoldedPlayersCount == 1))                
             {
-                IWinnersFixer winnerFixer = new WinnersFixer();
+                IWinnersFixer winnerFixer = new WinnersFixer(this.Database);
                 winnerFixer.CheckWinners();
             }
             else if (this.Database.LeftPlayersCount - this.Database.FoldedPlayersCount - this.Database.AllInPlayersCount <= 1 &&

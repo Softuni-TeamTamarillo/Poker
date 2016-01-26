@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models
 {
+    using System.Windows.Forms;
+
+    using Poker2.Core.Controllers;
     using Poker2.Models.Interfaces;
     public abstract class Player : IPlayer
     {
@@ -26,6 +29,8 @@ namespace Poker2.Models
         private IHand hand;
 
         private BetOptions bet;
+
+        private IList<ICard>  combinedCards; 
 
         public Player()
         {
@@ -55,27 +60,5 @@ namespace Poker2.Models
         public IHand Hand { get; set; }
         public IList<ICard> CombinedCards { get; set; }
 
-        public void AddPreFlopCards()
-        {
-            CombinedCards.Add(this.FirstCard);
-            CombinedCards.Add(this.SecondCard);
-        }
-
-        public void AddFlopCards(ICard thirdCard, ICard forthCard, ICard fifthCard)
-        {
-            CombinedCards.Add(thirdCard);
-            CombinedCards.Add(forthCard);
-            CombinedCards.Add(fifthCard);
-        }
-
-        public void AddTurnCard(ICard sixthCard)
-        {
-            CombinedCards.Add(sixthCard);
-        }
-
-        public void AddRiverCard(ICard seventhCard)
-        {
-            CombinedCards.Add(seventhCard);
-        }
     }
 }

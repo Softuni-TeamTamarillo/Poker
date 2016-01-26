@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core.Handlers
 {
+    using System.Runtime.CompilerServices;
     using System.Windows.Forms;
 
     using Poker2.Core;
@@ -30,9 +31,9 @@ namespace Poker2.Core.Handlers
 
         private readonly ICardController cardController;
 
-        private readonly TimerController timerController;
-
         private readonly BotHandler botHandler;
+
+        private readonly ITimerController timerController;
 
 
         public GameHandler(ICardController cardController, IDatabase database, PokerTable pokerTable)
@@ -41,9 +42,9 @@ namespace Poker2.Core.Handlers
             this.cardController = cardController;
             this.dealHandler = new DealHandler(this.Database);
             this.betHandler = new BetHandler(this.Database);
-            this.timerController = new TimerController();
             this.botHandler = new BotHandler();
             this.pokerTable = pokerTable;
+            this.timerController = new TimerController(this.Database.Players[0]);
         }
 
         public PokerTable PokerTable
@@ -71,14 +72,6 @@ namespace Poker2.Core.Handlers
             }
         }
 
-        public TimerController TimerController
-        {
-            get
-            {
-                return this.timerController;
-            }
-        }
-
         public IBetHandler BetHandler
         {
             get
@@ -103,27 +96,41 @@ namespace Poker2.Core.Handlers
             }
         }
 
+        public ITimerController TimerController
+        {
+            get
+            {
+                return this.timerController;
+            }
+        }
+
+        
+
         private void HumanTakesTurn()
         {
-            TimerController.TurnTime = 60;
-            TimerController.HumanTimer.Start();
 
-            this.PokerTable.buttonCall.Enabled = true;
-            this.PokerTable.buttonRaise.Enabled = true;
-            this.PokerTable.buttonFold.Enabled = true;
+            this.TimerController.TurnTime = 60;
+            this.TimerController.HumanTimer.Start();
+            this.TimerController.ProgressBarTimer.Visible = true;
+            this.TimerController.ProgressBarTimer.Value = 1000;
 
-            this.PokerTable.progressbarTimer.Visible = true;
-            this.PokerTable.progressbarTimer.Value = 1000;
+            this.PokerTable.ButtonCall.Enabled = true;
+            this.PokerTable.ButtonRaise.Enabled = true;
+            this.PokerTable.ButtonFold.Enabled = true;
+
+            this.PokerTable.ProgressBarTimer.Visible = true;
+            this.PokerTable.ProgressBarTimer.Value = 1000;
 
         }
 
         private void HumanEndsTurn()
         {
-            this.PokerTable.buttonCall.Enabled = false;
-            this.PokerTable.buttonRaise.Enabled = false;
-            this.PokerTable.buttonFold.Enabled = false;
-            this.PokerTable.progressbarTimer.Visible = false;
-            TimerController.HumanTimer.Stop();
+            this.PokerTable.ButtonCall.Enabled = false;
+            this.PokerTable.ButtonRaise.Enabled = false;
+            this.PokerTable.ButtonFold.Enabled = false;
+            this.PokerTable.ButtonCheck.Enabled = false;
+            this.PokerTable.ProgressBarTimer.Visible = false;
+            this.TimerController.HumanTimer.Stop();
         }
 
         private void BotEndsTurn()

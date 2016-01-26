@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models.Interfaces
 {
+    using Poker2.Core.Interfaces;
+
     public interface IBotBetMaker
     {
         IBotChoiceMaker BotChoiceMaker { get; set; }
+        IDatabase Database { get; }
     }
 }

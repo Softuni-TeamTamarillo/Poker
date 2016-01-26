@@ -6,17 +6,26 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models
 {
+    using Poker2.Core.Interfaces;
     using Poker2.Models.Interfaces;
 
     public abstract class BotChoiceMaker :IBotChoiceMaker
     {
-        private readonly IPlayer player;
+        private readonly IDatabase database;
 
-        public BotChoiceMaker(IPlayer player)
+        public BotChoiceMaker(IDatabase database)
         {
-            this.Player = player;
+            this.database = database;
         }
 
         public IPlayer Player { get; set; }
+
+        public IDatabase Database
+        {
+            get
+            {
+                return this.database;
+            }
+        }
     }
 }

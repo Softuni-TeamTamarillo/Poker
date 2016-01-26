@@ -11,6 +11,7 @@ namespace Poker2.Models.Interfaces
 
     public interface IBotChoiceMaker
     {
-        public IPlayer Player { get; set; }
+        IPlayer Player { get; set; }
+        IDatabase Database { get; }
     }
 }

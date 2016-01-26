@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models
 {
+    using Poker2.Core.Interfaces;
+
     public class TwoPairsBotBetMaker : BotBetMaker
     {
-        public TwoPairsBotBetMaker()
-            : base()
+        public TwoPairsBotBetMaker(IDatabase database)
+            : base(database)
         {
-            this.BotChoiceMaker = new BotChoiceMakerWeakHand();
+            this.BotChoiceMaker = new BotChoiceMakerWeakHand(database);
         }
     }
 }

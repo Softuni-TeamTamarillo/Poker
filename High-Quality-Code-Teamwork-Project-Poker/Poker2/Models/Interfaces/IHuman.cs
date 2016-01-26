@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models.Interfaces
 {
+    using Poker2.Core.Controllers;
+
     public interface IHuman
     {
     }

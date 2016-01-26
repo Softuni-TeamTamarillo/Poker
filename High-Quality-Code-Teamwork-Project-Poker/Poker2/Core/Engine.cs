@@ -84,7 +84,7 @@
 
         private void PlayGame()
         {
-            this.gameHandler = new GameHandler();
+            this.gameHandler = new GameHandler(this.CardController, this.Database, this.PokerTable);
             this.GameHandler.StartGame();
         }
 

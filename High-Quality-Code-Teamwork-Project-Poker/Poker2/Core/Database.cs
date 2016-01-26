@@ -76,7 +76,7 @@ namespace Poker2.Core
             this.PlayerPanels = null;
             LeftPlayersCount = MaxPlayers;
             AllInPlayersCount = 0;
-            FoldedsPlayersCount = 0;
+            FoldedPlayersCount = 0;
         }
 
 

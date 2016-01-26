@@ -9,15 +9,5 @@ namespace Poker2.Models.Interfaces
     public interface IBetter
     {
         BetOptions Bet { get; set; }
-        void Checks();
-
-        void Calls();
-
-        void Raises();
-
-        void GoesAllIn();
-
-        void Folds();
-
     }
 }

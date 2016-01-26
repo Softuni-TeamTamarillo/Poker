@@ -62,7 +62,6 @@
     <Compile Include="Core\Handlers\Interfaces\IDeal.cs" />
     <Compile Include="Core\Handlers\Interfaces\IShuffle.cs" />
     <Compile Include="Core\Handlers\HandChecker.cs" />
-    <Compile Include="Events.cs" />
     <Compile Include="Models\BotBetMaker.cs" />
     <Compile Include="Models\Enums\BetOptions.cs" />
     <Compile Include="Models\BotChoiceMaker.cs" />
