@@ -19,6 +19,12 @@ namespace Poker2.Models
             RankFactor = 0;
         }
 
+        public Hand(HandType type, double rankFactor)
+        {
+            this.Type = type;
+            this.RankFactor = rankFactor;
+        }
+
         public HandType Type { get; set; }
 
         public double RankFactor { get; set; }
