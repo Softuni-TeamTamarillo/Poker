@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poker2.Core.Handlers
+namespace Poker2.Models
 {
-    using Poker2.Core.Interfaces;
+    using Poker2.Models.Interfaces;
+
     public abstract class BotChoiceMaker :IBotChoiceMaker
     {
-        private CommunityCardRound communityCardRound;
-        public  virtual void Chooses()
+        private readonly IPlayer player;
+
+        public BotChoiceMaker(IPlayer player)
         {
-            
+            this.Player = player;
         }
 
-        public CommunityCardRound CommunityCardRound { get; set; }
+        public IPlayer Player { get; set; }
     }
 }

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Poker2.Core.Interfaces
+namespace Poker2.Models.Interfaces
 {
     using System.Security.Cryptography.X509Certificates;
+    using Poker2.Core.Interfaces;
 
     public interface IBotChoiceMaker
     {
-        void Chooses();
+        public IPlayer Player { get; set; }
     }
 }

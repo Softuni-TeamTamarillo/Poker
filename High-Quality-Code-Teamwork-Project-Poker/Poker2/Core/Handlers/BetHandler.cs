@@ -75,7 +75,6 @@ namespace Poker2.Core.Handlers
                 ICommunityRoundHandler roundHandler = new CommunityRoundHandler();
                 roundHandler.AdvanceRounds();
             }
-
             else if (((this.IndexLastChecked == this.IndexLastRaised) && this.Database.RoundType == CommunityCardRound.River) ||
                 (this.Database.LeftPlayersCount - this.Database.FoldedPlayersCount == 1))                
             {
@@ -90,9 +89,11 @@ namespace Poker2.Core.Handlers
                     ICommunityRoundHandler roundHandler = new CommunityRoundHandler();
                     roundHandler.AdvanceRounds();
                 }
-                 IWinnersFixer winnerFixer = new WinnersFixer();
+                 IWinnersFixer winnerFixer = new WinnersFixer(this.Database);
                 winnerFixer.CheckWinners();
             }
+
+
         }
     }
 }

@@ -30,23 +30,45 @@ namespace Poker2.Core.Handlers
 
         public void CheckWinners()
         {
+            var competingHands = CompareBestHands();
+            CheckWinningHands(competingHands);
+            RewardTheWinner();
+        }
+
+        private IList<IHand> CompareBestHands()
+        {
             var players = this.Database.Players.Where(x => !x.Bet.Equals(BetOptions.Fold));
             IHandChecker handChecker = new HandChecker();
             IList<IHand> competingHands = new List<IHand>();
             foreach (var player in players)
             {
-                competingHands.Add(handChecker.CheckHands(player));
+                if (player != null)
+                {
+                    handChecker.CheckHands(player);
+                    competingHands.Add(player.Hand);
+                }
             }
+            return competingHands;
+
         }
 
-        public void CheckBestHands()
+        private void CheckWinningHands(IEnumerable<IHand> competingHands)
         {
-            
+            var winningHand = competingHands.OrderBy(x => x.Type).ThenBy(x => x.RankFactor).First();
+            var winners =
+                this.Database.Players.Where(x => x != null)
+                    .Where(x => (x.Hand.Type == winningHand.Type && x.Hand.RankFactor == winningHand.RankFactor))
+                    .ToList();
         }
 
-        public void RewardTheWinner()
+        private void RewardTheWinner()
         {
-            
+            var players = this.Database.Players;
+            int playerProfit = this.Database.PotChipsAmount / players.Count;
+            foreach (var player in players)
+            {
+                player.ChipsAmount += playerProfit;
+            }
         }
     }
 }

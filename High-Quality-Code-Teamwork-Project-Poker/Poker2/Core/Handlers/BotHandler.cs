@@ -13,14 +13,9 @@ namespace Poker2.Core.Handlers
 
     public class BotHandler : IBotHandler
     {
-        public void CheckHand(IBot bot)
-        {
-            
-        }
-
 
         private IBotChoiceMaker botChoiceMaker = null;
-        public IBotChoiceMaker PickAChoiceMaker(Bot bot)
+        private IBotChoiceMaker PickAChoiceMaker(IPlayer bot)
         {
             switch (bot.Hand.Type)
             {
@@ -44,9 +39,8 @@ namespace Poker2.Core.Handlers
             }
         }
 
-        public void BotMakesAChoice(Bot bot)
+        public void BotMakesAChoice(IPlayer bot)
         {
-            CheckHand(bot);
             IBotChoiceMaker botChoiceMaker = null;
             botChoiceMaker = PickAChoiceMaker(bot);
             botChoiceMaker.Chooses();

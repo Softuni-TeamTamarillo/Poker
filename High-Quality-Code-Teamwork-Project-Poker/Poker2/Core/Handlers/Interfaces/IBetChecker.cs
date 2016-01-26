@@ -6,18 +6,13 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core.Handlers.Interfaces
 {
-    using System.Windows.Forms;
+
+    using Poker2.Models.Interfaces;
 
     public interface IBetChecker
     {
-        void Checkfold();
+        void CheckPlayerBet(IPlayer player, int index);
 
-        void CheckCall();
-
-        void CheckRaise();
-
-        void CheckCheck();
-
-        void CheckAllIn();
+        void UseABetHandler();
     }
 }

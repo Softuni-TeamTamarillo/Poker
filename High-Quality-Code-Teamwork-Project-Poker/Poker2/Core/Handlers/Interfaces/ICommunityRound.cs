@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core.Handlers.Interfaces
 {
+    using System.Security.Cryptography.X509Certificates;
+
     using Poker2.Core.Interfaces;
-    using Poker2.Models;
     using Poker2.Models.Interfaces;
 
-    public interface IBotHandler
+    public interface ICommunityRound
     {
-        void BotMakesAChoice(IPlayer bot);
+        ICard[] CommunityCards { get; }
+
+        IDatabase Database { get; }
+        void AdvanceRound();
+
     }
 }

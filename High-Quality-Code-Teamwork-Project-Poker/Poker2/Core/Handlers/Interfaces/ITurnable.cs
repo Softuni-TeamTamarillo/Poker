@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core.Handlers.Interfaces
 {
-    using Poker2.Core.Interfaces;
-    using Poker2.Models;
-    using Poker2.Models.Interfaces;
-
-    public interface IBotHandler
+    public interface ITurnable
     {
-        void BotMakesAChoice(IPlayer bot);
+        void PlayersTakeTurns();
     }
 }

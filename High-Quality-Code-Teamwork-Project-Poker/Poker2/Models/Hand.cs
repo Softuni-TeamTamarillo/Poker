@@ -11,7 +11,7 @@ namespace Poker2.Models
     {
         private HandType type;
 
-        private double rankFactor;
+        private Rank rank;
 
         public Hand()
         {

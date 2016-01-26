@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core.Handlers
 {
-   
+    using System.Windows.Forms;
+
     using Poker2.Core;
     using Poker2.Core.Controllers;
     using Poker2.Core.Controllers.Interfaces;
@@ -129,9 +130,14 @@ namespace Poker2.Core.Handlers
         {
             
         }
-        private void BotTakesTurn()
+        private void BotTakesTurn(IPlayer player, int index)
         {
-            
+            IHandChecker handChecker = new HandChecker();
+            handChecker.CheckHands(player);
+
+            MessageBox.Show(string.Format("Bot {0}'s Turn", index));
+            IBotHandler botHandler = new BotHandler();
+            botHandler.BotMakesAChoice(player);
         }
 
 
@@ -151,13 +157,13 @@ namespace Poker2.Core.Handlers
                     if (index == 0)
                     {
                         this.HumanTakesTurn();
-                        IChipsController chipsController = new ChipsController(this.PokerTable, this.Database);
-
-                        chipsController.SetPlayerChipsImage(player, this.Database.Chips[index]);
-                        chipsController.SetPotChipsImage(this.Database.PotChipsAmount, this.Database.Chips[index]);
+                                             
                     }
+                    else this.BotTakesTurn(player, index);
 
-                    else this.BotTakesTurn();
+                    IChipsController chipsController = new ChipsController(this.PokerTable, this.Database);
+                    chipsController.SetPlayerChipsImage(player, this.Database.Chips[index]);
+                    chipsController.SetPotChipsImage(this.Database.PotChipsAmount, this.Database.Chips[index]);
                 }
 
                 if (!player.Active)

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Poker2.Models
 {
-    using Poker2.Core.Handlers;
+    using Poker2.Models.Interfaces;
 
     public class BotChoiceMakerOtherHand : BotChoiceMaker
     {
+        public BotChoiceMakerOtherHand(IPlayer player) : base(player) { }
     }
 }

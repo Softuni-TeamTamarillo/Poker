@@ -115,7 +115,7 @@ namespace Poker2.Core
 
         public int AllInPlayersCount { get; set; }
 
-        public int FoldedsPlayersCount { get; set; }
+        public int FoldedPlayersCount { get; set; }
 
         public int PotChipsAmount { get; set; }
 

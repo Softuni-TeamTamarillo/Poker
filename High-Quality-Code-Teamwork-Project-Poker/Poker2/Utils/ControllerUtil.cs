@@ -28,6 +28,10 @@
 
         public static void SetChipsImage(int chipAmount, PictureBox chip, string pathFolder, string[] pathFile, int count)
         {
+            if (chipAmount == 0)
+            {
+                chip.Image = null;
+            }
             if (chipAmount > 0 && chipAmount < 2000)
             {
                 chip.Image = Image.FromFile(pathFolder + pathFile[0]);
@@ -44,7 +48,7 @@
             {
                 chip.Image = Image.FromFile(pathFolder + pathFile[3]);
             }
-            else if (chipAmount < count)
+            else
             {
                 chip.Image = Image.FromFile(pathFolder + pathFile[4]);
             }
