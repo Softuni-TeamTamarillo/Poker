@@ -1,0 +1,11 @@
+diff a/High-Quality-Code-Teamwork-Project-Poker/Poker2/Core/Handlers/BetHandler.cs b/High-Quality-Code-Teamwork-Project-Poker/Poker2/Core/Handlers/BetHandler.cs	(rejected hunks)
+@@ -10,6 +10,9 @@
+     using Poker2.Core.Interfaces;
+     using Poker2.Models.Interfaces;
+ 
++    /// <summary>
++    /// Class responsible for betting states of the players.
++    /// </summary>
+     public class BetHandler : IBetHandler
+     {
+         private readonly IDatabase database;
