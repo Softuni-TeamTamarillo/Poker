@@ -7,8 +7,17 @@
     using Poker2.Models;
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Contains the methods needed for Controller classes
+    /// </summary>
     public static class ControllerUtil
     {
+        /// <summary>
+        /// Method used for setting locations by x and y coordinates for later object placement.
+        /// </summary>
+        /// <param name="locations">an array holding the points of the locations</param>
+        /// <param name="xCoordinates">an array holding the x coordinates of the locations.</param>
+        /// <param name="yCoordinates">an array holding the y coordinates of the locations.</param>
         public static void SetLocations(Point[] locations, int[] xCoordinates, int[] yCoordinates)
         {
             for (int i = 0; i <= 6; i++)
@@ -18,6 +27,11 @@
             }
         }
 
+        /// <summary>
+        /// Sets locations by given previously initialized other locations.
+        /// </summary>
+        /// <param name="locations">Locations to be set.</param>
+        /// <param name="otherLocations">The given locations.</param>
         public static void SetLocations(Point[] locations, Point[] otherLocations)
         {
             for (int i = 0; i <= 6; i++)
@@ -26,6 +40,9 @@
             }
         }
 
+        /// <summary>
+        /// Choses and sets a chips image from a file.
+        /// </summary>
         public static void SetChipsImage(int chipAmount, PictureBox chip, string pathFolder, string[] pathFile, int count)
         {
             if (chipAmount == 0)
@@ -54,6 +71,11 @@
             }
         }
 
+        /// <summary>
+        /// Chooses and sets the card-back image from a file.
+        /// </summary>
+        /// <param name="pathFile">The given file.</param>
+        /// <returns></returns>
         public static Image SetCardBackImage(string pathFile)
         {
             return Image.FromFile(pathFile);

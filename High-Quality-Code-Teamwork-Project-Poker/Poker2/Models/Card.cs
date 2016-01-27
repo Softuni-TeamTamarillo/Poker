@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 namespace Poker2.Models
 {
     using Poker2.Models.Interfaces;
+
+    /// <summary>
+    /// Class holding the properties of the cards.
+    /// </summary>
     public class Card:ICard
     {
         private Suit suit;

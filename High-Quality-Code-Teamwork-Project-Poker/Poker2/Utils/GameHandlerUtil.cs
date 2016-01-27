@@ -11,6 +11,11 @@ namespace Poker2.Utils
 
     public static class GameHandlerUtil
     {
+        /// <summary>
+        /// Adds chips to each player no matter wether is he still playing or not.
+        /// </summary>
+        /// <param name="players">The list of all players on the table</param>
+        /// <param name="addedChips">The amount of chips to be added.</param>
         public static void PlayersAddChips(IList<IPlayer> players, int addedChips)
         {
             if (addedChips > 0)

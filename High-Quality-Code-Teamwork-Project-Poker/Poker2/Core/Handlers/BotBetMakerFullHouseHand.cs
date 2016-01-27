@@ -5,6 +5,9 @@
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
+    /// <summary>
+    /// Class responsible for executing the bot's choice in case of a Full House hand.
+    /// </summary>
     public class BotBetMakerFullHouseHand : BotBetMaker
     {
         public BotBetMakerFullHouseHand(PokerTable pokerTable, int index)

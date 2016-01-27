@@ -16,6 +16,9 @@ namespace Poker2.Core.Handlers
 
     using Label = System.Windows.Forms.Label;
 
+    /// <summary>
+    /// Class that describes the bot's logic in making a choice.
+    /// </summary>
     public class BotHandler : IBotHandler
     {
 
@@ -39,6 +42,11 @@ namespace Poker2.Core.Handlers
                 return this.pokerTable;
             }
         }
+
+        /// <summary>
+        /// Choice of the kind of bet to be placed by the bot depending on the hand.
+        /// </summary>
+        /// <returns>IBotBetMaker</returns>
         private IBotBetMaker SelectBetMaker()
         {
             IBotBetMaker betMaker = null;
@@ -104,6 +112,9 @@ namespace Poker2.Core.Handlers
             }
         }
 
+        /// <summary>
+        /// Places the bet, previously returned in IBotBetMaker variable.
+        /// </summary>
         public void Execute()
         {
             IBotBetMaker betMaker = SelectBetMaker();

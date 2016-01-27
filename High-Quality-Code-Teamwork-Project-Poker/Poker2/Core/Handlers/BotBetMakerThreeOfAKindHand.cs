@@ -7,6 +7,9 @@
     using Poker2.Forms;
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Class responsible for executing the bot's choice in case of a Three of a kind hand.
+    /// </summary>
     public class BotBetMakerThreeOfAKindHand : BotBetMaker
     {
         public BotBetMakerThreeOfAKindHand(PokerTable pokerTable, int index)

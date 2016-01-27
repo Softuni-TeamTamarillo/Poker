@@ -3,6 +3,9 @@
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
+    /// <summary>
+    /// Class responsible for executing the bot's choice in case of no (High Card) hand.
+    /// </summary>
     public class BotBetMakerHighCardHand:BotBetMaker
     {
         public BotBetMakerHighCardHand(PokerTable pokerTable, int index)

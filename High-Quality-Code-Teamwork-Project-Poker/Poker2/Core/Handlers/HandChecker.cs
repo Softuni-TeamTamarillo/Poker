@@ -7,6 +7,9 @@
     using Poker2.Models;
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Class holding the logic for establishing the current hand.
+    /// </summary>
     public class HandChecker : IHandChecker
     {
         public void CheckHands(IPlayer player)
@@ -26,7 +29,11 @@
             player.Hand = bestHand;
         }
 
-
+        /// <summary>
+        /// Returns an IHand value if found a Pair.
+        /// </summary>
+        /// <param name="player">Current player to be checked.</param>
+        /// <returns> IHand </returns>
         private IHand CheckPair(IPlayer player)
         {
             IHand hand = null;
@@ -57,6 +64,11 @@
             return hand;
         }
 
+        /// <summary>
+        /// Returns IHand value if Two Pair hand found.
+        /// </summary>
+        /// <param name="player">Player to be checked</param>
+        /// <returns> IHand </returns>
         private IHand CheckTwoPair(IPlayer player)
         {
             IHand hand = null;
@@ -85,6 +97,11 @@
             return hand;
         }
 
+        /// <summary>
+        /// Returns an IHand value if Three of a kind hand found.
+        /// </summary>
+        /// <param name="player">Player to be checked.</param>
+        /// <returns> IHand</returns>
         private IHand CheckThreeOfAKind(IPlayer player)
         {
             IHand hand = null;
@@ -116,6 +133,11 @@
             return hand;
         }
 
+        /// <summary>
+        /// Returns an IHand value if Straight hand found.
+        /// </summary>
+        /// <param name="player">The player to be checked.</param>
+        /// <returns>IHand</returns>
         private IHand CheckStraight(IPlayer player)
         {
             IHand hand = null;
@@ -135,6 +157,11 @@
             return hand;
         }
 
+        /// <summary>
+        /// Returns an IHand value if Flush hand found.
+        /// </summary>
+        /// <param name="player">The player to be checked.</param>
+        /// <returns>IHand</returns>
         private IHand CheckFlush(IPlayer player)
         {
             IHand hand = null;
@@ -151,6 +178,11 @@
             return hand;
         }
 
+        /// <summary>
+        /// Returns an IHand value if Full House hand found.
+        /// </summary>
+        /// <param name="player">The player to be checked.</param>
+        /// <returns>IHand</returns>
         private IHand CheckFullHouse(IPlayer player)
         {
             IHand hand = null;
@@ -178,6 +210,11 @@
             return hand;
         }
 
+        /// <summary>
+        /// Returns an IHand value if Four of a kind hand found.
+        /// </summary>
+        /// <param name="player">The player to be checked.</param>
+        /// <returns>IHand</returns>
         private IHand CheckFourOfAKind(IPlayer player)
         {
             IHand hand = null;
@@ -208,6 +245,11 @@
             return hand;
         }
 
+        /// <summary>
+        /// Returns an IHand value if Flush, Straight Flush or RoyalFlush hand found.
+        /// </summary>
+        /// <param name="player">The player to be checked.</param>
+        /// <returns>IHand</returns>
         private IHand CheckFlushStraightFlushOrRoyalFlush(ICard[] cards)
         {
             HandType type;
@@ -244,6 +286,11 @@
             return new Hand(type, rankFactor);
         }
 
+        /// <summary>
+        /// Returns an IHand value (High Card) if no hand found.
+        /// </summary>
+        /// <param name="player">The player to be checked.</param>
+        /// <returns>IHand</returns>
         private IHand CheckHighCard(IPlayer player)
         {
             var higherCard = player.FirstCard;

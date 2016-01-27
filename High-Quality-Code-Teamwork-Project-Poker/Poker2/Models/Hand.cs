@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 namespace Poker2.Models
 {
     using Poker2.Models.Interfaces;
+
+    /// <summary>
+    /// Class holding the parameters of the card combinations in the game.
+    /// </summary>
     public class Hand:IHand
     {
         private HandType type;

@@ -5,6 +5,9 @@
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
+    /// <summary>
+    /// Class responsible for executing the bot's choice in case of a Two Pairs hand.
+    /// </summary>
     public class BotBetMakerTwoPairsHand : BotBetMaker
     {
         public BotBetMakerTwoPairsHand(PokerTable pokerTable, int index)

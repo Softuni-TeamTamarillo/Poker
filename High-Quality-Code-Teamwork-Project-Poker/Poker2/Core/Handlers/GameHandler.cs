@@ -17,6 +17,9 @@ namespace Poker2.Core.Handlers
     using Poker2.Forms;
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Class holding the carry-through game logic.
+    /// </summary>
     public class GameHandler :IGameHandler
     {
         public const int MaxPlayers = 6;
@@ -93,8 +96,9 @@ namespace Poker2.Core.Handlers
             }
         }
 
-        
-
+        /// <summary>
+        /// Enables the buttons and timer for taking a turn by the human player. 
+        /// </summary>
         private void HumanTakesTurn()
         {
 
@@ -112,6 +116,9 @@ namespace Poker2.Core.Handlers
 
         }
 
+        /// <summary>
+        /// Disables the buttons and timer afeter the human turn has ended.
+        /// </summary>
         private void HumanEndsTurn()
         {
             this.PokerTable.ButtonCall.Enabled = false;
@@ -126,6 +133,12 @@ namespace Poker2.Core.Handlers
         {
             
         }
+
+        /// <summary>
+        /// Calls methods for the bot to make its choice and accomplish its turn.
+        /// </summary>
+        /// <param name="player">The bot.</param>
+        /// <param name="index">Internal index for accessing the player(bot).</param>
         private void BotTakesTurn(IPlayer player, int index)
         {
             IHandChecker handChecker = new HandChecker();
@@ -142,6 +155,9 @@ namespace Poker2.Core.Handlers
             
         }
 
+        /// <summary>
+        /// Еnsures the accomplishment of the turns for both human and bot players.
+        /// </summary>
         private void PlayersTakeTurns()
         {
             int index = 0;
@@ -189,6 +205,10 @@ namespace Poker2.Core.Handlers
                 player.Active = true;
             }
         }
+
+        /// <summary>
+        /// Method that initializes the game process running in each round.
+        /// </summary>
         public void StartGame()
         {
             this.DealHandler.ShuffleCards();

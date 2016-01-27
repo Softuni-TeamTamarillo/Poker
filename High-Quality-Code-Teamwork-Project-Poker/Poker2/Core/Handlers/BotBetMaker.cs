@@ -2,6 +2,10 @@
 {
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
+
+    /// <summary>
+    /// Abstract class that holds the properties and methods needed for bot's logic for choosing and placing a bet.
+    /// </summary>
     public abstract class BotBetMaker:IBotBetMaker
     {
         private IBotChoiceMaker choiceMaker;

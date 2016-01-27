@@ -10,6 +10,10 @@ namespace Poker2.Models
 
     using Poker2.Core.Controllers;
     using Poker2.Models.Interfaces;
+
+    /// <summary>
+    /// Class holding the properties and functions for both human and bot players.
+    /// </summary>
     public abstract class Player : IPlayer
     {
         public const int DefaultBankroll = 10000;

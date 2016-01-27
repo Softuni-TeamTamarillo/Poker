@@ -6,6 +6,9 @@ namespace Poker2.Core.Handlers
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
+    /// <summary>
+    /// Class responsible for executing the bot's choice in case of a Straight hand.
+    /// </summary>
     public class BotBetMakerStraightHand : BotBetMaker
     {
         public BotBetMakerStraightHand(PokerTable pokerTable, int index)

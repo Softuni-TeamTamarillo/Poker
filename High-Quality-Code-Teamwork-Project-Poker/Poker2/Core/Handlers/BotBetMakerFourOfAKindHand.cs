@@ -5,6 +5,9 @@
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
+    /// <summary>
+    /// Class responsible for executing the bot's choice in case of a Four of a kind hand.
+    /// </summary>
     public class BotBetMakerFourOfAKindHand : BotBetMaker
     {
         public BotBetMakerFourOfAKindHand(PokerTable pokerTable, int index)

@@ -19,6 +19,9 @@ namespace Poker2.Core.Handlers
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
+    /// <summary>
+    /// Handles dealing the cards in all stages of the game.
+    /// </summary>
     public class DealHandler:IDealHandler
     {
         public const int CardsInADeck = 52;
@@ -50,6 +53,9 @@ namespace Poker2.Core.Handlers
 
         public Image[] Images { get; set; }
 
+        /// <summary>
+        /// Generates a random-selected cards(each coresponding with an integer number and an image) to be played with for the next round
+        /// </summary>
         public void ShuffleCards()
         {
             int[] numbersToBeShuffled = new int[CardsInADeck];
@@ -74,6 +80,9 @@ namespace Poker2.Core.Handlers
             this.SetCommunityCards();
         }
 
+        /// <summary>
+        /// Deals cards to each player
+        /// </summary>
         public void DealPlayers()
         {
             var players = this.Database.Players;
@@ -88,6 +97,9 @@ namespace Poker2.Core.Handlers
             }
         }
 
+        /// <summary>
+        /// Generates a list of the cards that are visible for all the players.
+        /// </summary>
         public void SetCommunityCards()
         {
             this.Database.CommunityCards = new List<ICard>(this.Database.CardsToBeDealt);
@@ -100,6 +112,10 @@ namespace Poker2.Core.Handlers
             player.SecondCard = this.Database.CardsToBeDealt[indexCards + 1];
         }
 
+        /// <summary>
+        /// Calls methods to deal pre-flop, flop, turn, river.
+        /// </summary>
+        /// <param name="round"></param>
         public void DealCommunityRound(CommunityCardRound round)
         {
             switch(this.Database.RoundType)

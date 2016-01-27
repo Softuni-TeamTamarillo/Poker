@@ -6,9 +6,15 @@ namespace Poker2.Utils
 
     using Poker2.Models.Interfaces;
 
+    /// <summary>
+    /// Contains methods needed for the dealing procedure.
+    /// </summary>
     public static class DealHandlerUtil
     {
-
+        /// <summary>
+        /// Sets the initial count of the cards used in the game.
+        /// </summary>
+        /// <param name="count">The amount of cards.</param>
         public static void SetCards(int count)
         {
             int[] arr = new int[count];
@@ -23,6 +29,11 @@ namespace Poker2.Utils
                 arr[i] = i + 1;
             }
         }
+
+        /// <summary>
+        /// Gives a random values to a given int array.
+        /// </summary>
+        /// <param name="numbers">The number array each element of whom is assigned to a card.</param>
         public static void ShuffleNumbers(int [] numbers)
         {
             Random randGenerator = new Random();
@@ -35,6 +46,10 @@ namespace Poker2.Utils
             }
         }
 
+        /// <summary>
+        /// Assignes card images to each non-folded player
+        /// </summary>
+       
         public static void GetImages(string[] imgLocation, int[] shuffledNumbers, Image [] images, IList<IPlayer> players)
         {
             int imageIndex = 0;
@@ -51,6 +66,11 @@ namespace Poker2.Utils
             }
         }
 
+        /// <summary>
+        /// Determines which suits are the random-generated numbers representing.
+        /// </summary>
+        /// <param name="shuffledNumbers">The shuffled numbers array.</param>
+        /// <param name="cards">List of the cards.</param>
         public static void GetSuits(int[] shuffledNumbers, IList<ICard> cards)
         {
             for (int i = 0; i < cards.Count; i++)
@@ -58,6 +78,12 @@ namespace Poker2.Utils
                 cards[i].Suit = (Suit)(shuffledNumbers[i] % 4);
             }
         }
+
+        /// <summary>
+        /// Determines which ranks are the random-generated numbers representing.
+        /// </summary>
+        /// <param name="shuffledNumbers">The shuffled numbers array.</param>
+        /// <param name="cards">List of the cards.</param>
         public static void GetRanks(int []shuffledNumbers, IList<ICard> cards)
         {
             for (int i = 0; i < cards.Count; i++)
