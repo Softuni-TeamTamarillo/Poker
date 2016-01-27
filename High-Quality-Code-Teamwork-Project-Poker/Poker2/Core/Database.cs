@@ -85,7 +85,7 @@ namespace Poker2.Core
 
         public int CallAmount { get; set; }
 
-        public int RaiseAmount { get; set; }
+        public double RaiseAmount { get; set; }
 
         public int BigBlind { get; set; }
 
@@ -122,7 +122,7 @@ namespace Poker2.Core
         private void SetPlayers()
         {
             Players = new List<IPlayer>(MaxPlayers);
-            Players[0] = new Human();
+            Players.Add(new Human());
             for (int i = 1; i < MaxPlayers; i++)
             {
                 Players.Add(new Bot());

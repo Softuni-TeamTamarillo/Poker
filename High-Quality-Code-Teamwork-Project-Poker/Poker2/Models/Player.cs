@@ -13,6 +13,7 @@ namespace Poker2.Models
     public abstract class Player : IPlayer
     {
         public const int DefaultBankroll = 10000;
+        private readonly Label status;
 
         private int chipsAmount;
 
@@ -30,7 +31,7 @@ namespace Poker2.Models
 
         private BetOptions bet;
 
-        private IList<ICard>  combinedCards; 
+        private IList<ICard>  combinedCards;
 
         public Player()
         {
@@ -43,6 +44,15 @@ namespace Poker2.Models
             this.CombinedCards = null;
             this.Hand = null;
             this.Bet = BetOptions.None;
+            this.status = new Label();
+        }
+
+        public Label Status
+        {
+            get
+            {
+                return this.status;
+            }
         }
 
         public BetOptions Bet { get; set; }

@@ -27,5 +27,7 @@ namespace Poker2.Models.Interfaces
         ICard SecondCard { get; set; }
         
         IList<ICard> CombinedCards { get; set; }
+
+        Label Status { get; }
     }
 }

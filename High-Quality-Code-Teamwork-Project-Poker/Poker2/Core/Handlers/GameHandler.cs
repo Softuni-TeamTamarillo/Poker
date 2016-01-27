@@ -31,8 +31,6 @@ namespace Poker2.Core.Handlers
 
         private readonly ICardController cardController;
 
-        private readonly BotHandler botHandler;
-
         private readonly ITimerController timerController;
 
 
@@ -42,7 +40,6 @@ namespace Poker2.Core.Handlers
             this.cardController = cardController;
             this.dealHandler = new DealHandler(this.Database);
             this.betHandler = new BetHandler(this.Database);
-            this.botHandler = new BotHandler();
             this.pokerTable = pokerTable;
             this.timerController = new TimerController(this.Database.Players[0]);
         }
@@ -61,14 +58,6 @@ namespace Poker2.Core.Handlers
             get
             {
                 return this.database;
-            }
-        }
-
-        public BotHandler BotHandler
-        {
-            get
-            {
-                return this.botHandler;
             }
         }
 
@@ -143,8 +132,8 @@ namespace Poker2.Core.Handlers
             handChecker.CheckHands(player);
 
             MessageBox.Show(string.Format("Bot {0}'s Turn", index));
-            IBotHandler botHandler = new BotHandler();
-            botHandler.BotMakesAChoice(player);
+            IBotHandler botHandler = new BotHandler(this.PokerTable, index);
+            botHandler.Execute();
         }
 
 

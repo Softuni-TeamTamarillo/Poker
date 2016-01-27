@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace Poker2.Core.Handlers.Interfaces
 {
-    public interface IBotHandler
+    using Poker2.Forms;
+
+    public interface IBotBetMaker
     {
+        IBotChoiceMaker ChoiceMaker { get; }
+
+        int Index { get; }
+        PokerTable PokerTable { get; }
         void Execute();
+
     }
 }

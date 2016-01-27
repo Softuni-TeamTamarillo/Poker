@@ -12,7 +12,7 @@
 
         int CallAmount { get; set; }
 
-        int RaiseAmount { get; set; }
+        double RaiseAmount { get; set; }
 
         int BigBlind { get; set; }
 
