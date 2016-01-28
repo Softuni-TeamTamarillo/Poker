@@ -67,8 +67,9 @@ namespace Poker2.Core.Handlers
 
             for (int i = 0; i < LeftPlayersCount * 2 + 5; i++)
             {
-                cards[i] = new Card();
+                cards.Add(new Card());
             }
+            this.Database.CardsToBeDealt = cards;
             DealHandlerUtil.GetImages(imgCardsLocation, numbersToBeShuffled, this.Database.CardImages, this.Database.Players);
             DealHandlerUtil.GetSuits(numbersToBeShuffled, this.Database.CardsToBeDealt);
             DealHandlerUtil.GetRanks(numbersToBeShuffled, this.Database.CardsToBeDealt);
@@ -87,7 +88,7 @@ namespace Poker2.Core.Handlers
         {
             var players = this.Database.Players;
             int indexCards = 0;
-            for (int i = 0; i < players.Count * 2; i++)
+            for (int i = 0; i < players.Count; i++)
             {
                 if (players[i] != null)
                 {

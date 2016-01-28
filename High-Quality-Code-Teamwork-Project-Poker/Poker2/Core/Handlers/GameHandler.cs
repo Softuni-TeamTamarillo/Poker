@@ -164,6 +164,7 @@ namespace Poker2.Core.Handlers
             while (true)
             {
                 IPlayer player = this.Database.PlayersNotFoldedOrAllIn[index];
+                player.Active = true;
                 if (player != null && player.Active)
                 {
                     if (index == 0)

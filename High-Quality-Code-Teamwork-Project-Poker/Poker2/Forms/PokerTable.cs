@@ -28,23 +28,16 @@
         private readonly IUpdatesController updater;
         public PokerTable()
         {
-            this.database = new Database();
-            this.players = this.Database.Players;
-            this.engine = new Engine(this, this.Database);
-            this.updater = new UpdatesController();
-
-            this.Database.CallAmount = this.Database.BigBlind;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            this.updater = new UpdatesController();
+            this.updater = new UpdatesController(this);
             this.Updater.Updates.Start();
 
             this.InitializeComponent();
             this.windowWidth = this.Width;
             this.windowHeight = this.Height;
             
-            this.Engine.Run();
             this.TextBoxPot.Enabled = false;
             this.TextBoxPlayerChips.Enabled = false;
             this.TextBoxBot1Chips.Enabled = false;
@@ -53,15 +46,6 @@
             this.TextBoxBot4Chips.Enabled = false;
             this.TextBoxBot5Chips.Enabled = false;
 
-            this.TextBoxPlayerChips.Text = "Chips: " + this.Players[0].ChipsAmount.ToString();
-            this.TextBoxBot1Chips.Text = "Chips: " + this.Players[1].ChipsAmount.ToString();
-            this.TextBoxBot2Chips.Text = "Chips: " + this.Players[2].ChipsAmount.ToString();
-            this.TextBoxBot3Chips.Text = "Chips: " + this.Players[3].ChipsAmount.ToString();
-            this.TextBoxBot4Chips.Text = "Chips: " + this.Players[4].ChipsAmount.ToString();
-            this.TextBoxBot5Chips.Text = "Chips: " + this.Players[5].ChipsAmount.ToString();
-
-            this.Updater.Updates.Interval = (1 * 1 * 100);
-            this.Updater.Updates.Tick += Update_Tick;////updates.Tick is timer event
             this.TextBoxBigBlind.Visible = true;
             this.TextBoxSmallBlind.Visible = true;
             this.ButtonBigBlind.Visible = true;
@@ -74,7 +58,25 @@
             this.TextBoxSmallBlind.Visible = false;
             this.ButtonBigBlind.Visible = false;
             this.ButtonSmallBlind.Visible = false;
+
+            this.database = new Database();
+            this.players = this.Database.Players;
+
+            this.TextBoxPlayerChips.Text = "Chips: " + this.Players[0].ChipsAmount.ToString();
+            this.TextBoxBot1Chips.Text = "Chips: " + this.Players[1].ChipsAmount.ToString();
+            this.TextBoxBot2Chips.Text = "Chips: " + this.Players[2].ChipsAmount.ToString();
+            this.TextBoxBot3Chips.Text = "Chips: " + this.Players[3].ChipsAmount.ToString();
+            this.TextBoxBot4Chips.Text = "Chips: " + this.Players[4].ChipsAmount.ToString();
+            this.TextBoxBot5Chips.Text = "Chips: " + this.Players[5].ChipsAmount.ToString();
+
             this.TextBoxRaise.Text = (this.Database.BigBlind * 2).ToString();
+
+            this.ButtonCall.Enabled = true;
+            this.ButtonRaise.Enabled = true;
+            this.ButtonFold.Enabled = true;
+
+            this.engine = new Engine(this, this.Database);
+            //this.Engine.Run();
         }
 
         public IUpdatesController Updater
@@ -99,6 +101,7 @@
             {
                 return this.database;
             }
+
         }
 
         public IList<IPlayer> Players
@@ -143,6 +146,7 @@
             TextBoxBot4Chips.Text = "Chips : " + this.Players[4].ChipsAmount.ToString();
             TextBoxBot5Chips.Text = "Chips : " + this.Players[5].ChipsAmount.ToString();
 
+            if(this.Players[0].ChipsAmount == 0)
             {
                 this.Players[0].Active = false;
                 this.Players[0].Bet = BetOptions.Fold;
@@ -290,7 +294,7 @@
 
         //Click Raise button Event this.Players[0].ChipsAmount
         //Describes a series of changes connected to Raise status, that happen when human player clicks Raise button
-        private  void bRaise_Click(object sender, EventArgs e)
+        private async void bRaise_Click(object sender, EventArgs e)
         {
             //Refreshes player hand type status in case he is the last one to call the call amount
             //and the click is followed by any of the three community cards rounds:Flop, Turn or River
@@ -344,6 +348,7 @@
 
             //
             this.Players[0].Active = false;
+            //await Engine.Run();
         }
 
         //AddChips  event
@@ -483,7 +488,7 @@
         //Form loading event
         private void PokerTable_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

@@ -39,10 +39,10 @@ namespace Poker2.Utils
             Random randGenerator = new Random();
             for (int i = 0; i < numbers.Length - 1; i++)
             {
-                numbers[i] = randGenerator.Next(i, numbers.Length);
+                int index = randGenerator.Next(i + 1, numbers.Length);
                 int storedNumber = numbers[i];
-                numbers[i] = numbers[numbers[i]];
-                numbers[numbers[i]] = storedNumber;
+                numbers[i] = numbers[index];
+                numbers[index] = storedNumber;
             }
         }
 

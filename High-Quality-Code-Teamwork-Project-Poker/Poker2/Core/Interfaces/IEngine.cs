@@ -24,7 +24,7 @@ namespace Poker2.Core.Interfaces
 
         IGameHandler GameHandler { get; set; }
 
-        void Run();
+        Task Run();
 
     }
 }

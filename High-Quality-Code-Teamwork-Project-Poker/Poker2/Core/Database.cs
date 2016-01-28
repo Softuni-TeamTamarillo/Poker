@@ -71,10 +71,9 @@ namespace Poker2.Core
             this.IndexLastChecked = -1;
 
             this.ShuffledDeck = null;
-            this.CardImages = null;
+            this.CardImages = new Image[MaxPlayers * 2 + 5];
             this.Chips = null;
             this.PlayerPanels = null;
-            LeftPlayersCount = MaxPlayers;
             AllInPlayersCount = 0;
             FoldedPlayersCount = 0;
         }
@@ -121,8 +120,8 @@ namespace Poker2.Core
 
         private void SetPlayers()
         {
-            Players = new List<IPlayer>(MaxPlayers);
-            Players.Add(new Human());
+            this.Players = new List<IPlayer>(MaxPlayers);
+            this.Players.Add(new Human());
             for (int i = 1; i < MaxPlayers; i++)
             {
                 Players.Add(new Bot());

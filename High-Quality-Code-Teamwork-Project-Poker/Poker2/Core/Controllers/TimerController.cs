@@ -25,9 +25,9 @@ namespace Poker2.Core.Controllers
         public TimerController(IPlayer player)
         {
             TurnTime = DefaultTurnTime;
-            humanTimer = new Timer();
-            this.humanTimer.Interval = (1 * 1 * 1000);
-            this.humanTimer.Tick += timer_Tick;
+            this.HumanTimer = new Timer();
+            this.HumanTimer.Interval = (1 * 1 * 1000);
+            this.HumanTimer.Tick += timer_Tick;
             this.ProgressBarTimer = new ProgressBar();
             this.SetProgressBar();
             this.player = player;

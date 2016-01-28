@@ -1,6 +1,8 @@
 ﻿namespace Poker2.Core
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     using Poker2.Core.Controllers;
     using Poker2.Core.Controllers.Interfaces;
     using Poker2.Core.Handlers;
@@ -75,16 +77,26 @@
             }
         }
 
+        private void EnableHumanButtons()
+        {
+            this.PokerTable.ButtonRaise.Enabled = true;
+            this.PokerTable.ButtonCall.Enabled = true;
+            this.PokerTable.ButtonRaise.Enabled = true;
+            this.PokerTable.ButtonRaise.Enabled = true;
+            this.PokerTable.ButtonFold.Enabled = true;
+        }
+
         private void SetControls()
         {
             ChipsController.SetChips(this.PokerTable);
             PanelController.SetPanels(this.PokerTable);
             CardController.SetCards(this.PokerTable);
+            this.EnableHumanButtons();
         }
 
         private void PlayGame()
         {
-            this.gameHandler = new GameHandler(this.CardController, this.Database, this.PokerTable);
+            this.GameHandler = new GameHandler(this.CardController, this.Database, this.PokerTable);
             this.GameHandler.StartGame();
         }
 
@@ -175,7 +187,7 @@
             players[0].Active = true;
         }
 
-        public void Run()
+        public async Task Run()
         {
             this.SetControls();
             while (true)

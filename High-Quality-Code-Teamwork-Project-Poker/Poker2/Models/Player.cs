@@ -41,7 +41,7 @@ namespace Poker2.Models
         {
             this.Call = 0;
             this.Raise = 0;
-            this.chipsAmount = DefaultBankroll;
+            this.ChipsAmount = DefaultBankroll;
             this.Active = false;
             this.FirstCard = null;
             this.SecondCard = null;

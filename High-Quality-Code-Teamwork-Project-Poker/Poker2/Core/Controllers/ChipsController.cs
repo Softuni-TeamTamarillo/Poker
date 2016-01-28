@@ -39,14 +39,13 @@ namespace Poker2.Core.Controllers
 
         private PictureBox [] chips;
 
-        private Point[] locations;
-
         private IDatabase database;
         public ChipsController(PokerTable pokerTable, IDatabase database)
         {
             this.database = database;
             this.pokerTable = pokerTable;
             this.Chips = this.Database.Chips;
+            this.Locations = new Point[MaxPlayers + 1];
             SetChips(this.PokerTable);
         }
 
@@ -70,7 +69,7 @@ namespace Poker2.Core.Controllers
 
         public void SetLocations()
         {
-            ControllerUtil.SetLocations(Locations, ChipsCoordX, ChipsCoordY);
+            ControllerUtil.SetLocations(this.Locations, ChipsCoordX, ChipsCoordY);
         }
 
         public void SetLocations(Point[] otherLocations)
@@ -80,6 +79,12 @@ namespace Poker2.Core.Controllers
         public void SetChips(PokerTable pokerTable)
         {
             Chips = new PictureBox[MaxPlayers + 1];
+
+            for (int i = 0; i < Locations.Length; i++)
+            {
+                Locations[i] = new Point(0,0);
+            }
+
             this.SetLocations();
             for (int i = 0; i < MaxPlayers + 1; i++)
             {

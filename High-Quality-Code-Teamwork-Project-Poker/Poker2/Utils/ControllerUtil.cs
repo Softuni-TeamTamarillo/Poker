@@ -20,7 +20,7 @@
         /// <param name="yCoordinates">an array holding the y coordinates of the locations.</param>
         public static void SetLocations(Point[] locations, int[] xCoordinates, int[] yCoordinates)
         {
-            for (int i = 0; i <= 6; i++)
+            for (int i = 0; i < xCoordinates.Length; i++)
             {
                 locations[i].X = xCoordinates[i];
                 locations[i].Y = yCoordinates[i];

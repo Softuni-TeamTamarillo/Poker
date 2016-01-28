@@ -9,6 +9,7 @@ namespace Poker2.Core.Controllers
     using System.Drawing;
     using System.IO;
     using System.Windows.Forms;
+    using System.Xml.Schema;
 
     using Poker2.Core.Controllers.Interfaces;
     using Poker2.Core.Interfaces;
@@ -51,6 +52,7 @@ namespace Poker2.Core.Controllers
             this.ShuffledDeck = this.Database.ShuffledDeck;
 
             this.CardImages = this.Database.CardImages;
+            this.Locations = new Point[MaxPlayers * 2 + 5];
         }
 
         public PokerTable PokerTable
@@ -80,7 +82,7 @@ namespace Poker2.Core.Controllers
 
         public void SetLocations()
         {
-            ControllerUtil.SetLocations(Locations, CardCoordX, CardCoordY);
+            ControllerUtil.SetLocations(this.Locations, CardCoordX, CardCoordY);
         }
 
         public void SetLocations(Point[] otherLocations)
@@ -90,6 +92,13 @@ namespace Poker2.Core.Controllers
         public void SetCards(PokerTable pokerTable)
         {
             ShuffledDeck = new PictureBox[MaxPlayers * 2 + 5];
+
+            for (int i = 0; i < Locations.Length; i++)
+            {
+                Locations[i] = new Point(0,0);
+            }
+
+
             this.SetLocations();
             for (int i = 0; i < MaxPlayers * 2 + 5; i++)
             {

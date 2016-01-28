@@ -70,8 +70,14 @@ namespace Poker2.Core.Controllers
         public void SetPanels(PokerTable pokerTable)
         {
             PlayerPanels = new Panel[MaxPlayers];
-            this.SetLocations();
 
+            this.Locations = new Point[MaxPlayers];
+            for (int i = 0; i < Locations.Length; i++)
+            {
+                Locations[i] = new Point(0, 0);
+            }
+
+            this.SetLocations();
             for (int i = 0; i < MaxPlayers; i++)
             {
                 PlayerPanels[i] = new Panel();

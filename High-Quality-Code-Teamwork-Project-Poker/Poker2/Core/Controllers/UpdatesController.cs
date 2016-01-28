@@ -22,16 +22,24 @@ namespace Poker2.Core.Controllers
         private readonly PokerTable pokerTable;
         private int updateTickCount;
 
-        public UpdatesController()
+        public UpdatesController(PokerTable pokerTable)
         {
-            this.updateTickCount = MaxUpdateCountValue;
-            this.updates.Interval = (1 * 1 * 100);
-            this.updates.Tick += this.PokerTable.Update_Tick;
+            this.pokerTable = pokerTable;
+            this.Updates = new Timer();
+            this.UpdateTickCount = MaxUpdateCountValue;
+            this.Updates.Interval = (1 * 1 * 100);
+            this.Updates.Tick += this.PokerTable.Update_Tick;
         }
 
         public Timer Updates { get; set; }
         public int UpdateTickCount { get; set; }
 
-        private PokerTable PokerTable { get; set; }
+        private PokerTable PokerTable
+        {
+            get
+            {
+                return this.pokerTable;
+            }
+        }
     }
 }
