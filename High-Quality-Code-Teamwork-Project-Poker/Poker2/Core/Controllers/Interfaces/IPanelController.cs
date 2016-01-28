@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Controllers.Interfaces
+﻿namespace Poker2.Core.Controllers.Interfaces
 {
     using System.Drawing;
     using System.Windows.Forms;
@@ -15,9 +9,12 @@ namespace Poker2.Core.Controllers.Interfaces
     public interface IPanelController
     {
         PokerTable PokerTable { get; }
+
         Panel[] PlayerPanels { get; set; }
+
         Point[] Locations { get; set; }
-        IDatabase Database { get;}
+
+        IDatabase Database { get; }
 
         void SetLocations();
 

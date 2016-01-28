@@ -2,10 +2,7 @@
 {
     using System;
 
-    using Poker2.Core.Handlers.Interfaces;
-    using Poker2.Core.Interfaces;
     using Poker2.Forms;
-    using Poker2.Models.Interfaces;
 
     /// <summary>
     /// Class responsible for executing the bot's choice in case of a Three of a kind hand.
@@ -22,23 +19,24 @@
         {
             int callParameter = 0;
             int raiseParameter = 0;
-            GenerateRandParameters(callParameter, raiseParameter);
+            this.GenerateRandParameters(callParameter, raiseParameter);
 
             var player = this.PokerTable.Database.Players[this.Index];
             int botName = this.Index - 1;
 
             if (player.Hand.RankFactor <= 390 && player.Hand.RankFactor >= 330)
             {
-                ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
+                this.ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
             }
 
             if (player.Hand.RankFactor <= 327 && player.Hand.RankFactor >= 321)
             {
-                ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
+                this.ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
             }
+
             if (player.Hand.RankFactor < 321 && player.Hand.RankFactor >= 303)
             {
-                ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
+                this.ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
             }
         }
 

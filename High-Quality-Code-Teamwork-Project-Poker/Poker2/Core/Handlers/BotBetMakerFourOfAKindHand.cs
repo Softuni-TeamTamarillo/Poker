@@ -2,7 +2,6 @@
 {
     using System;
 
-    using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
     /// <summary>
@@ -20,14 +19,14 @@
         {
             int callParameter = 0;
             int raiseParameter = 0;
-            GenerateRandParameters(callParameter, raiseParameter);
+            this.GenerateRandParameters(callParameter, raiseParameter);
 
             int botName = this.Index - 1;
             var player = this.PokerTable.Database.Players[this.Index];
 
             if (player.Hand.RankFactor <= 752 && player.Hand.RankFactor >= 704)
             {
-                ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
+                this.ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
             }
         }
 

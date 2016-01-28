@@ -1,18 +1,22 @@
 ﻿namespace Poker2.Core.Handlers
 {
     using System;
-        using System.Windows.Forms;
+    using System.Windows.Forms;
     using Poker2.Forms;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
     public class BotChoiceMakerOtherHand : BotChoiceMaker
     {
-        public BotChoiceMakerOtherHand(PokerTable pokerTable, int index) : base(pokerTable, index) { }
+        public BotChoiceMakerOtherHand(PokerTable pokerTable, int index)
+            : base(pokerTable, index)
+        {
+        }
 
         public override void ExecuteChoice(int factorN, int factorN1, int randParameter)
         {
-            IPlayer bot = this.PokerTable.Database.Players[Index];
+            IPlayer bot = this.PokerTable.Database.Players[this.Index];
             Label botStatus = bot.Status;
             double formulaResult = 0;
 
@@ -21,9 +25,8 @@
 
             if (this.PokerTable.Database.CallAmount <= 0)
             {
-                Check(botStatus, bot);
+                this.Check(botStatus, bot);
             }
-
             else
             {
                 formulaResult = BotHandlerUtil.ChoiceFormula(bot.ChipsAmount, factorN);
@@ -31,11 +34,11 @@
                 {
                     if (bot.ChipsAmount > this.PokerTable.Database.CallAmount)
                     {
-                        Call(botStatus, bot);
+                        this.Call(botStatus, bot);
                     }
                     else if (bot.ChipsAmount <= this.PokerTable.Database.CallAmount)
                     {
-                        AllInCall(botStatus, bot);
+                        this.AllInCall(botStatus, bot);
                     }
                 }
                 else
@@ -45,17 +48,17 @@
                         if (bot.ChipsAmount >= this.PokerTable.Database.RaiseAmount * 2)
                         {
                             this.PokerTable.Database.RaiseAmount *= 2;
-                            Raise(botStatus, bot);
+                            this.Raise(botStatus, bot);
                         }
                         else
                         {
-                            Call(botStatus, bot);
+                            this.Call(botStatus, bot);
                         }
                     }
                     else
                     {
                         this.PokerTable.Database.RaiseAmount = this.PokerTable.Database.CallAmount * 2;
-                        Raise(botStatus, bot);
+                        this.Raise(botStatus, bot);
                     }
                 }
             }

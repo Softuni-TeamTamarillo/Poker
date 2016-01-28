@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Handlers
+﻿namespace Poker2.Core.Handlers
 {
-    using System.Runtime.CompilerServices;
     using System.Windows.Forms;
 
-    using Poker2.Core;
     using Poker2.Core.Controllers;
     using Poker2.Core.Controllers.Interfaces;
     using Poker2.Core.Handlers.Interfaces;
@@ -20,7 +12,7 @@ namespace Poker2.Core.Handlers
     /// <summary>
     /// Class holding the carry-through game logic.
     /// </summary>
-    public class GameHandler :IGameHandler
+    public class GameHandler : IGameHandler
     {
         public const int MaxPlayers = 6;
 
@@ -35,7 +27,6 @@ namespace Poker2.Core.Handlers
         private readonly ICardController cardController;
 
         private readonly ITimerController timerController;
-
 
         public GameHandler(ICardController cardController, IDatabase database, PokerTable pokerTable)
         {
@@ -54,7 +45,6 @@ namespace Poker2.Core.Handlers
                 return this.pokerTable;
             }
         }
-
 
         public IDatabase Database
         {
@@ -97,11 +87,26 @@ namespace Poker2.Core.Handlers
         }
 
         /// <summary>
+        /// Method that initializes the game process running in each round.
+        /// </summary>
+        public void StartGame()
+        {
+            this.DealHandler.ShuffleCards();
+
+            this.DealHandler.DealCommunityRound(this.Database.RoundType);
+
+            this.PlayersTakeTurns();
+        }
+
+        public void FinishGame()
+        {
+        }
+
+        /// <summary>
         /// Enables the buttons and timer for taking a turn by the human player. 
         /// </summary>
         private void HumanTakesTurn()
         {
-
             this.TimerController.TurnTime = 60;
             this.TimerController.HumanTimer.Start();
             this.TimerController.ProgressBarTimer.Visible = true;
@@ -113,7 +118,6 @@ namespace Poker2.Core.Handlers
 
             this.PokerTable.ProgressBarTimer.Visible = true;
             this.PokerTable.ProgressBarTimer.Value = 1000;
-
         }
 
         /// <summary>
@@ -131,7 +135,6 @@ namespace Poker2.Core.Handlers
 
         private void BotEndsTurn()
         {
-            
         }
 
         /// <summary>
@@ -149,10 +152,8 @@ namespace Poker2.Core.Handlers
             botHandler.Execute();
         }
 
-
         private void AdvanceGame()
         {
-            
         }
 
         /// <summary>
@@ -170,9 +171,11 @@ namespace Poker2.Core.Handlers
                     if (index == 0)
                     {
                         this.HumanTakesTurn();
-                                             
                     }
-                    else this.BotTakesTurn(player, index);
+                    else
+                    {
+                        this.BotTakesTurn(player, index);
+                    }
 
                     IChipsController chipsController = new ChipsController(this.PokerTable, this.Database);
                     chipsController.SetPlayerChipsImage(player, this.Database.Chips[index]);
@@ -188,10 +191,9 @@ namespace Poker2.Core.Handlers
                     {
                         this.HumanEndsTurn();
                     }
-
                     else
                     {
-                        BotEndsTurn();
+                        this.BotEndsTurn();
                     }
                 }
 
@@ -199,29 +201,14 @@ namespace Poker2.Core.Handlers
                 {
                     index = 0;
                 }
-
-                else index++;
+                else
+                {
+                    index++;
+                }
 
                 player = this.Database.PlayersNotFoldedOrAllIn[index];
                 player.Active = true;
             }
-        }
-
-        /// <summary>
-        /// Method that initializes the game process running in each round.
-        /// </summary>
-        public void StartGame()
-        {
-            this.DealHandler.ShuffleCards();
-
-            this.DealHandler.DealCommunityRound(this.Database.RoundType);
-
-            this.PlayersTakeTurns();
-        }
-
-        public void FinishGame()
-        {
-            
         }
     }
 }

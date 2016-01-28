@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Models
+﻿namespace Poker2.Models
 {
     using Poker2.Models.Interfaces;
 
     /// <summary>
     /// Class holding the parameters of the card combinations in the game.
     /// </summary>
-    public class Hand:IHand
+    public class Hand : IHand
     {
         private HandType type;
 
@@ -19,8 +13,8 @@ namespace Poker2.Models
 
         public Hand()
         {
-            Type = default(HandType);
-            RankFactor = 0;
+            this.Type = default(HandType);
+            this.RankFactor = 0;
         }
 
         public Hand(HandType type, double rankFactor)

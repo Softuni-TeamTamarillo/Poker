@@ -156,7 +156,7 @@
             this.ButtonFold.TabIndex = 0;
             this.ButtonFold.Text = "Fold";
             this.ButtonFold.UseVisualStyleBackColor = true;
-            this.ButtonFold.Click += new System.EventHandler(this.bFold_Click);
+            this.ButtonFold.Click += new System.EventHandler(this.FoldClick);
             // 
             // buttonCheck
             // 
@@ -168,7 +168,7 @@
             this.ButtonCheck.TabIndex = 2;
             this.ButtonCheck.Text = "Check";
             this.ButtonCheck.UseVisualStyleBackColor = true;
-            this.ButtonCheck.Click += new System.EventHandler(this.bCheck_Click);
+            this.ButtonCheck.Click += new System.EventHandler(this.CheckClick);
             // 
             // buttonCall
             // 
@@ -180,7 +180,7 @@
             this.ButtonCall.TabIndex = 3;
             this.ButtonCall.Text = "Call";
             this.ButtonCall.UseVisualStyleBackColor = true;
-            this.ButtonCall.Click += new System.EventHandler(this.bCall_Click);
+            this.ButtonCall.Click += new System.EventHandler(this.CallClick);
             // 
             // buttonRaise
             // 
@@ -192,7 +192,7 @@
             this.ButtonRaise.TabIndex = 4;
             this.ButtonRaise.Text = "Raise";
             this.ButtonRaise.UseVisualStyleBackColor = true;
-            this.ButtonRaise.Click += new System.EventHandler(this.bRaise_Click);
+            this.ButtonRaise.Click += new System.EventHandler(this.RaiseClick);
             // 
             // progressbarTimer
             // 
@@ -224,7 +224,7 @@
             this.ButtonAddChips.TabIndex = 7;
             this.ButtonAddChips.Text = "AddChips";
             this.ButtonAddChips.UseVisualStyleBackColor = true;
-            this.ButtonAddChips.Click += new System.EventHandler(this.bAdd_Click);
+            this.ButtonAddChips.Click += new System.EventHandler(this.AddClick);
             // 
             // textboxAddChips
             // 
@@ -303,7 +303,7 @@
             this.ButtonBlinds.TabIndex = 15;
             this.ButtonBlinds.Text = "BigBlind/ SmallBlind";
             this.ButtonBlinds.UseVisualStyleBackColor = false;
-            this.ButtonBlinds.Click += new System.EventHandler(this.bOptions_Click);
+            this.ButtonBlinds.Click += new System.EventHandler(this.OptionsClick);
             // 
             // buttonBigBlind
             // 
@@ -313,7 +313,7 @@
             this.ButtonBigBlind.TabIndex = 16;
             this.ButtonBigBlind.Text = "Big Blind";
             this.ButtonBigBlind.UseVisualStyleBackColor = true;
-            this.ButtonBigBlind.Click += new System.EventHandler(this.bBB_Click);
+            this.ButtonBigBlind.Click += new System.EventHandler(this.BigBlingClick);
             // 
             // textboxSmallBlind
             // 
@@ -331,7 +331,7 @@
             this.ButtonSmallBlind.TabIndex = 18;
             this.ButtonSmallBlind.Text = "Small Blind";
             this.ButtonSmallBlind.UseVisualStyleBackColor = true;
-            this.ButtonSmallBlind.Click += new System.EventHandler(this.bSB_Click);
+            this.ButtonSmallBlind.Click += new System.EventHandler(this.SmallBlindClick);
             // 
             // textboxBigBlind
             // 

@@ -5,6 +5,7 @@
 
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
 
     public abstract class BotChoiceMaker : IBotChoiceMaker

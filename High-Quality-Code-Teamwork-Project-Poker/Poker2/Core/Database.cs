@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core
+﻿namespace Poker2.Core
 {
+    using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
 
     using Poker2.Core.Interfaces;
-    using Poker2.Forms;
     using Poker2.Models;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
 
     public class Database : IDatabase
@@ -20,16 +15,12 @@ namespace Poker2.Core
         public const int BigBlindDefaultValue = 500;
 
         private CommunityCardRound roundType;
-        private int callAmount;//call
+        private int callAmount;
         private int raiseAmount;
-        //private int windowHeight;//height 
-        //private int windowWidth;//width
 
-        private int bigBlind = BigBlindDefaultValue;//callChipsCount
-        private int smallBlind = BigBlindDefaultValue / 2;//sb
-
+        private int bigBlind = BigBlindDefaultValue;
+        private int smallBlind = BigBlindDefaultValue / 2;
         private int indexLastRaised;
-
         private int indexLastChecked;
 
         private IList<IPlayer> players;
@@ -51,19 +42,17 @@ namespace Poker2.Core
         private PictureBox[] chips;
 
         private Panel[] playerPanels;
-
-
-
+        
         public Database()
         {
             this.SetPlayers();
-            PlayersNotFoldedOrAllIn = new List<IPlayer>(Players);
-            BigBlind = BigBlindDefaultValue;
-            SmallBlind = BigBlind / 2;
-            CallAmount = BigBlind;
-            RaiseAmount = 0;
+            this.PlayersNotFoldedOrAllIn = new List<IPlayer>(this.Players);
+            this.BigBlind = BigBlindDefaultValue;
+            this.SmallBlind = this.BigBlind / 2;
+            this.CallAmount = this.BigBlind;
+            this.RaiseAmount = 0;
             this.RoundType = CommunityCardRound.PreFlop;
-            ListOfWinners = new List<string>();
+            this.ListOfWinners = new List<string>();
             this.LeftPlayersCount = MaxPlayers;
             this.CardsToBeDealt = null;
             this.CommunityCards = null;
@@ -71,15 +60,15 @@ namespace Poker2.Core
             this.IndexLastChecked = -1;
 
             this.ShuffledDeck = null;
-            this.CardImages = new Image[MaxPlayers * 2 + 5];
+            this.CardImages = new Image[(MaxPlayers * 2) + 5];
             this.Chips = null;
             this.PlayerPanels = null;
-            AllInPlayersCount = 0;
-            FoldedPlayersCount = 0;
+            this.AllInPlayersCount = 0;
+            this.FoldedPlayersCount = 0;
         }
 
-
         public IList<IPlayer> Players { get; set; }
+
         public IList<IPlayer> PlayersNotFoldedOrAllIn { get; set; }
 
         public int CallAmount { get; set; }
@@ -96,7 +85,7 @@ namespace Poker2.Core
 
         public IList<ICard> CardsToBeDealt { get; set; }
 
-        public  IList<ICard> CommunityCards { get; set; }
+        public IList<ICard> CommunityCards { get; set; }
 
         public int IndexLastRaised { get; set; }
 
@@ -124,7 +113,7 @@ namespace Poker2.Core
             this.Players.Add(new Human());
             for (int i = 1; i < MaxPlayers; i++)
             {
-                Players.Add(new Bot());
+                this.Players.Add(new Bot());
             }
         }
     }

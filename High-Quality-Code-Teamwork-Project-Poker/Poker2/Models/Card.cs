@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Models
+﻿namespace Poker2.Models
 {
     using Poker2.Models.Interfaces;
 
     /// <summary>
     /// Class holding the properties of the cards.
     /// </summary>
-    public class Card:ICard
+    public class Card : ICard
     {
         private Suit suit;
 
@@ -19,8 +13,8 @@ namespace Poker2.Models
 
         public Card(Rank rank, Suit suit)
         {
-            Suit = suit;
-            Rank = rank;
+            this.Suit = suit;
+            this.Rank = rank;
         }
 
         public Card()

@@ -1,7 +1,10 @@
-﻿public enum CommunityCardRound
+﻿namespace Poker2.Models.Enums
 {
-    PreFlop = 0,
-    Flop= 1,
-    Turn = 2,
-    River = 3,
+    public enum CommunityCardRound
+    {
+        PreFlop = 0,
+        Flop = 1,
+        Turn = 2,
+        River = 3
+    }
 }

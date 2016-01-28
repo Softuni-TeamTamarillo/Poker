@@ -75,7 +75,7 @@ namespace Poker2.Forms
                 12.5F,
                 System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point,
-                ((byte)(204)));
+                (byte)204);
             this.labelFinishedChips.Location = new System.Drawing.Point(48, 49);
             this.labelFinishedChips.Name = "labelFinishedChips";
             this.labelFinishedChips.Size = new System.Drawing.Size(176, 23);
@@ -90,14 +90,14 @@ namespace Poker2.Forms
                 9F,
                 System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point,
-                ((byte)(204)));
+                (byte)204);
             this.buttonAddChips.Location = new System.Drawing.Point(12, 226);
             this.buttonAddChips.Name = "buttonAddChips";
             this.buttonAddChips.Size = new System.Drawing.Size(75, 23);
             this.buttonAddChips.TabIndex = 1;
             this.buttonAddChips.Text = "Add Chips";
             this.buttonAddChips.UseVisualStyleBackColor = true;
-            this.buttonAddChips.Click += new System.EventHandler(this.button1_Click);
+            this.buttonAddChips.Click += new System.EventHandler(this.Button1Click);
 
             //// buttonExit
 
@@ -106,14 +106,14 @@ namespace Poker2.Forms
                 9F,
                 System.Drawing.FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point,
-                ((byte)(204)));
+                (byte)204);
             this.buttonExit.Location = new System.Drawing.Point(197, 226);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(75, 23);
             this.buttonExit.TabIndex = 2;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.button2_Click);
+            this.buttonExit.Click += new System.EventHandler(this.Button2Click);
 
             //// textBoxAddChips
 

@@ -2,7 +2,6 @@
 {
     using System;
 
-    using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
     /// <summary>
@@ -20,22 +19,23 @@
         {
             int callParameter = 0;
             int raiseParameter = 0;
-            GenerateRandParameters(callParameter, raiseParameter);
+            this.GenerateRandParameters(callParameter, raiseParameter);
 
             var player = this.PokerTable.Database.Players[this.Index];
 
             if (player.Hand.RankFactor <= 290 && player.Hand.RankFactor >= 246)
             {
-                ChoiceMaker.ExecuteChoice(callParameter, 3, raiseParameter);
+                this.ChoiceMaker.ExecuteChoice(callParameter, 3, raiseParameter);
             }
 
             if (player.Hand.RankFactor <= 244 && player.Hand.RankFactor >= 234)
             {
-                ChoiceMaker.ExecuteChoice(callParameter, 4, raiseParameter);
+                this.ChoiceMaker.ExecuteChoice(callParameter, 4, raiseParameter);
             }
+
             if (player.Hand.RankFactor < 234 && player.Hand.RankFactor >= 201)
             {
-                ChoiceMaker.ExecuteChoice(callParameter, 4, raiseParameter);
+                this.ChoiceMaker.ExecuteChoice(callParameter, 4, raiseParameter);
             }
         }
 

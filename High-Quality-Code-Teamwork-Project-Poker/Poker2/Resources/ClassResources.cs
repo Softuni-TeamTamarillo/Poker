@@ -1,6 +1,6 @@
 ﻿namespace Poker2.Resources
 {
-    class ClassResources
+    public class ClassResources
     {
     }
 }

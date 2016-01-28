@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2
+﻿namespace Poker2
 {
-    using Poker2.Forms;
     using System.Windows.Forms;
 
-    using Poker2.Core;
-    using Poker2.Core.Interfaces;
-
+    using Poker2.Forms;
+    
     public class Poker
     {
         public static void Main(string[] args)

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Handlers
+﻿namespace Poker2.Core.Handlers
 {
+    using System;
+
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Core.Interfaces;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
 
     /// <summary>
@@ -23,6 +20,7 @@ namespace Poker2.Core.Handlers
             this.IndexLastRaised = this.Database.IndexLastRaised;
             this.IndexLastChecked = this.Database.IndexLastChecked;
         }
+
         public int IndexLastRaised { get; set; }
 
         public IDatabase Database
@@ -49,27 +47,31 @@ namespace Poker2.Core.Handlers
                         this.Database.PlayersNotFoldedOrAllIn[index] = null;
                         this.Database.FoldedPlayersCount++;
                     }
+
                     break;
                 case BetOptions.AllIn:
-                {
-                    this.Database.PlayersNotFoldedOrAllIn[index] = null;
-                    this.Database.AllInPlayersCount++;
-                }
-                break;
+                    {
+                        this.Database.PlayersNotFoldedOrAllIn[index] = null;
+                        this.Database.AllInPlayersCount++;
+                    }
+
+                    break;
                 case BetOptions.Check:
-                {
-                    this.IndexLastChecked = index;
-                }
-                break;
+                    {
+                        this.IndexLastChecked = index;
+                    }
+
+                    break;
                 case BetOptions.Raise:
                     {
                         this.IndexLastRaised = index;
                     }
+
                     break;
                 case BetOptions.Call:
                     {
-                        
                     }
+
                     break;
                 default:
                     throw new ArgumentException("Bet can be only Fold, Raise, Call, AllIn or Check");
@@ -87,7 +89,7 @@ namespace Poker2.Core.Handlers
                 roundHandler.AdvanceRounds();
             }
             else if (((this.IndexLastChecked == this.IndexLastRaised) && this.Database.RoundType == CommunityCardRound.River) ||
-                (this.Database.LeftPlayersCount - this.Database.FoldedPlayersCount == 1))                
+                (this.Database.LeftPlayersCount - this.Database.FoldedPlayersCount == 1))
             {
                 IWinnersFixer winnerFixer = new WinnersFixer(this.Database);
                 winnerFixer.CheckWinners();
@@ -100,11 +102,10 @@ namespace Poker2.Core.Handlers
                     ICommunityRoundHandler roundHandler = new CommunityRoundHandler();
                     roundHandler.AdvanceRounds();
                 }
-                 IWinnersFixer winnerFixer = new WinnersFixer(this.Database);
+
+                IWinnersFixer winnerFixer = new WinnersFixer(this.Database);
                 winnerFixer.CheckWinners();
             }
-
-
         }
     }
 }

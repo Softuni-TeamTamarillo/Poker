@@ -2,7 +2,6 @@
 {
     using System;
 
-    using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
     /// <summary>
@@ -20,11 +19,11 @@
         {
             int callParameter = 0;
             int raiseParameter = 0;
-            GenerateRandParameters(callParameter, raiseParameter);
+            this.GenerateRandParameters(callParameter, raiseParameter);
 
             int botName = this.Index - 1;
 
-            ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
+            this.ChoiceMaker.ExecuteChoice(botName, callParameter, raiseParameter);
         }
 
         public override void GenerateRandParameters(int callParameter, int raiseParameter)

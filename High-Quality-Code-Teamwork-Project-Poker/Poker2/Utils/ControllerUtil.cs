@@ -3,10 +3,6 @@
     using System.Drawing;
     using System.Windows.Forms;
 
-    using Poker2.Core.Controllers;
-    using Poker2.Models;
-    using Poker2.Models.Interfaces;
-
     /// <summary>
     /// Contains the methods needed for Controller classes
     /// </summary>
@@ -16,14 +12,14 @@
         /// Method used for setting locations by x and y coordinates for later object placement.
         /// </summary>
         /// <param name="locations">an array holding the points of the locations</param>
-        /// <param name="xCoordinates">an array holding the x coordinates of the locations.</param>
-        /// <param name="yCoordinates">an array holding the y coordinates of the locations.</param>
-        public static void SetLocations(Point[] locations, int[] xCoordinates, int[] yCoordinates)
+        /// <param name="coordinatesX">an array holding the x coordinates of the locations.</param>
+        /// <param name="coordinatesY">an array holding the y coordinates of the locations.</param>
+        public static void SetLocations(Point[] locations, int[] coordinatesX, int[] coordinatesY)
         {
-            for (int i = 0; i < xCoordinates.Length; i++)
+            for (int i = 0; i < coordinatesX.Length; i++)
             {
-                locations[i].X = xCoordinates[i];
-                locations[i].Y = yCoordinates[i];
+                locations[i].X = coordinatesX[i];
+                locations[i].Y = coordinatesY[i];
             }
         }
 
@@ -49,6 +45,7 @@
             {
                 chip.Image = null;
             }
+
             if (chipAmount > 0 && chipAmount < 2000)
             {
                 chip.Image = Image.FromFile(pathFolder + pathFile[0]);
@@ -80,6 +77,5 @@
         {
             return Image.FromFile(pathFile);
         }
-
     }
 }

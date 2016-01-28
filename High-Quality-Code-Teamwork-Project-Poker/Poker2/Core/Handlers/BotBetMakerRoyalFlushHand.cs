@@ -1,6 +1,5 @@
 ﻿namespace Poker2.Core.Handlers
 {
-    using Poker2.Core.Handlers.Interfaces;
     using Poker2.Forms;
 
     /// <summary>
@@ -16,12 +15,10 @@
 
         public override void Execute()
         {
-
         }
 
         public override void GenerateRandParameters(int callParameter, int raiseParameter)
         {
-
         }
     }
 }

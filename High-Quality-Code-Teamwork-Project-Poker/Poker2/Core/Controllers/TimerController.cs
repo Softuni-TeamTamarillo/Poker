@@ -1,33 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Controllers
+﻿namespace Poker2.Core.Controllers
 {
-    using Poker2.Core.Controllers.Interfaces;
     using System.Windows.Forms;
 
+    using Poker2.Core.Controllers.Interfaces;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
 
     /// <summary>
     /// Class responsible for operations with the timer.
     /// </summary>
-    public class TimerController :ITimerController
+    public class TimerController : ITimerController
     {
         public const int DefaultTurnTime = 60;
-        private Timer humanTimer;
-
-        private int turnTime;
-
         private readonly IPlayer player;
+
+        private Timer humanTimer;
+        private int turnTime;
+        
         public TimerController(IPlayer player)
         {
-            TurnTime = DefaultTurnTime;
+            this.TurnTime = DefaultTurnTime;
             this.HumanTimer = new Timer();
-            this.HumanTimer.Interval = (1 * 1 * 1000);
-            this.HumanTimer.Tick += timer_Tick;
+            this.HumanTimer.Interval = 1000;
+            this.HumanTimer.Tick += this.TimerTick;
             this.ProgressBarTimer = new ProgressBar();
             this.SetProgressBar();
             this.player = player;
@@ -40,26 +35,27 @@ namespace Poker2.Core.Controllers
                 return this.player;
             }
         }
+
         public Timer HumanTimer { get; set; }
 
         public int TurnTime { get; set; }
 
         public ProgressBar ProgressBarTimer { get; set; }
 
-        private void timer_Tick(object sender, object e)
+        private void TimerTick(object sender, object e)
         {
-            //Time is expired
-            if (ProgressBarTimer.Value <= 0)
+            ////Time is expired
+            if (this.ProgressBarTimer.Value <= 0)
             {
-                Player.Bet = BetOptions.Fold;
+                this.Player.Bet = BetOptions.Fold;
             }
 
-            //Time is not expired and the progressbar is refreshed
-            //Each 6 seconds time bar decreases by 1/10
+            ////Time is not expired and the progressbar is refreshed
+            ////Each 6 seconds time bar decreases by 1/10
             if (this.TurnTime > 0)
             {
                 this.TurnTime--;
-                ProgressBarTimer.Value = (this.TurnTime / 6) * 100;
+                this.ProgressBarTimer.Value = (this.TurnTime / 6) * 100;
             }
         }
 

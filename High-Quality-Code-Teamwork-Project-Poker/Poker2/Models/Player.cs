@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Models
+﻿namespace Poker2.Models
 {
+    using System.Collections.Generic;
     using System.Windows.Forms;
 
-    using Poker2.Core.Controllers;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
 
     /// <summary>
@@ -35,9 +30,9 @@ namespace Poker2.Models
 
         private BetOptions bet;
 
-        private IList<ICard>  combinedCards;
+        private IList<ICard> combinedCards;
 
-        public Player()
+        protected Player()
         {
             this.Call = 0;
             this.Raise = 0;
@@ -60,6 +55,7 @@ namespace Poker2.Models
         }
 
         public BetOptions Bet { get; set; }
+
         public int ChipsAmount { get; set; }
 
         public int Call { get; set; }
@@ -71,8 +67,9 @@ namespace Poker2.Models
         public ICard FirstCard { get; set; }
 
         public ICard SecondCard { get; set; }
-        public IHand Hand { get; set; }
-        public IList<ICard> CombinedCards { get; set; }
 
+        public IHand Hand { get; set; }
+
+        public IList<ICard> CombinedCards { get; set; }
     }
 }

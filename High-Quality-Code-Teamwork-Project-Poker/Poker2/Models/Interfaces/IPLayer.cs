@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Models.Interfaces
+﻿namespace Poker2.Models.Interfaces
 {
+    using System.Collections.Generic;
     using System.Windows.Forms;
 
-    using Poker2.Core.Controllers;
-
-    public interface IPlayer:IBetter
+    public interface IPlayer : IBetter
     {
         int ChipsAmount { get; set; }
 

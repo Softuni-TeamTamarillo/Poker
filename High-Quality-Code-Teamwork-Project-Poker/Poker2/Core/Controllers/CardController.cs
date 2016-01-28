@@ -1,36 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Controllers
+﻿namespace Poker2.Core.Controllers
 {
+    using System;
     using System.Drawing;
-    using System.IO;
     using System.Windows.Forms;
-    using System.Xml.Schema;
 
     using Poker2.Core.Controllers.Interfaces;
     using Poker2.Core.Interfaces;
     using Poker2.Forms;
-    using Poker2.Models;
-    using Poker2.Models.Interfaces;
+    using Poker2.Models.Enums;
     using Poker2.Utils;
 
     /// <summary>
     /// Class responsible for cards visualisation on every segment of the hand
     /// </summary>
-    public class CardController:ICardController
+    public class CardController : ICardController
     {
         public const int DefaultCardHeight = 130;
         public const int DefaultCardWidth = 80;
         public const int MaxPlayers = 6;
-
-        private static readonly string backImageLocation = "..\\..\\Resources\\Assets\\Back\\Back.png";
+        
         public static readonly int[] CardCoordX = { 580, 15, 75, 590, 1115, 1160, 410, 520, 630, 740, 850 };
         public static readonly int[] CardCoordY = { 480, 420, 65, 25, 65, 420, 265, 265, 265, 265, 265 };
-        private static readonly Image BackImage = ControllerUtil.SetCardBackImage(backImageLocation);
+        private static readonly string BackImageLocation = "..\\..\\Resources\\Assets\\Back\\Back.png";
+        private static readonly Image BackImage = ControllerUtil.SetCardBackImage(BackImageLocation);
 
         private readonly IDatabase database;
         private readonly PokerTable pokerTable;
@@ -46,13 +38,10 @@ namespace Poker2.Core.Controllers
         public CardController(PokerTable pokerTable, IDatabase database)
         {
             this.database = database;
-
             this.pokerTable = pokerTable;
-
             this.ShuffledDeck = this.Database.ShuffledDeck;
-
             this.CardImages = this.Database.CardImages;
-            this.Locations = new Point[MaxPlayers * 2 + 5];
+            this.Locations = new Point[(MaxPlayers * 2) + 5];
         }
 
         public PokerTable PokerTable
@@ -70,6 +59,7 @@ namespace Poker2.Core.Controllers
                 return this.database;
             }
         }
+
         public int[] ShuffledCards { get; set; }
 
         public Image[] CardImages { get; set; }
@@ -87,77 +77,34 @@ namespace Poker2.Core.Controllers
 
         public void SetLocations(Point[] otherLocations)
         {
-            ControllerUtil.SetLocations(Locations, otherLocations);
+            ControllerUtil.SetLocations(this.Locations, otherLocations);
         }
+
         public void SetCards(PokerTable pokerTable)
         {
-            ShuffledDeck = new PictureBox[MaxPlayers * 2 + 5];
+            this.ShuffledDeck = new PictureBox[(MaxPlayers * 2) + 5];
 
-            for (int i = 0; i < Locations.Length; i++)
+            for (int i = 0; i < this.Locations.Length; i++)
             {
-                Locations[i] = new Point(0,0);
+                this.Locations[i] = new Point(0, 0);
             }
-
-
+            
             this.SetLocations();
-            for (int i = 0; i < MaxPlayers * 2 + 5; i++)
+            for (int i = 0; i < (MaxPlayers * 2) + 5; i++)
             {
-                ShuffledDeck[i] = new PictureBox();
-                SetCard(pokerTable, this.ShuffledDeck[i], Locations[i], i);
+                this.ShuffledDeck[i] = new PictureBox();
+                this.SetCard(pokerTable, this.ShuffledDeck[i], this.Locations[i], i);
             }
         }
 
-        /// <summary>
-        /// Void method that places a card in a specific position on the table.
-        /// </summary>
-        /// <param name="pokerTable">Refers to the table </param>
-        /// <param name="card">The card taken from the card database.</param>
-        /// <param name="location">Location of the visualisation of the card.</param>
-        /// <param name="index">Internal numbering for accessing the card.</param>
-        private void SetCard(PokerTable pokerTable, PictureBox card, Point location, int index)
-        {
-            pokerTable.Controls.Add(card);
-            card.Location = location;
-            card.Height = DefaultCardHeight;
-            card.Width = DefaultCardWidth;
-            card.SizeMode = PictureBoxSizeMode.StretchImage;
-            card.Name = "pictureboxCard" + index.ToString();
-            card.Visible = false;
-            card.Tag = index;
-            card.Anchor = (AnchorStyles.Bottom);
-            card.Visible = false;
-            card.Image = null;
-        }
         /// <summary>
         /// Combines setting cards for both human player and bot players on the pre-flop stage.
         /// </summary>
         public void SetCardImagesPreFlop()
         {
-            SetHumanCardsImagePreFlop();
-            SetBotCardsImagePreFlop();
+            this.SetHumanCardsImagePreFlop();
+            this.SetBotCardsImagePreFlop();
             this.SetCommunityCardsImagePreFlop();
-        }
-
-        private void SetHumanCardsImagePreFlop()
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                this.ShuffledDeck[0].Image = this.Database.CardImages[0];
-                this.ShuffledDeck[1].Image = this.Database.CardImages[1];
-            }
-        }
-
-        private void SetBotCardsImagePreFlop()
-        {
-            var players = this.Database.Players;
-            for (int i = 1; i < MaxPlayers; i++)
-            {
-                if (players[i] != null)
-                {
-                    this.ShuffledDeck[i * 2].Image = BackImage;
-                    this.ShuffledDeck[i * 2 + 1].Image = BackImage;
-                }
-            }
         }
 
         /// <summary>
@@ -183,36 +130,12 @@ namespace Poker2.Core.Controllers
                     throw new ArgumentException("Not a Community Round");
             }
         }
-        private void SetCommunityCardsImagePreFlop()
-        {
-            for (int i = MaxPlayers*2; i < MaxPlayers*2 + 5; i++)
-            {
-                this.ShuffledDeck[i].Image = BackImage;
-            }
-        }
-        private void SetFlopCardImages()
-        {
-            int count = this.Database.CardImages.Length - 5;
-            for (int i = 0; i < 3; i++)
-            {
-                this.ShuffledDeck[i + count].Image = this.Database.CardImages[this.Database.CardImages.Length - 5 + i];
-            }
-        }
 
-        private void SetTurnCardImage()
-        {
-            this.ShuffledDeck[this.Database.CardImages.Length - 2].Image = this.Database.CardImages[this.Database.CardImages.Length - 2];
-        }
-
-        private void SetRiverCardImage()
-        {
-            this.ShuffledDeck[this.Database.CardImages.Length - 1].Image = this.Database.CardImages[this.Database.CardImages.Length - 1];
-        }
         public void ClearCards()
         {
-            for (int i = 0; i < MaxPlayers * 2 + 5; i++)
+            for (int i = 0; i < (MaxPlayers * 2) + 5; i++)
             {
-                ClearCard(this.ShuffledDeck[i]);
+                this.ClearCard(this.ShuffledDeck[i]);
             }
         }
 
@@ -230,9 +153,80 @@ namespace Poker2.Core.Controllers
                 {
                     this.ShuffledDeck[i * 2].Image = images[indexCards];
                     indexCards++;
-                    this.ShuffledDeck[i * 2 + 1].Image = images[indexCards];
+                    this.ShuffledDeck[(i * 2) + 1].Image = images[indexCards];
                 }
             }
+        }
+
+        /// <summary>
+        /// Void method that places a card in a specific position on the table.
+        /// </summary>
+        /// <param name="pokerTable">Refers to the table </param>
+        /// <param name="card">The card taken from the card database.</param>
+        /// <param name="location">Location of the visualisation of the card.</param>
+        /// <param name="index">Internal numbering for accessing the card.</param>
+        private void SetCard(PokerTable pokerTable, PictureBox card, Point location, int index)
+        {
+            pokerTable.Controls.Add(card);
+            card.Location = location;
+            card.Height = DefaultCardHeight;
+            card.Width = DefaultCardWidth;
+            card.SizeMode = PictureBoxSizeMode.StretchImage;
+            card.Name = "pictureboxCard" + index.ToString();
+            card.Visible = false;
+            card.Tag = index;
+            card.Anchor = AnchorStyles.Bottom;
+            card.Visible = false;
+            card.Image = null;
+        }
+
+        private void SetHumanCardsImagePreFlop()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                this.ShuffledDeck[0].Image = this.Database.CardImages[0];
+                this.ShuffledDeck[1].Image = this.Database.CardImages[1];
+            }
+        }
+
+        private void SetBotCardsImagePreFlop()
+        {
+            var players = this.Database.Players;
+            for (int i = 1; i < MaxPlayers; i++)
+            {
+                if (players[i] != null)
+                {
+                    this.ShuffledDeck[i * 2].Image = BackImage;
+                    this.ShuffledDeck[(i * 2) + 1].Image = BackImage;
+                }
+            }
+        }
+
+        private void SetCommunityCardsImagePreFlop()
+        {
+            for (int i = MaxPlayers * 2; i < (MaxPlayers * 2) + 5; i++)
+            {
+                this.ShuffledDeck[i].Image = BackImage;
+            }
+        }
+
+        private void SetFlopCardImages()
+        {
+            int count = this.Database.CardImages.Length - 5;
+            for (int i = 0; i < 3; i++)
+            {
+                this.ShuffledDeck[i + count].Image = this.Database.CardImages[this.Database.CardImages.Length - 5 + i];
+            }
+        }
+
+        private void SetTurnCardImage()
+        {
+            this.ShuffledDeck[this.Database.CardImages.Length - 2].Image = this.Database.CardImages[this.Database.CardImages.Length - 2];
+        }
+
+        private void SetRiverCardImage()
+        {
+            this.ShuffledDeck[this.Database.CardImages.Length - 1].Image = this.Database.CardImages[this.Database.CardImages.Length - 1];
         }
 
         private void ClearCard(PictureBox card)

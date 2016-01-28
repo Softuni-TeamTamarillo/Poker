@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Controllers
+﻿namespace Poker2.Core.Controllers
 {
     using System.Drawing;
     using System.Windows.Forms;
@@ -17,7 +11,7 @@ namespace Poker2.Core.Controllers
     /// <summary>
     /// Class responsible for interacting with user and bot panels.
     /// </summary>
-    public class PanelController:IPanelController
+    public class PanelController : IPanelController
     {
         public const int DefaultPanelHeight = 150;
         public const int DefaultPanelWidth = 180;
@@ -26,17 +20,18 @@ namespace Poker2.Core.Controllers
         public static readonly int[] PanelCoordY = { 470, 410, 55, 15, 55, 410 };
 
         private readonly PokerTable pokerTable;
-        private Panel[] playerPanels;
 
+        private Panel[] playerPanels;
         private Point[] locations;
 
         private IDatabase database;
+
         public PanelController(PokerTable pokerTable, IDatabase database)
         {
             this.database = database;
             this.PlayerPanels = this.Database.PlayerPanels;
             this.pokerTable = pokerTable;
-            SetPanels(this.PokerTable);
+            this.SetPanels(this.PokerTable);
         }
 
         public PokerTable PokerTable
@@ -46,7 +41,9 @@ namespace Poker2.Core.Controllers
                 return this.pokerTable;
             }
         }
+
         public Panel[] PlayerPanels { get; set; }
+
         public Point[] Locations { get; set; }
 
         public IDatabase Database
@@ -57,50 +54,32 @@ namespace Poker2.Core.Controllers
             }
         }
 
-        public void SetLocations ()
+        public void SetLocations()
         {
-            ControllerUtil.SetLocations(Locations, PanelCoordX, PanelCoordY);
+            ControllerUtil.SetLocations(this.Locations, PanelCoordX, PanelCoordY);
         }
 
         public void SetLocations(Point[] otherLocations)
         {
-            ControllerUtil.SetLocations(Locations, otherLocations);
+            ControllerUtil.SetLocations(this.Locations, otherLocations);
         }
 
         public void SetPanels(PokerTable pokerTable)
         {
-            PlayerPanels = new Panel[MaxPlayers];
+            this.PlayerPanels = new Panel[MaxPlayers];
 
             this.Locations = new Point[MaxPlayers];
-            for (int i = 0; i < Locations.Length; i++)
+            for (int i = 0; i < this.Locations.Length; i++)
             {
-                Locations[i] = new Point(0, 0);
+                this.Locations[i] = new Point(0, 0);
             }
 
             this.SetLocations();
             for (int i = 0; i < MaxPlayers; i++)
             {
-                PlayerPanels[i] = new Panel();
-                SetPlayerPanel(pokerTable, this.PlayerPanels[i], Locations[i], i);
+                this.PlayerPanels[i] = new Panel();
+                this.SetPlayerPanel(pokerTable, this.PlayerPanels[i], this.Locations[i], i);
             }
-        }
-
-        /// <summary>
-        /// Sets a specific player panel in a location on the table.
-        /// </summary>
-        /// <param name="pokerTable">The table.</param>
-        /// <param name="playerPanel">The instance of the panel.</param>
-        /// <param name="location">The location for the panel to be placed </param>
-        /// <param name="index">Internal index for accessing each player's panel.</param>
-        private void SetPlayerPanel(PokerTable pokerTable, Panel playerPanel, Point location, int index)
-        {
-            pokerTable.Controls.Add(playerPanel);
-            playerPanel.Location = location;
-            playerPanel.BackColor = Color.DarkBlue;
-            playerPanel.Height = DefaultPanelHeight;
-            playerPanel.Width = DefaultPanelWidth;
-            playerPanel.Visible = false;
-            playerPanel.Name = "pictureboxChip" + index.ToString();
         }
 
         /// <summary>
@@ -119,7 +98,7 @@ namespace Poker2.Core.Controllers
         {
             for (int i = 0; i < MaxPlayers; i++)
             {
-                ClearPlayerPanel(this.playerPanels[i]);
+                this.ClearPlayerPanel(this.playerPanels[i]);
             }
         }
 
@@ -130,6 +109,24 @@ namespace Poker2.Core.Controllers
         private void ClearPlayerPanel(Panel playerPanel)
         {
             playerPanel.Visible = false;
+        }
+
+        /// <summary>
+        /// Sets a specific player panel in a location on the table.
+        /// </summary>
+        /// <param name="pokerTable">The table.</param>
+        /// <param name="playerPanel">The instance of the panel.</param>
+        /// <param name="location">The location for the panel to be placed </param>
+        /// <param name="index">Internal index for accessing each player's panel.</param>
+        private void SetPlayerPanel(PokerTable pokerTable, Panel playerPanel, Point location, int index)
+        {
+            pokerTable.Controls.Add(playerPanel);
+            playerPanel.Location = location;
+            playerPanel.BackColor = Color.DarkBlue;
+            playerPanel.Height = DefaultPanelHeight;
+            playerPanel.Width = DefaultPanelWidth;
+            playerPanel.Visible = false;
+            playerPanel.Name = "pictureboxChip" + index.ToString();
         }
     }
 }

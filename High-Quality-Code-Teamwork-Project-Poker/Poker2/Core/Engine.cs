@@ -9,10 +9,11 @@
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Core.Interfaces;
     using Poker2.Forms;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
-    public class Engine :IEngine
+    public class Engine : IEngine
     {
         private readonly ICardController cardController;
 
@@ -35,6 +36,7 @@
             this.panelController = new PanelController(this.PokerTable, this.Database);
             this.GameHandler = null;
         }
+
         public IGameHandler GameHandler { get; set; }  
 
         public ICardController CardController
@@ -77,6 +79,30 @@
             }
         }
 
+        public async Task Run()
+        {
+            this.SetControls();
+            while (true)
+            {
+                this.PlayGame();
+                bool sessionContinues = this.CheckIfAnyBotHasMoney();
+
+                if (!sessionContinues)
+                {
+                    break;
+                }
+
+                sessionContinues = this.CheckIfHumanContinues();
+
+                if (!sessionContinues)
+                {
+                    break;
+                }
+
+                this.SetGameStatistics(this.Database.Players);
+            }
+        }
+
         private void EnableHumanButtons()
         {
             this.PokerTable.ButtonRaise.Enabled = true;
@@ -88,9 +114,9 @@
 
         private void SetControls()
         {
-            ChipsController.SetChips(this.PokerTable);
-            PanelController.SetPanels(this.PokerTable);
-            CardController.SetCards(this.PokerTable);
+            this.ChipsController.SetChips(this.PokerTable);
+            this.PanelController.SetPanels(this.PokerTable);
+            this.CardController.SetCards(this.PokerTable);
             this.EnableHumanButtons();
         }
 
@@ -108,7 +134,7 @@
 
         private bool CheckIfHumanContinues()
         {
-            bool humanContinues = CheckIfHumanHasChips();
+            bool humanContinues = this.CheckIfHumanHasChips();
             if (humanContinues)
             {
                 return true;
@@ -166,8 +192,9 @@
         private void SetGameStatistics(IList<IPlayer> players)
         {
             this.SetDatabaseStatistics();
-            SetPlayersStatistics(players);
+            this.SetPlayersStatistics(players);
         }
+
         private void SetPlayersStatistics(IList<IPlayer> players)
         {
             foreach (var player in players)
@@ -185,30 +212,6 @@
             }
 
             players[0].Active = true;
-        }
-
-        public async Task Run()
-        {
-            this.SetControls();
-            while (true)
-            {
-                this.PlayGame();
-                bool sessionContinues = CheckIfAnyBotHasMoney();
-
-                if (!sessionContinues)
-                {
-                    break;
-                }
-
-                sessionContinues = CheckIfHumanContinues();
-
-                if (!sessionContinues)
-                {
-                    break;
-                }
-
-                SetGameStatistics(this.Database.Players);
-            }
         }
     }
 }

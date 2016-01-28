@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Handlers
+﻿namespace Poker2.Core.Handlers
 {
-    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
 
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Core.Interfaces;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
 
     /// <summary>
@@ -18,6 +14,7 @@ namespace Poker2.Core.Handlers
     public class WinnersFixer : IWinnersFixer
     {
         private readonly IDatabase database;
+
         public WinnersFixer(IDatabase database)
         {
             this.database = database;
@@ -33,9 +30,9 @@ namespace Poker2.Core.Handlers
 
         public void CheckWinners()
         {
-            var competingHands = CompareBestHands();
-            CheckWinningHands(competingHands);
-            RewardTheWinner();
+            var competingHands = this.CompareBestHands();
+            this.CheckWinningHands(competingHands);
+            this.RewardTheWinner();
         }
 
         /// <summary>
@@ -55,8 +52,8 @@ namespace Poker2.Core.Handlers
                     competingHands.Add(player.Hand);
                 }
             }
-            return competingHands;
 
+            return competingHands;
         }
 
         /// <summary>

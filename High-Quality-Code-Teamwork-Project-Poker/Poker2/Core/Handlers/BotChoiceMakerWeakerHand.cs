@@ -4,6 +4,7 @@
     using System.Windows.Forms;
 
     using Poker2.Forms;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
@@ -25,7 +26,7 @@
 
             if (this.PokerTable.Database.CallAmount <= 0)
             {
-                Check(botStatus, bot);
+                this.Check(botStatus, bot);
             }
 
             if (this.PokerTable.Database.CallAmount > 0)
@@ -36,11 +37,11 @@
 
                     if (this.PokerTable.Database.CallAmount <= formulaResult)
                     {
-                        Call(botStatus, bot);
+                        this.Call(botStatus, bot);
                     }
                     else
                     {
-                        Fold(botStatus, bot);
+                        this.Fold(botStatus, bot);
                     }
                 }
 
@@ -49,11 +50,11 @@
                     formulaResult = BotHandlerUtil.ChoiceFormula(bot.ChipsAmount, factorN1);
                     if (this.PokerTable.Database.CallAmount <= formulaResult)
                     {
-                        Call(botStatus, bot);
+                        this.Call(botStatus, bot);
                     }
                     else
                     {
-                        Fold(botStatus, bot);
+                        this.Fold(botStatus, bot);
                     }
                 }
             }
@@ -63,7 +64,7 @@
                 if (this.PokerTable.Database.RaiseAmount == 0)
                 {
                     this.PokerTable.Database.RaiseAmount = this.PokerTable.Database.CallAmount * 2;
-                    Raise(botStatus, bot);
+                    this.Raise(botStatus, bot);
                 }
                 else
                 {
@@ -71,11 +72,11 @@
                     if (this.PokerTable.Database.RaiseAmount <= formulaResult)
                     {
                         this.PokerTable.Database.RaiseAmount = this.PokerTable.Database.CallAmount * 2;
-                        Raise(botStatus, bot);
+                        this.Raise(botStatus, bot);
                     }
                     else
                     {
-                        Fold(botStatus, bot);
+                        this.Fold(botStatus, bot);
                     }
                 }
             }

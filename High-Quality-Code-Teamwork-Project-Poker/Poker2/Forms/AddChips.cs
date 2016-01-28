@@ -9,13 +9,7 @@
 namespace Poker2.Forms
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
     using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Windows.Forms;
 
     /// <summary>
@@ -34,44 +28,45 @@ namespace Poker2.Forms
         public AddChips()
         {
             FontFamily fontFamily = new FontFamily("Arial");
-            InitializeComponent();
-            ControlBox = false;
-            labelFinishedChips.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.InitializeComponent();
+            this.ControlBox = false;
+            this.labelFinishedChips.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         }
 
         public int AddedChips { get; set; }
+
         /// <summary>
-        /// The button1_Click method
+        /// The Button1Click method
         /// </summary>
         /// <param name="sender">The sender parameter</param>
         /// <param name="e">The e parameter</param>        
-        public void button1_Click(object sender, EventArgs e)
+        public void Button1Click(object sender, EventArgs e)
         {
             int parsedValue;
-            if (int.Parse(textBoxAddChips.Text) > 100000000)
+            if (int.Parse(this.textBoxAddChips.Text) > 100000000)
             {
                 MessageBox.Show("The maximium chips you can add is 100000000");
                 return;
             }
 
-            if (!int.TryParse(textBoxAddChips.Text, out parsedValue))
+            if (!int.TryParse(this.textBoxAddChips.Text, out parsedValue))
             {
                 MessageBox.Show("This is addedChips number only field");
                 return;
             }
-            else if (int.TryParse(textBoxAddChips.Text, out parsedValue) && int.Parse(textBoxAddChips.Text) <= 100000000)
+            else if (int.TryParse(this.textBoxAddChips.Text, out parsedValue) && int.Parse(this.textBoxAddChips.Text) <= 100000000)
             {
-                addedChips = int.Parse(textBoxAddChips.Text);
+                this.addedChips = int.Parse(this.textBoxAddChips.Text);
                 this.Close();
             }
         }
 
         /// <summary>
-        /// The button2_Click method
+        /// The Button2Click method
         /// </summary>
         /// <param name="sender">The sender parameter</param>
         /// <param name="e">The e parameter</param>        
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2Click(object sender, EventArgs e)
         {
             var message = "Are you sure?";
             var title = "Quit";

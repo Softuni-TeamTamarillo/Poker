@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Utils
+﻿namespace Poker2.Utils
 {
-    using Poker2.Forms;
+    using System.Collections.Generic;
+
     using Poker2.Models.Interfaces;
 
     public static class GameHandlerUtil

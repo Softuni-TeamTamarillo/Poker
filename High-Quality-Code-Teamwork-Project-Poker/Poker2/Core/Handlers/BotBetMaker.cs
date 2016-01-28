@@ -6,11 +6,11 @@
     /// <summary>
     /// Abstract class that holds the properties and methods needed for bot's logic for choosing and placing a bet.
     /// </summary>
-    public abstract class BotBetMaker:IBotBetMaker
+    public abstract class BotBetMaker : IBotBetMaker
     {
-        private IBotChoiceMaker choiceMaker;
-
         private readonly PokerTable pokerTable;
+
+        private IBotChoiceMaker choiceMaker;
 
         protected BotBetMaker(PokerTable pokerTable, int index)
         {
@@ -20,6 +20,7 @@
         }
 
         public int Index { get; protected set; }
+
         public PokerTable PokerTable
         {
             get
@@ -27,11 +28,11 @@
                 return this.pokerTable;
             }
         }
+
         public IBotChoiceMaker ChoiceMaker { get; set; }
 
         public abstract void Execute();
 
         public abstract void GenerateRandParameters(int callParameter, int raiseParameter);
-      
     }
 }

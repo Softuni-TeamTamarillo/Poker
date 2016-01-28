@@ -1,9 +1,12 @@
-﻿public enum BetOptions
+﻿namespace Poker2.Models.Enums
 {
-    None = 0,
-    Fold = 1,
-    AllIn = 2,
-    Check = 3,
-    Call= 4,
-    Raise =5
+    public enum BetOptions
+    {
+        None = 0,
+        Fold = 1,
+        AllIn = 2,
+        Check = 3,
+        Call = 4,
+        Raise = 5
+    }
 }

@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Handlers
+﻿namespace Poker2.Core.Handlers
 {
     using Poker2.Core.Controllers;
     using Poker2.Core.Controllers.Interfaces;
     using Poker2.Core.Handlers.Interfaces;
     using Poker2.Core.Interfaces;
     using Poker2.Forms;
-    using Poker2.Models.Interfaces;
+    using Poker2.Models.Enums;
 
     /// <summary>
     /// Class that handles the turn, flop and river community rounds.
@@ -24,7 +18,7 @@ namespace Poker2.Core.Handlers
 
         public CommunityRoundHandler()
         {
-            Round = CommunityCardRound.PreFlop;
+            this.Round = CommunityCardRound.PreFlop;
         }
 
         public PokerTable PokerTable
@@ -34,6 +28,7 @@ namespace Poker2.Core.Handlers
                 return this.PokerTable;
             }
         }
+
         public IDatabase Database
         {
             get
@@ -41,6 +36,7 @@ namespace Poker2.Core.Handlers
                 return this.database;
             }
         }
+
         public CommunityCardRound Round { get; set; }
 
         /// <summary>

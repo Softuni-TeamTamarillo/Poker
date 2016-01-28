@@ -3,16 +3,20 @@
     using System;
     using System.Windows.Forms;
     using Poker2.Forms;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
     public class BotChoiceMakerWeakHand : BotChoiceMaker
     {
-        public BotChoiceMakerWeakHand(PokerTable pokerTable, int index) : base(pokerTable, index) { }
+        public BotChoiceMakerWeakHand(PokerTable pokerTable, int index)
+            : base(pokerTable, index)
+        {
+        }
 
         public override void ExecuteChoice(int factorN, int factorN1, int randParameter)
         {
-            IPlayer bot = this.PokerTable.Database.Players[Index];
+            IPlayer bot = this.PokerTable.Database.Players[this.Index];
             Label botStatus = bot.Status;
             double formulaResultN = BotHandlerUtil.ChoiceFormula(bot.ChipsAmount, factorN);
             double formulaResultN1 = BotHandlerUtil.ChoiceFormula(bot.ChipsAmount, factorN1);
@@ -24,32 +28,32 @@
             {
                 if (this.PokerTable.Database.CallAmount <= 0)
                 {
-                    Check(botStatus, bot);
+                    this.Check(botStatus, bot);
                 }
 
-                //If he needs to call or raise 
+                ////If he needs to call or raise 
                 if (this.PokerTable.Database.CallAmount > 0)
                 {
                     if (this.PokerTable.Database.CallAmount >= formulaResultN)
                     {
-                        Fold(botStatus, bot);
+                        this.Fold(botStatus, bot);
                     }
 
                     if (this.PokerTable.Database.RaiseAmount > formulaResultN)
                     {
-                        Fold(botStatus, bot);
+                        this.Fold(botStatus, bot);
                     }
 
                     if (bot.Bet != BetOptions.Fold)
                     {
                         if (this.PokerTable.Database.CallAmount >= formulaResultN && this.PokerTable.Database.CallAmount <= formulaResultN1)
                         {
-                            Call(botStatus, bot);
+                            this.Call(botStatus, bot);
                         }
 
                         if (this.PokerTable.Database.RaiseAmount <= formulaResultN && this.PokerTable.Database.RaiseAmount >= formulaResultN1 / 2)
                         {
-                            Call(botStatus, bot);
+                            this.Call(botStatus, bot);
                         }
 
                         if (this.PokerTable.Database.RaiseAmount <= formulaResultN / 2)
@@ -57,15 +61,14 @@
                             if (this.PokerTable.Database.RaiseAmount > 0)
                             {
                                 this.PokerTable.Database.RaiseAmount = formulaResultN;
-                                Raise(botStatus, bot);
+                                this.Raise(botStatus, bot);
                             }
                             else 
                             {
                                 this.PokerTable.Database.RaiseAmount = this.PokerTable.Database.CallAmount * 2;
-                                Raise(botStatus, bot);
+                                this.Raise(botStatus, bot);
                             }
                         }
-
                     }
                 }
             }
@@ -77,25 +80,25 @@
                     formulaResultN1 = BotHandlerUtil.ChoiceFormula(bot.ChipsAmount, factorN1 - randChoice);
                     if (this.PokerTable.Database.CallAmount >= formulaResultN1)
                     {
-                        Fold(botStatus, bot);
+                        this.Fold(botStatus, bot);
                     }
 
                     formulaResultN = BotHandlerUtil.ChoiceFormula(bot.ChipsAmount, factorN - randChoice);
                     if (this.PokerTable.Database.RaiseAmount > formulaResultN)
                     {
-                        Fold(botStatus, bot);
+                        this.Fold(botStatus, bot);
                     }
 
                     if (bot.Bet != BetOptions.Fold)
                     {
                         if (this.PokerTable.Database.CallAmount >= formulaResultN && this.PokerTable.Database.CallAmount <= formulaResultN1)
                         {
-                            Call(botStatus, bot);
+                            this.Call(botStatus, bot);
                         }
 
                         if (this.PokerTable.Database.RaiseAmount <= formulaResultN && this.PokerTable.Database.RaiseAmount >= formulaResultN)
                         {
-                            Call(botStatus, bot);
+                            this.Call(botStatus, bot);
                         }
 
                         if (this.PokerTable.Database.RaiseAmount <= formulaResultN / 2)
@@ -103,12 +106,12 @@
                             if (this.PokerTable.Database.RaiseAmount > 0)
                             {
                                 this.PokerTable.Database.RaiseAmount = formulaResultN;
-                                Raise(botStatus, bot);
+                                this.Raise(botStatus, bot);
                             }
                             else
                             {
                                 this.PokerTable.Database.RaiseAmount = this.PokerTable.Database.CallAmount * 2;
-                                Raise(botStatus, bot);
+                                this.Raise(botStatus, bot);
                             }
                         }
                     }
@@ -118,7 +121,7 @@
                 {
                     formulaResultN = BotHandlerUtil.ChoiceFormula(bot.ChipsAmount, randParameter - randChoice);
                     this.PokerTable.Database.RaiseAmount = formulaResultN;
-                    Raise(botStatus, bot);
+                    this.Raise(botStatus, bot);
                 }
             }
 
@@ -126,7 +129,6 @@
             {
                 bot.Bet = BetOptions.AllIn;
             }
-            
         }
     }
 }

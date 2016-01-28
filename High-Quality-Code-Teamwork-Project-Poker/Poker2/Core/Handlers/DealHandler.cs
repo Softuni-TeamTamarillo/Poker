@@ -1,43 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Poker2.Core.Handlers
+﻿namespace Poker2.Core.Handlers
 {
-    using System.Collections;
+    using System;
+    using System.Collections.Generic;
     using System.Drawing;
     using System.IO;
-    using System.Windows.Forms;
+    using System.Linq;
 
-    using Poker2.Core.Interfaces;
-    using Poker2.Core;
-    using Poker2.Core.Controllers.Interfaces;
     using Poker2.Core.Handlers.Interfaces;
+    using Poker2.Core.Interfaces;
     using Poker2.Models;
+    using Poker2.Models.Enums;
     using Poker2.Models.Interfaces;
     using Poker2.Utils;
 
     /// <summary>
     /// Handles dealing the cards in all stages of the game.
     /// </summary>
-    public class DealHandler:IDealHandler
+    public class DealHandler : IDealHandler
     {
         public const int CardsInADeck = 52;
-        private readonly static string[] imgCardsLocation = Directory.GetFiles("..\\..\\Resources\\Assets\\Cards", "*.png", SearchOption.TopDirectoryOnly);
+        private static readonly string[] ImgCardsLocation = Directory.GetFiles("..\\..\\Resources\\Assets\\Cards", "*.png", SearchOption.TopDirectoryOnly);
         private readonly IDatabase database;
-
         private int leftPlayersCount;
-      
         private Image[] images;
-
-
+        
         public DealHandler(IDatabase database)
         {
             this.database = database;
             this.LeftPlayersCount = this.Database.Players.Where(x => x != null).ToList().Count;
-            this.images = new Image[this.LeftPlayersCount * 2 + 5];       
+            this.images = new Image[(this.LeftPlayersCount * 2) + 5];       
         }
 
         public IDatabase Database
@@ -49,7 +40,6 @@ namespace Poker2.Core.Handlers
         }
 
         public int LeftPlayersCount { get; set; }
-
 
         public Image[] Images { get; set; }
 
@@ -63,21 +53,22 @@ namespace Poker2.Core.Handlers
             DealHandlerUtil.ShuffleNumbers(numbersToBeShuffled);
 
             var cards = this.Database.CardsToBeDealt;
-            cards = new List<ICard>(LeftPlayersCount * 2 + 5);
+            cards = new List<ICard>((this.LeftPlayersCount * 2) + 5);
 
-            for (int i = 0; i < LeftPlayersCount * 2 + 5; i++)
+            for (int i = 0; i < (this.LeftPlayersCount * 2) + 5; i++)
             {
                 cards.Add(new Card());
             }
+
             this.Database.CardsToBeDealt = cards;
-            DealHandlerUtil.GetImages(imgCardsLocation, numbersToBeShuffled, this.Database.CardImages, this.Database.Players);
+            DealHandlerUtil.GetImages(ImgCardsLocation, numbersToBeShuffled, this.Database.CardImages, this.Database.Players);
             DealHandlerUtil.GetSuits(numbersToBeShuffled, this.Database.CardsToBeDealt);
             DealHandlerUtil.GetRanks(numbersToBeShuffled, this.Database.CardsToBeDealt);
         }
 
         public void DealCards()
         {
-            DealPlayers();
+            this.DealPlayers();
             this.SetCommunityCards();
         }
 
@@ -92,7 +83,7 @@ namespace Poker2.Core.Handlers
             {
                 if (players[i] != null)
                 {
-                    DealPlayer(players[i], indexCards);
+                    this.DealPlayer(players[i], indexCards);
                     indexCards += 2;
                 }
             }
@@ -107,19 +98,13 @@ namespace Poker2.Core.Handlers
             this.Database.CommunityCards.Skip(this.Database.CommunityCards.Count - 6);
         }
 
-        private void DealPlayer(IPlayer player, int indexCards)
-        {
-            player.FirstCard = this.Database.CardsToBeDealt[indexCards];
-            player.SecondCard = this.Database.CardsToBeDealt[indexCards + 1];
-        }
-
         /// <summary>
         /// Calls methods to deal pre-flop, flop, turn, river.
         /// </summary>
         /// <param name="round"></param>
         public void DealCommunityRound(CommunityCardRound round)
         {
-            switch(this.Database.RoundType)
+            switch (this.Database.RoundType)
             {
                 case CommunityCardRound.PreFlop:
                     this.DealCards();
@@ -179,6 +164,12 @@ namespace Poker2.Core.Handlers
                     player.CombinedCards.Add(this.Database.CommunityCards[4]);   
                 }
             }                
+        }
+
+        private void DealPlayer(IPlayer player, int indexCards)
+        {
+            player.FirstCard = this.Database.CardsToBeDealt[indexCards];
+            player.SecondCard = this.Database.CardsToBeDealt[indexCards + 1];
         }
     }
 }
